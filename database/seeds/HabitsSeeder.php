@@ -2,9 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
-use App\Habit;
 use Carbon\Carbon;
+
 class HabitsSeeder extends Seeder
 {
     public function run()

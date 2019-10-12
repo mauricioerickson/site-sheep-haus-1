@@ -36,11 +36,10 @@ class RegistrationMiddleware
         }
 
         if(!empty($user)) {
-            var_dump("aqui");
             return redirect()->route('registration');
-
+        } else {
+            return $next($request);
         }
-
-        return $next($request);
+        
     }
 }

@@ -11,15 +11,15 @@
 |
 */
 
-// Login By Google
+Auth::routes();
+
+// Login By Google, Facebook
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
 Route::get('/callback/{provider}', 'SocialController@callback');
  
 Route::get('/', function () {
     return view('welcome');
 });
-
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -28,8 +28,11 @@ Route::group(['middleware' => ['auth', 'registration']], function () {
 });
 
 Route::group(['middleware' => ['auth']], function () {
+
+    // Confirm Register
     Route::get('/registration', 'RegistrationController@index')->name('registration');
     Route::post('/registration', 'RegistrationController@store')->name('registration');
-});
 
-Route::post('/teste/alala/elele', 'RegistrationController@store')->name('teste');
+    // Get Course
+    Route::get('course_autocomplete', 'CourseController@search')->name('CourseAutocomplete');
+});

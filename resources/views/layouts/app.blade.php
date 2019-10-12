@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -75,6 +76,24 @@
         <main class="py-4">
             @yield('content')
         </main>
+        
     </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+
+    <script type="text/javascript">
+    var route = "{{ route('CourseAutocomplete') }}";
+
+    $('.search').typeahead({
+        source:  function (term, process) {
+            return $.get(route, { term: term }, function (data) {
+                return process(data);
+            });
+        }
+    });
+
+    </script>
 </body>
 </html>
