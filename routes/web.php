@@ -22,3 +22,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => ['auth', 'registration']], function () {
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+});
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/registration', 'RegistrationController@index')->name('registration');
+    Route::post('/registration', 'RegistrationController@store')->name('registration');
+});
+
+Route::post('/teste/alala/elele', 'RegistrationController@store')->name('teste');
