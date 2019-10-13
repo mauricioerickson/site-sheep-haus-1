@@ -35,4 +35,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Get Course
     Route::get('course_autocomplete', 'CourseController@search')->name('CourseAutocomplete');
+
+    // Get colleges
+    Route::get('colleges_autocomplete', 'CollegeController@search')->name('CollegeAutocomplete');
+    
 });

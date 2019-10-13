@@ -37569,10 +37569,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_3_typeahead__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap_3_typeahead__WEBPACK_IMPORTED_MODULE_1__);
 
 
-var route = jquery__WEBPACK_IMPORTED_MODULE_0___default()("#course_id").data("route");
+var course = jquery__WEBPACK_IMPORTED_MODULE_0___default()("#course_id").data("route");
 jquery__WEBPACK_IMPORTED_MODULE_0___default()("#course_id").typeahead({
   source: function source(term, process) {
-    return jquery__WEBPACK_IMPORTED_MODULE_0___default.a.get(route, {
+    return jquery__WEBPACK_IMPORTED_MODULE_0___default.a.get(course, {
+      term: term
+    }, function (data) {
+      return process(data);
+    });
+  }
+});
+var college = jquery__WEBPACK_IMPORTED_MODULE_0___default()("#college_id").data("route");
+jquery__WEBPACK_IMPORTED_MODULE_0___default()("#college_id").typeahead({
+  source: function source(term, process) {
+    return jquery__WEBPACK_IMPORTED_MODULE_0___default.a.get(college, {
       term: term
     }, function (data) {
       return process(data);

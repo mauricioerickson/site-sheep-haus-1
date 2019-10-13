@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Habit;
 
+use App\Http\Requests\StoreRegistration;
+
 class RegistrationController extends Controller
 {
     public function index(){
@@ -24,12 +26,11 @@ class RegistrationController extends Controller
             'habits' => $btn_habits
         ]);
     }
-    public function store(){
+    public function store(StoreRegistration $request){
 
-        $validatedData = $request->validate([
-            'title' => 'required|unique:posts|max:255',
-            'body' => 'required',
-        ]);
-        
+        $validated = $request->validated();
+
+        var_dump($validated);
+
     }
 }
