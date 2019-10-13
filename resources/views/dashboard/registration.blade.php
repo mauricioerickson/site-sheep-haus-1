@@ -1,6 +1,8 @@
 @extends('../layouts.app')
 
 @section('content')
+
+
 {{ Form::open(array('route' => 'registration', 'method' => 'post')) }}
     {{ Form::label('name', 'Nome') }}
     {{ Form::text('name', $user->name) }}
@@ -35,8 +37,18 @@
     {{ Form::label('birthday', 'Data de nascimento') }}
     {{ Form::text('birthday') }}
 
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     <br />
     {{ Form::submit('Salvar') }}
-{{ Form::close() }}
+    {{ Form::close() }}
 
 @endsection

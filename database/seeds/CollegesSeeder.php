@@ -2717,6 +2717,6 @@ class CollegesSeeder extends Seeder
             [ 'iniciais' => 'FSIP', 'name' => 'FACULDADE DE SISTEMAS DE INFORMAÇÃO DE PARAÍSO DO TOCANTINSEm Descredenciamento voluntário: Processo nº 23000.017352/2011-61.', 'organization' => 'Faculdade', 'parents' => 'Brasil', 'state' => 'TO', 'city' => 'Paraíso do Tocantins', 'created_at' => Carbon::now()->format('Y-m-d H:i:s'), 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')],
             [ 'iniciais' => ' FAPAC', 'name' => 'FACULDADE PRESIDENTE ANTÔNIO CARLOS', 'organization' => 'Faculdade', 'parents' => 'Brasil', 'state' => 'TO', 'city' => 'Porto Nacional', 'created_at' => Carbon::now()->format('Y-m-d H:i:s'), 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')],
             [ 'iniciais' => 'FASAMAR', 'name' => 'FACULDADE SÃO MARCOS', 'organization' => 'Faculdade', 'parents' => 'Brasil', 'state' => 'TO', 'city' => 'Porto Nacional', 'created_at' => Carbon::now()->format('Y-m-d H:i:s'), 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')]
-        ],);
+        ]);
     }
 }
