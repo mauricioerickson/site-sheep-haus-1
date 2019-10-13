@@ -19,13 +19,17 @@ class RegistrationController extends Controller
             $btn_habits[$habit->id] = $habit->name;
         }
 
-        
         return view('dashboard.registration', [
             'user' => $user,
             'habits' => $btn_habits
         ]);
     }
     public function store(){
+
+        $validatedData = $request->validate([
+            'title' => 'required|unique:posts|max:255',
+            'body' => 'required',
+        ]);
         
     }
 }

@@ -15,7 +15,7 @@
     {{ Form::select('university_id', array('U' => 'Universidade Paulista')) }}
     <br />
     {{ Form::label('course_id', 'Curso') }}
-    {{ Form::text('course_id', null, array('class' => 'search')) }}
+    {{ Form::text('course_id', null, array('id' => 'course_id', 'data-route' => route('CourseAutocomplete'))) }}
     <br />
     {{ Form::label('habits_id', 'Hábitos') }}
     {{ Form::select('habits_id', $habits, null, array('multiple'=>'multiple','name'=>'habits_id[]')) }}
