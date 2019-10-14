@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Habit;
+use App\User;
 
 use App\Http\Requests\StoreRegistration;
 
@@ -28,9 +29,10 @@ class RegistrationController extends Controller
     }
     public function store(StoreRegistration $request){
 
+        $user = $request->user();
         $validated = $request->validated();
 
-        var_dump($validated);
-
+        User::where('id', $user->id)->update($validated);
+        return redirect()->route('dashboard');
     }
 }

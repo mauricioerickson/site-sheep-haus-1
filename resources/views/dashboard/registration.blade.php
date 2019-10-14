@@ -23,10 +23,10 @@
     {{ Form::select('habits_id', $habits, null, array('multiple'=>'multiple','name'=>'habits_id[]')) }}
     <br />
     {{ Form::label('function', 'Ocupação') }}
-    {{ Form::select('function', array('M' => 'Morador', 'P' => 'Proprietário', 'S' => 'Prestador de serviços')) }}
+    {{ Form::select('function', array(null => 'Selecione', 'M' => 'Morador', 'P' => 'Proprietário', 'S' => 'Prestador de serviços')) }}
     <br />
     {{ Form::label('gender', 'Gênero') }}
-    {{ Form::select('gender', array('M' => 'Masculino', 'F' => 'Feminino', 'O' => 'Outros')) }}
+    {{ Form::select('gender', array(null => 'Selecione', 'M' => 'Masculino', 'F' => 'Feminino', 'O' => 'Outros')) }}
     <br />
     {{ Form::label('telephone', 'Telefone') }}
     {{ Form::text('telephone') }}

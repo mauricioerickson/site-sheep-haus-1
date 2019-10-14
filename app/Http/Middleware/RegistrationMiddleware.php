@@ -35,11 +35,11 @@ class RegistrationMiddleware
             $status[] = 'Data de nascimento não cadastrada'; 
         }
 
-        if(!empty($user)) {
+        if(!empty($status)) {
             return redirect()->route('registration');
         } else {
             return $next($request);
         }
-        
+
     }
 }
