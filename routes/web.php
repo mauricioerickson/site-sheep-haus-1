@@ -29,6 +29,9 @@ Route::group(['middleware' => ['auth', 'registration']], function () {
 
 Route::group(['middleware' => ['auth']], function () {
 
+    Route::get('image-upload', 'ImageUploadController@imageUpload')->name('image.upload');
+    Route::post('image-upload', 'ImageUploadController@imageUploadPost')->name('image.upload.post');
+    
     // Confirm Register
     Route::get('/registration', 'RegistrationController@index')->name('registration');
     Route::post('/registration', 'RegistrationController@store')->name('registration');
@@ -39,4 +42,11 @@ Route::group(['middleware' => ['auth']], function () {
     // Get colleges
     Route::get('colleges_autocomplete', 'CollegeController@search')->name('CollegeAutocomplete');
     
+    // Get Property
+    Route::get('property/{id?}', 'PropertyController@index')->name('property');
+    Route::post('property', 'PropertyController@store')->name('property');
+    Route::put('property/{id?}', 'PropertyController@update')->name('property');
+
+    // Get Characteristics
+    Route::get('characteristics', 'CharacteristicsController@index')->name('characteristics');
 });

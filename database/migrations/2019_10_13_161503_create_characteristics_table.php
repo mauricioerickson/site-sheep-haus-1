@@ -15,7 +15,7 @@ class CreateCharacteristicsTable extends Migration
     {
         Schema::create('characteristics', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('type')->nullable();
+            $table->string('name')->nullable();
             $table->timestamps();
         });
     }

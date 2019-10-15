@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Characteristics extends Model
+class Characteristic extends Model
 {
     protected $fillable = [
-        'id', 'type'
+        'id', 'name'
     ];
 }

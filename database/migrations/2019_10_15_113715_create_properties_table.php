@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePropertyTable extends Migration
+class CreatePropertiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePropertyTable extends Migration
      */
     public function up()
     {
-        Schema::create('property', function (Blueprint $table) {
+        Schema::create('properties', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('type')->nullable();
             $table->string('characteristics_id')->nullable();
@@ -21,17 +21,20 @@ class CreatePropertyTable extends Migration
             $table->string('number_of_bathrooms')->nullable();
             $table->string('number_of_residents')->nullable();
             $table->string('property_size')->nullable();
+
             $table->string('address')->nullable();
             $table->string('cep')->nullable();
             $table->string('district')->nullable();
             $table->string('city')->nullable();
             $table->string('number')->nullable();
+
             $table->string('gallery_id')->nullable();
             $table->string('accounts_id')->nullable();
             $table->string('university_id')->nullable();
             $table->string('course_id')->nullable();
-            $table->string('requirements')->nullable();
+            $table->string('habits_id')->nullable();
             $table->string('owner_id')->nullable();
+
             $table->timestamps();
         });
     }
@@ -43,6 +46,6 @@ class CreatePropertyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('property');
+        Schema::dropIfExists('properties');
     }
 }
