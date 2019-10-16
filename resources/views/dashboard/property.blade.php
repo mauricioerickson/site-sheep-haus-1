@@ -31,23 +31,31 @@
 
 @if($id)
 <br /><br /><br />
+<div id="map" style="width: 300px; height: 300px"></div>
 {{ Form::open(array('route' => ['property', $property->id], 'method' => 'put')) }}
 
     {{ Form::label('address', 'Endereço') }}
-    {{ Form::text('address') }}
+    {{ Form::text('address', null, array('id' => 'autocomplete')) }}
     <br />
     {{ Form::label('cep', 'CEP') }}
-    {{ Form::text('cep') }}
+    {{ Form::text('cep', null, array('id' => 'postal_code')) }}
     <br />
     {{ Form::label('district', 'Bairro') }}
     {{ Form::text('district') }}
     <br />
     {{ Form::label('city', 'Cidade') }}
-    {{ Form::text('city') }}
+    {{ Form::text('city', null, array('id' => 'locality')) }}
+    <br />
+    {{ Form::label('state', 'Estado') }}
+    {{ Form::text('state', null, array('id' => 'administrative_area_level_1')) }}
     <br />
     {{ Form::label('number', 'Numero') }}
-    {{ Form::text('number') }}
+    {{ Form::text('number', null, array('id' => 'street_number')) }}
     <br />
+    {{ Form::label('country', 'País') }}
+    {{ Form::text('country', null, array('id' => 'country')) }}
+    <br />
+    
     {{ Form::submit('Salvar') }}
 
 {{ Form::close() }}
@@ -86,3 +94,4 @@
 @endif
 
 @endsection
+

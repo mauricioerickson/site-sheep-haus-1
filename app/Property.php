@@ -19,9 +19,7 @@ class Property extends Model
         'city', 
         'number', 
         'gallery_id', 
-        'accounts_id', 
-        'university_id', 
-        'course_id', 
+        'accounts_id',
         'habits_id', 
         'owner_id'
     ];

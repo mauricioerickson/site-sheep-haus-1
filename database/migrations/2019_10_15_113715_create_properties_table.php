@@ -27,11 +27,7 @@ class CreatePropertiesTable extends Migration
             $table->string('district')->nullable();
             $table->string('city')->nullable();
             $table->string('number')->nullable();
-
-            $table->string('gallery_id')->nullable();
-            $table->string('accounts_id')->nullable();
-            $table->string('university_id')->nullable();
-            $table->string('course_id')->nullable();
+   
             $table->string('habits_id')->nullable();
             $table->string('owner_id')->nullable();
 

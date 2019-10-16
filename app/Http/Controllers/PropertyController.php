@@ -48,17 +48,26 @@ class PropertyController extends Controller
             $btn_habits[$habit->id] = $habit->name;
         }
 
-        return view('dashboard.immobile', [
+        return view('dashboard.property', [
             'id' => $id,
             'property' => (object) $property,
             'characteristics' => $btn_characteristics,
             'habits' => $btn_habits
         ]);
+
     }
 
     public function store(Request $request) {
 
-        $property = Property::create($request->except('_token'));
+        $user = $request->user();
+
+        $user = [
+            'owner_id' => $user->id
+        ];
+
+        $dados = array_merge($user, $request->except('_token'));
+
+        $property = Property::create($dados);
         return redirect()->route('property', [$property->id]);
 
     }
@@ -67,5 +76,6 @@ class PropertyController extends Controller
 
         $property = Property::where('id', $id)->update($request->except('_token', '_method'));
         return redirect()->route('property', [$id]);
+
     }
 }
