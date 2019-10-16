@@ -5,7 +5,8 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class StoreRegistration extends FormRequest
+
+class UpdateProfile extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,8 +27,6 @@ class StoreRegistration extends FormRequest
     {
         return [
             'habits_id' => 'required',
-            'function' => 'required',
-            'gender' => 'required',
             'cell_phone' => 'required|numeric',
             'birthday' => 'required|date'
         ];
@@ -37,8 +36,6 @@ class StoreRegistration extends FormRequest
         return [
             'cell_phone.required' => 'É necessário preencher o campo "Celular".',
             'habits_id.required' => 'Selecione os seus hábitos.',
-            'function.required' => 'Selecione a sua ocupação.',
-            'gender.required' => 'Selecione o seu gênero.',
             'birthday.required' => 'Preencha a sua data de nascimento, por exemplo "01/01/1994".',
             'cell_phone.numeric' => 'O campo celular deve ser peenchido apenas com números, por exemplo "+55 11 252125211.',
         ];

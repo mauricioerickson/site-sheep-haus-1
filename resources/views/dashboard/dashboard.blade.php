@@ -9,6 +9,9 @@
                 <div class="card-body">
                     <a href="{{ route('property') }}" class="btn btn-primary">Cadastro de Imoveis</a>
                 </div>
+                <div class="edit-button">
+                        <a href="{{ route('profile') }}" class="btn btn-primary">Editar</a>
+                </div>
             </div>
         </div>
     </div>
