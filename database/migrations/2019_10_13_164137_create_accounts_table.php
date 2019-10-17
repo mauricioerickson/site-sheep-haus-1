@@ -18,7 +18,7 @@ class CreateAccountsTable extends Migration
             $table->string('property_id')->nullable();
             $table->string('name')->nullable();
             $table->string('value')->nullable();
-            $table->string('birthday')->nullable();
+            $table->string('duedate')->nullable();
             $table->timestamps();
         });
     }

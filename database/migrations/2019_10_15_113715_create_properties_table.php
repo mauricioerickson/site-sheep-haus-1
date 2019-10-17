@@ -16,6 +16,10 @@ class CreatePropertiesTable extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('type')->nullable();
+
+            $table->string('name')->nullable();
+            $table->string('description')->nullable();
+
             $table->string('characteristics_id')->nullable();
             $table->string('number_of_bedrooms')->nullable();
             $table->string('number_of_bathrooms')->nullable();
@@ -26,7 +30,11 @@ class CreatePropertiesTable extends Migration
             $table->string('cep')->nullable();
             $table->string('district')->nullable();
             $table->string('city')->nullable();
+            $table->string('state')->nullable();
             $table->string('number')->nullable();
+            $table->string('country')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
    
             $table->string('habits_id')->nullable();
             $table->string('owner_id')->nullable();

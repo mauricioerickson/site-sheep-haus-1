@@ -3,49 +3,35 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Gallery;
 
 class ImageUploadController extends Controller
 {
-    /**
-
-     * Display a listing of the resource.
-
-     *
-
-     * @return \Illuminate\Http\Response
-
-     */
-
-    public function imageUpload()
+    public function store(Request $request)
 
     {
-        return view('imageUpload');
+        $id = $request->property_id;
+
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+  
+        $imageName = time().'.'.$request->image->extension();  
+        $request->image->move(public_path('images'), $imageName);
+        
+        $gallery = array(
+            'property_id' => $id,
+            'src' => $imageName
+        );
+
+        Gallery::create($gallery);
+
+        return redirect()->route('property.edit', [$id]);
     }
 
-  
+    public function delete(Request $request) {
 
-    /**
-
-     * Display a listing of the resource.
-
-     *
-
-     * @return \Illuminate\Http\Response
-
-     */
-
-    public function imageUploadPost()
-
-    {
-        request()->validate([
-
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-
-        ]);
-        $imageName = time().'.'.request()->image->getClientOriginalExtension();
-        request()->image->move(public_path('images'), $imageName);
-        return back()
-            ->with('success','You have successfully upload image.')
-            ->with('image',$imageName);
+        Gallery::where('id', '=', $request->id)->delete();
+        return redirect()->route('property.edit', [$request->property_id]);
     }
 }

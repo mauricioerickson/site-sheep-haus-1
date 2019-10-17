@@ -29,8 +29,13 @@ Route::group(['middleware' => ['auth', 'registration']], function () {
 
 Route::group(['middleware' => ['auth']], function () {
 
-    Route::get('image-upload', 'ImageUploadController@imageUpload')->name('image.upload');
-    Route::post('image-upload', 'ImageUploadController@imageUploadPost')->name('image.upload.post');
+    // Contas
+    Route::post('property-account', 'AccountController@store')->name('property-account');
+    Route::delete('property-account', 'AccountController@delete')->name('property-account');
+
+    // Imagemns
+    Route::post('property-image', 'ImageUploadController@store')->name('property-image');
+    Route::delete('property-image', 'ImageUploadController@delete')->name('property-image');
     
     // Confirm Register
     Route::get('/registration', 'RegistrationController@index')->name('registration');
@@ -43,9 +48,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('colleges_autocomplete', 'CollegeController@search')->name('CollegeAutocomplete');
     
     // Get Property
-    Route::get('property/{id?}', 'PropertyController@index')->name('property');
-    Route::post('property', 'PropertyController@store')->name('property');
-    Route::put('property/{id?}', 'PropertyController@update')->name('property');
+    Route::get('/properties', 'PropertyController@index')->name('properties');
+    Route::get('/property/{id?}/edit', 'PropertyController@edit')->name('property.edit');
+    Route::get('/property/create', 'PropertyController@edit')->name('property.create');
+    Route::post('/property/create', 'PropertyController@store')->name('property.create');
+    Route::put('/property/{id?}', 'PropertyController@update')->name('property');
 
     // Get Characteristics
     Route::get('characteristics', 'CharacteristicsController@index')->name('characteristics');
@@ -53,4 +60,5 @@ Route::group(['middleware' => ['auth']], function () {
     // Profile
     Route::get('/profile', 'ProfileController@index')->name('profile');
     Route::put('/profile', 'ProfileController@update')->name('profile');
+
 });

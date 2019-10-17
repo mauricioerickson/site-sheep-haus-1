@@ -47,7 +47,7 @@ function initAutocomplete() {
 
   // Avoid paying for data that you don't need by restricting the set of
   // place fields that are returned to just the address components.
-  autocomplete.setFields(["address_component"]);
+  autocomplete.setFields(["address_component", "geometry"]);
 
   // When the user selects an address from the drop-down, populate the
   // address fields in the form.
@@ -57,6 +57,19 @@ function initAutocomplete() {
 function fillInAddress() {
   // Get the place details from the autocomplete object.
   var place = autocomplete.getPlace();
+
+  var latitude = place.geometry.location.lat();
+  var longitude = place.geometry.location.lng();
+
+  var geolocation = {
+    lat: latitude,
+    lng: longitude
+  };
+
+  $("#lat").val(latitude);
+  $("#lng").val(longitude);
+
+  initMap(geolocation);
 
   for (var component in componentForm) {
     document.getElementById(component).value = "";
@@ -79,13 +92,23 @@ function fillInAddress() {
 function geolocate() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-      var geolocation = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
+      var geolocation = {};
+
+      if ($("#lng").val().length > 0 && $("#lat").val().length > 0) {
+        geolocation = {
+          lat: parseFloat($("#lat").val()),
+          lng: parseFloat($("#lng").val())
+        };
+      } else {
+        geolocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        $("#lat").val(position.coords.latitude);
+        $("#lng").val(position.coords.longitude);
+      }
 
       initMap(geolocation);
-      console.log(geolocation);
 
       var circle = new google.maps.Circle({
         center: geolocation,
