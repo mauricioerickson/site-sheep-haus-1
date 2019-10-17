@@ -49,10 +49,11 @@ Route::group(['middleware' => ['auth']], function () {
     
     // Get Property
     Route::get('/properties', 'PropertyController@index')->name('properties');
-    Route::get('/property/{id?}/edit', 'PropertyController@edit')->name('property.edit');
+    Route::get('/property/{id}/edit', 'PropertyController@edit')->name('property.edit');
     Route::get('/property/create', 'PropertyController@edit')->name('property.create');
     Route::post('/property/create', 'PropertyController@store')->name('property.create');
-    Route::put('/property/{id?}', 'PropertyController@update')->name('property');
+    Route::delete('/property', 'PropertyController@delete')->name('property.delete');
+    Route::put('/property/{id}', 'PropertyController@update')->name('property');
 
     // Get Characteristics
     Route::get('characteristics', 'CharacteristicsController@index')->name('characteristics');

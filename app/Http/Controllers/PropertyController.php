@@ -94,4 +94,10 @@ class PropertyController extends Controller
         return redirect()->route('property.edit', [$id]);
 
     }
+
+    public function delete(Request $request) {
+        $user = Auth::user();
+        Property::where('id', '=', $request->property_id)->where('owner_id', '=', $user->id)->delete();
+        return redirect()->route('properties');
+    }
 }
