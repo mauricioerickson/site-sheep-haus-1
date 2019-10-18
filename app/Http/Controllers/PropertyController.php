@@ -12,6 +12,7 @@ use App\Gallery;
 use App\Account;
 
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreProperty;
 
 class PropertyController extends Controller
 {
