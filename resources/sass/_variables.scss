@@ -1,19 +1,199 @@
 // Body
-$body-bg: #f8fafc;
+$corpo-bg: #f6f6f7;
 
 // Typography
 $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+$font-lato: 'Lato', sans-serif;
+$font-roboto: 'Roboto', sans-serif;
 
 // Colors
-$blue: #3490dc;
-$indigo: #6574cd;
-$purple: #9561e2;
-$pink: #f66d9b;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$green: #38c172;
-$teal: #4dc0b5;
-$cyan: #6cb2eb;
+$vermelho-site: #d0021b;
+$verde-site: #00ac1c;
+$azul-site: #0051ac;
+$texto-padrao: #666a70;
+$texto-destaque: #949fb7;
+$preto-padrao: #333;
+$branco-padrao: #fff;
+$rosa-gradiente: #fcf0f7;
+$azul-gradiante: #f3f2fd;
+$cinza-site: #c1c8d7;
+$cinza-icones: #8a94aa;
+$facebook: #3b5998;
+$twitter: #1dcaff;
+
+// MIXINS
+
+@mixin botao-padrao($fundo: $cinza-icones,$corLetra: $branco-padrao){
+	border-radius: 5px;
+	background-color: $fundo;
+	color: $corLetra;
+	transition: background-color 0.5s;
+	&:hover{
+		background-color: lighten($fundo, 10);
+	}
+}
+
+@mixin botao-padrao-borda{
+	border-radius: 5px;
+}
+
+@mixin icones-padrao{
+	border-radius: 100%
+}
+
+@mixin centralizar{
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 10px;
+}
+
+@mixin margem-padrao{
+	margin: 20px 0;
+}
+
+@mixin margem-padrao-formulario{
+	margin: 5px 0;
+}
+
+@mixin margem-padrao-base{
+	margin-bottom: 20px;
+}
+
+@mixin margem-padrao-topo{
+	margin-top: 20px;
+}
+
+@mixin margem-padrao-esquerda{
+	margin-left: 20px;
+}
+
+@mixin margem-padrao-direita{
+	margin-right: 20px;
+}
+
+@mixin padding-bloco{
+	padding: 80px 0 50px 0;
+}
+
+@mixin bubble-grande{
+	border-radius: 100%;
+	width: 150px;
+	height: 150px;
+	background-image: linear-gradient(to bottom left,$azul-gradiante, $rosa-gradiente);
+}
+
+@mixin bubble-pequeno{
+	border-radius: 100%;
+	width: 40px;
+	height: 40px;
+	background-image: linear-gradient(to bottom left,$azul-gradiante, $rosa-gradiente);
+}
+
+@mixin padrao-dropdown{
+	border-radius: 5px;
+	border: 1px solid $cinza-site;
+}
+
+@mixin padrao-proximo{
+	border-radius: 5px;
+	background: $verde-site;
+	color: $branco-padrao;
+	font-size: 1em;
+	cursor: pointer;
+	padding: 10px;
+	text-align: center;
+	font-weight: bold;
+}
+
+@mixin sombra-inputs{
+	box-shadow: -1px 1px 3px $cinza-site;
+}
+
+@mixin botao-adicionar{
+	width: 25px;
+	height: 25px;
+	font-size: 1.5em;
+	font-weight: bold;
+	margin-right: 10px;
+	border-radius: 2px;
+	background: $cinza-icones;
+	color: $branco-padrao;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-bottom: 1px;
+	cursor: pointer;
+}
+
+@mixin padrao-bloco-adm{
+	width: 100%;
+	min-height: 250px;
+	background: $branco-padrao;
+	padding: 20px;
+}
+
+@mixin padrao-bg-user{
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+@mixin titulos-adm{
+	font-size: 1.2em;
+	font-weight: bold;
+	color: $cinza-icones;
+}
+
+@mixin rangeInput{
+	&::-webkit-slider-thumb{
+		-webkit-appearance:none;
+		appearance: none;
+		background: $cinza-icones;
+		width: 20px;
+		height: 20px;
+		border-radius: 100%;
+		cursor: pointer;
+		margin-top: -7px;
+	}
+	&::-webkit-slider-runnable-track{
+		background: $cinza-site;
+		width: 100%;
+		height: 5px;
+		border-radius: 2px;
+	}
+	&::-moz-slider-thumb{
+		-webkit-appearance:none;
+		appearance: none;
+		background: $cinza-icones;
+		width: 20px;
+		height: 20px;
+		border-radius: 100%;
+		cursor: pointer;
+		margin-top: -7px;
+	}
+	&::-moz-range-track{
+		background: $cinza-site;
+		width: 100%;
+		height: 5px;
+		border-radius: 2px;
+	}
+	&::-ms-slider-thumb{
+		-webkit-appearance:none;
+		appearance: none;
+		background: $cinza-icones;
+		width: 20px;
+		height: 20px;
+		border-radius: 100%;
+		cursor: pointer;
+		margin-top: -7px;
+	}
+	&::-ms-track{
+		background: $cinza-site;
+		width: 100%;
+		height: 5px;
+		border-radius: 2px;
+	}
+}

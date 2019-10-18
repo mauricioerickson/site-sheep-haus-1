@@ -1,0 +1,3793 @@
+
+// ANIMAÇÕES //
+
+@keyframes transicao {
+
+	0%{
+		transform: translateX(320px);
+		opacity: 0;
+		filter: blur(4px);
+	}
+	40%{
+		transform: translateX(-50px);
+		filter: blur(1px);
+	}
+	100%{
+		opacity: 1;
+		transform: translateX(0px);
+		filter: blur(0px);
+	}
+}
+
+@keyframes aparecer{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
+// POPUP //
+div.popup,
+section.popup{
+	position: relative;
+	div.close{
+		position: absolute;
+		right: 10px;
+		color: $branco-padrao;
+		z-index: 2;
+		font-size: 1.5em;
+		cursor: pointer;
+	}
+}
+
+// FONTES //
+
+@font-face{
+	font-family: "icones";
+	src: url('/sheephaus/public/css/fonts/fontawesome-webfont.eot?v=4.7.0');
+    src: url('/sheephaus/public/css/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'),
+	url('/sheephaus/public/css/fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'),
+	url('/sheephaus/public/css/fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'),
+	url('/sheephaus/public/css/fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'),
+	url('/sheephaus/public/css/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+i:after{
+	content: attr(data-fonte);
+	font-family: "icones";
+	font-size: 1em;
+}
+
+// tamanho de fonte crossbrowser em 16px = 1em //
+
+body {
+  font-size: 100%;
+  background: $corpo-bg;
+  font-family: $font-lato;
+}
+
+body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2, h3, h4, h5, h6 {
+  font-size-adjust: 0.5;
+}
+
+.not-home{
+	main{
+		padding:70px 0;
+	}
+}
+
+
+
+#app {
+  font-size: 1em;
+  /* equivalente a 16px */
+  line-height: 1.25;
+  /* equivalente a 20px */
+}
+
+@media (min-width: 43.75em) {
+  #app {
+    font-size: 1em;
+    /* equivalente a 16px */
+    line-height: 1.375;
+    /* equivalente a 22px */
+  }
+}
+
+h1 {
+  font-size: 2em;
+  /* 2x o tamanho padrao do corpo = 32px */
+  line-height: 1.25;
+  /* 45px / 36px */
+}
+
+@media (min-width: 43.75em) {
+  h1 {
+    font-size: 2.5em;
+    /* 2.5x o tamanho do corpo = 40px */
+    line-height: 1.125;
+  }
+}
+
+@media (min-width: 56.25em) {
+  h1 {
+    font-size: 3em;
+    /* 3x o tamanho do corpo = 48px */
+    line-height: 1.05;
+    /* keep to a multiple of the 20px line height and something more appropriate for display headings */
+  }
+}
+
+h2 {
+  font-size: 1.625em;
+  /* 1.625x o tamanho do corpo = 26px */
+  line-height: 1.15384615;
+  /* 30px / 26px */
+}
+
+@media (min-width: 43.75em) {
+  h2 {
+    font-size: 2em;
+    /* 2x o tamanho padrao do corpo = 32px */
+    line-height: 1.25;
+  }
+}
+
+@media (min-width: 56.25em) {
+  h2 {
+    font-size: 2.25em;
+    /* 2.25x o tamanho do corpo = 36px */
+    line-height: 1.25;
+  }
+}
+
+h3 {
+  font-size: 1.375em;
+  /* 1.375x o tamanho do corpo = 22px */
+  line-height: 1.13636364;
+  /* 25px / 22px */
+}
+
+@media (min-width: 43.75em) {
+  h3 {
+    font-size: 1.5em;
+    /* 1.5x o tamanho do corpo = 24px */
+    line-height: 1.25;
+  }
+}
+
+@media (min-width: 56.25em) {
+  h3 {
+    font-size: 1.75em;
+    /* 1.75x o tamanho do corpo = 28px */
+    line-height: 1.25;
+  }
+}
+
+h4 {
+  font-size: 1.125em;
+  /* 1.125x o tamanho do corpo = 18px */
+  line-height: 1.11111111;
+}
+
+@media (min-width: 43.75em) {
+  h4 {
+    line-height: 1.22222222;
+    /* (22px / 18px */
+  }
+}
+
+blockquote {
+  font-size: 1.25em;
+  /* 20px / 16px */
+  line-height: 1.25;
+  /* 25px / 20px */
+}
+
+@media (min-width: 43.75em) {
+  blockquote {
+    font-size: 1.5em;
+    /* 24px / 16px = */
+    line-height: 1.45833333;
+    /* 35px / 24px */
+  }
+}
+/* tamanho de fonte crossbrowser em 16px = 1em */
+
+
+/*--- INICIO CÓDIGO CSS ---*/
+
+/*-- PADRÕES --*/
+
+.centralizar{
+	@include centralizar;
+}
+
+.bloco-meio{
+	width: calc(50% - 10px);
+}
+
+.bloco-terco{
+	width: calc((100% / 3) - 50px);
+}
+
+.bloco-quarto{
+	width: calc(100% / 4);
+	padding: 15px;
+	border-radius: 5px;
+	transition: background 0.5s, box-shadow 0.5s;
+	&:hover{
+		box-shadow: 1px 1px 3px $texto-destaque;
+		background: $branco-padrao;
+	}
+}
+
+.texto{
+	font-size: 1em;
+	line-height: 1.5em;
+}
+
+.titulo--padrao{
+	width: 100%;
+	@include margem-padrao-base;
+	h1.titulo{
+		text-align: center;
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.bloco-meio,
+	.bloco-terco,
+	.bloco-quarto{
+		width: calc(100% - 10px);
+	}
+
+	.bloco-quarto{
+		padding: 15px;
+		border-radius: 5px;
+		transition: background 0.5s, box-shadow 0.5s;
+		&:hover{
+			box-shadow: 1px 1px 3px $texto-destaque;
+			background: $branco-padrao;
+		}
+	}
+}
+
+/*-- FIM PADRÕES --*/
+/*-- HEADER --*/
+i.ativar-menu{
+	display: none;
+}
+ nav.menu{
+ 	width: 100%;
+	height: 70px;
+	background: rgba($branco-padrao, 0.6);
+	position: absolute;
+	z-index: 2;
+	top: 0;
+
+	div.centralizar{
+		position: relative;
+		height: 100%
+	}
+
+	header.menu--topo{
+		position: relative;
+		height: 100%;
+		display: flex;
+		align-items: center;
+	}
+
+	header.menu--topo a.logo{
+		position: relative;
+		height: 100%;
+		width: 100%;
+		flex-basis: 20%;
+	}
+
+	header.menu--topo a.logo figure{
+		position: relative;
+		height: 100%;
+		padding: 10px 0px;
+	}
+
+	header.menu--topo a.logo figure img{
+		height: 100%;
+	}
+
+	header.menu--topo section.menu--itens{
+		position: relative;
+		height: 100%;
+		width: 100%;
+		flex-basis: 80%;
+	}
+
+	header.menu--topo section.menu--itens ul.menu--itens_lista{
+		position: relative;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		width: 100%;
+	}
+
+	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item{
+		width: calc(100% / 5);
+		color: $azul-site;
+		text-align: center;
+	}
+
+	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item a,
+	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item.menu--linguagem div.dropdown div.botao-dropdown{
+		font-weight: bold;
+	}
+
+	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item.login{
+		div.botao-dropdown{
+			text-align: center;
+			cursor: pointer;
+			padding: 10px 30px;
+			color: $branco-padrao;
+			@include botao-padrao($verde-site);
+			top: 0 !important;
+		}
+	}
+
+	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item.login a{
+		color: $cinza-icones;
+	}
+
+	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item.menu--linguagem div.dropdown{
+		position: relative;
+		height: 45px;
+		width: 100%;
+	}
+
+	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item.menu--linguagem div.dropdown div.botao-dropdown{
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		pointer-events: none;
+	}
+
+	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item.menu--linguagem div.dropdown input[type=checkbox]{
+		width: 100%;
+		height: 100%;
+	}
+
+	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item.menu--linguagem div.dropdown ul.dropdown-menu{
+		display: none;
+		position: absolute;
+		top: 45px;
+		width: 100%;
+		background: $branco-padrao;
+		@include padrao-dropdown;
+	}
+
+	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item.menu--linguagem div.dropdown ul.dropdown-menu li{
+		position: relative;
+		width: 100%;
+		padding: 5px;
+		&:hover{
+			background: darken($branco-padrao, 5%);
+		}
+	}
+	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item.menu--linguagem div.dropdown ul.dropdown-menu li a{
+		position: relative;
+		display: block;
+		width: 100%;
+	}
+
+	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item.menu--linguagem div.dropdown input[type=checkbox]:checked + ul.dropdown-menu{
+		display: block;
+	}
+
+}
+
+@media screen and (max-width: 900px) {
+	i.ativar-menu{
+		position: fixed;
+		display: block;
+		left: 20px;
+		top: 20px;
+		color: $cinza-icones;
+		z-index: 3;
+		font-size: 2em;
+		cursor: pointer;
+		padding: 0px 10px;
+		border-radius: 10px;
+		background: $branco-padrao;
+	}
+	nav.menu{
+		position: fixed;
+		left: -200px;
+		width: 100%;
+		max-width: 200px;
+		height: 100vh;
+		flex-wrap: wrap;
+		background: rgba($branco-padrao, 1);
+		transition: left 0.5s;
+		header.menu--topo{
+			flex-wrap: wrap;
+		}
+		header.menu--topo a.logo{
+			height: 80px;
+			flex-basis: 100%;
+			text-align: center;
+		}
+
+		header.menu--topo section.menu--itens{
+			height: calc(100% - 80px);
+			flex-basis: 100%;
+		}
+
+		header.menu--topo section.menu--itens ul.menu--itens_lista{
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			align-content: center;
+		}
+
+		header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item{
+			width: 100%;
+			height: 60px;
+		}
+	}
+	nav.menu.ativo{
+		left: 0;
+	}
+}
+
+
+/*-- FINAL HEADER --*/
+
+/*-- RODAPE --*/
+
+i.facebook,
+i.twitter{
+	width: 25px;
+	height: 25px;
+	border-radius: 100%;
+	color: $branco-padrao;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 5px;
+}
+
+i.facebook{
+	background: $facebook;
+}
+
+i.twitter{
+	background: $twitter;
+}
+
+footer.rodape{
+	position: relative;
+	width: 100%;
+	background: $branco-padrao;
+	min-height: 300px;
+	@include padding-bloco;
+	border-top: 1px solid $cinza-site;
+
+	nav.menu--rodape{
+		position: relative;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	nav.menu--rodape .menu--linguagem{
+		width: calc(40% - 140px);
+		@include margem-padrao;
+	}
+
+	nav.menu--rodape .menu--linguagem a.logo{
+		@include margem-padrao-base;
+	}
+
+	nav.menu--rodape .menu--linguagem a.logo figure{
+		@include margem-padrao-base;
+	}
+
+	nav.menu--rodape .menu--linguagem div.dropdown{
+		position: relative;
+		height: 45px;
+		width: 100%;
+		@include padrao-dropdown;
+	}
+
+	nav.menu--rodape .menu--linguagem div.dropdown div.botao-dropdown{
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		pointer-events: none;
+		width: 100%;
+	}
+
+	nav.menu--rodape .menu--linguagem div.dropdown input[type=checkbox]{
+		width: 100%;
+		height: 100%;
+	}
+
+	nav.menu--rodape .menu--linguagem div.dropdown ul.dropdown-menu{
+		display: none;
+		position: absolute;
+		top: 45px;
+		width: 100%;
+		background: $branco-padrao;
+		@include padrao-dropdown;
+	}
+
+	nav.menu--rodape .menu--linguagem div.dropdown ul.dropdown-menu li{
+		position: relative;
+		width: 100%;
+		padding: 5px;
+		&:hover{
+			background: darken($branco-padrao, 5%);
+		}
+	}
+	nav.menu--rodape .menu--linguagem div.dropdown ul.dropdown-menu li a{
+		position: relative;
+		display: block;
+		width: 100%;
+	}
+
+	nav.menu--rodape .menu--linguagem div.dropdown input[type=checkbox]:checked + ul.dropdown-menu{
+		display: block;
+	}
+
+	nav.menu--rodape .menu--itens{
+		width: 60%;
+		@include margem-padrao-base;
+		margin-left: 140px;
+		display: flex;
+		align-items: flex-end;
+	}
+
+	nav.menu--rodape .menu--itens ul.menu--itens_lista{
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-end;
+	}
+
+	nav.menu--rodape .menu--itens ul.menu--itens_lista li.lista-item{
+		width: 50%;
+		color: $preto-padrao;
+		@include margem-padrao-topo;
+	}
+
+	nav.menu--rodape .menu--base{
+		width: 100%;
+		display: flex;
+		@include margem-padrao-topo;
+	}
+
+	nav.menu--rodape .menu--base nav.base-menu{
+		display: flex;
+		width: 100%;
+	}
+
+	nav.menu--rodape .menu--base nav.base-menu ul.base-lista{
+		width: calc(40% - 140px);
+		@include margem-padrao;
+		display: flex;
+		justify-content: space-between;
+		color: $texto-destaque;
+	}
+
+	nav.menu--rodape .menu--base nav.base-menu div.copyright{
+		width: 30%;
+		@include margem-padrao;
+		margin-left: 140px;
+	}
+	nav.menu--rodape .menu--base nav.base-menu div.compartilhar{
+		width: 20%;
+		@include margem-padrao;
+		margin-left: 50px;
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+
+@media screen and (max-width: 1000px){
+	footer.rodape nav.menu--rodape{
+		flex-direction: column;
+		align-items: center;
+	}
+
+	footer.rodape nav.menu--rodape .menu--linguagem{
+		text-align: center;
+	}
+
+	footer.rodape nav.menu--rodape .menu--itens{
+		margin-left: 0px;
+		justify-content: center;
+	}
+
+	footer.rodape nav.menu--rodape .menu--itens ul.menu--itens_lista{
+		justify-content: space-between;
+	}
+
+	footer.rodape nav.menu--rodape .menu--itens ul.menu--itens_lista li.lista-item{
+		width: calc(50% - 10px);
+		padding-bottom: 10px;
+		text-align: center;
+		border-bottom: 1px solid $cinza-site;
+	}
+
+	footer.rodape nav.menu--rodape .menu--base nav.base-menu{
+		flex-direction: none;
+		justify-content: space-around;
+		flex-wrap: wrap;
+	}
+
+	footer.rodape nav.menu--rodape .menu--base nav.base-menu ul.base-lista{
+		width: calc(50% - 10px);
+	}
+
+	footer.rodape nav.menu--rodape .menu--base nav.base-menu div.copyright{
+		margin-left: 0px;
+	}
+
+	footer.rodape nav.menu--rodape .menu--base nav.base-menu div.compartilhar{
+		width: 100%;
+		justify-content: center;
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 500px){
+	footer.rodape nav.menu--rodape .menu--linguagem,
+	footer.rodape nav.menu--rodape .menu--itens,
+	footer.rodape nav.menu--rodape .menu--base nav.base-menu ul.base-lista,
+	footer.rodape nav.menu--rodape .menu--base nav.base-menu div.copyright{
+		width: 100%;
+		text-align: center;
+	}
+}
+
+/*-- FINAL RODAPE --*/
+
+/*-- BANER PADRÃO --*/
+
+section.baner{
+	width: 100%;
+	height: 620px;
+	position: relative;
+	background: url("../images/baners/baner_home.jpg");
+	@include padrao-bg-user;
+
+	div.centralizar{
+		position: relative;
+		height: 100%;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		flex-direction: column;
+	}
+
+	figure.logo--baner{
+		width: 100%;
+		height: 50px;
+		@include margem-padrao-base
+	}
+
+	figure.logo--baner img{
+		height: 100%
+	}
+
+	header.titulo--baner{
+		width: 100%;
+		@include margem-padrao
+	}
+
+	form.baner--filtro{
+		width: 100%;
+		display: flex;
+		align-items: center;
+		@include margem-padrao
+	}
+
+	form.baner--filtro input.filtro-busca{
+		font-size: 1.5em;
+		color: $vermelho-site;
+		flex-basis: 80%;
+		border: none;
+		border-bottom: 2px solid $preto-padrao;
+		padding: 10px 0;
+		&::placeholder{
+			color: $vermelho-site;
+			font-weight: bold;
+		}
+	}
+
+	form.baner--filtro button.filtro-botao{
+		@include botao-padrao($vermelho-site,$branco-padrao);
+		flex-basis: 10%;
+		margin-left: 20px;
+		height: 45px;
+		padding: 0 40px;
+		text-align: center;
+		font-size: 1em;
+	}
+
+	a.baner--anuncio{
+		width: auto;
+		display: inline-block;
+		align-self: flex-start;
+		margin-top: 80px;
+		color: $verde-site;
+		font-weight: bold;
+		text-transform: uppercase;
+		border-bottom: 2px solid $verde-site;
+	}
+}
+
+/*-- FINAL BANER PADRÃO --*/
+
+/*-- CHAMADA EXPLICATIVA PADRÃO --*/
+
+section.bloco--monte{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	background: $branco-padrao;
+	@include padding-bloco;
+
+	.centralizar{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	header.titulo--padrao{
+		color: $vermelho-site;
+	}
+
+	header.titulo--padrao h1.titulo{
+		text-align: center;
+		width: 100%;
+	}
+
+	.bloco-terco{
+		display: flex;
+		flex-wrap: wrap;
+		position: relative;
+		justify-content: center;
+		@include margem-padrao;
+	}
+
+	.bloco-terco figure{
+		@include margem-padrao;
+		@include bubble-grande;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.bloco-terco figure div.bubble{
+		@include bubble-pequeno;
+		position: absolute;
+		right: 20px;
+		top: 105px;
+	}
+
+	.bloco-terco header.titulo--bloco{
+		width: 100%;
+		text-align: center;
+		@include margem-padrao-base;
+	}
+
+	.bloco-terco header.titulo--bloco h3.sub-titulo{
+		color: $azul-site;
+	}
+
+	.bloco-terco p.texto{
+		text-align: center;
+		color: $preto-padrao;
+	}
+}
+
+/*-- FINAL CHAMADA EXPLICATIVA PADRÃO --*/
+
+/*-- LISTA IMÓVEIS / REPÚBLICAS --*/
+
+section.bloco-lista,
+section.bloco-lista-match{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	@include padding-bloco;
+
+	.centralizar{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	header.titulo--padrao h1.titulo{
+		color: $texto-destaque;
+	}
+
+	section.lista-linha,
+	section.lista-linha header.linha--topo{
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		@include margem-padrao;
+	}
+
+	section.lista-linha header.linha--topo{
+		font-size: 1.5em;
+	}
+
+	section.lista-linha header.linha--topo p.topo--info{
+		flex-basis: 80%;
+		color: $preto-padrao;
+		padding-left: 15px;
+	}
+
+	section.lista-linha header.linha--topo p.topo--info span{
+		color: $texto-destaque
+	}
+
+	section.lista-linha header.linha--topo a.topo--link{
+		flex-basis: 20%;
+		font-size: .7em;
+		color: $verde-site;
+		text-align: right;
+		padding-right: 15px;
+	}
+
+	section.lista-linha a.item-imovel{
+		position: relative;
+		@include margem-padrao;
+	}
+
+	section.lista-linha a.item-imovel figure{
+		width: 100%;
+		height: 190px;
+		border-radius: 5px;
+	}
+
+	section.lista-linha a.item-imovel figure img{
+		width: 100%;
+		height: 100%;
+		display: block;
+		position: relative;
+		@include padrao-bg-user;
+		border: none;
+	}
+
+	section.lista-linha a.item-imovel header.titulo-imovel{
+		width: 100%;
+		@include margem-padrao-topo;
+	}
+
+	section.lista-linha a.item-imovel header.titulo-imovel h2{
+		color: $verde-site;
+		font-size: 1em;
+		font-weight: bold;
+		line-height: 1.5em;
+	}
+
+	section.lista-linha a.item-imovel p.texto{
+		@include margem-padrao;
+	}
+
+	section.lista-linha a.item-imovel footer.info-item{
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		text-align: left;
+	}
+
+	section.lista-linha a.item-imovel footer.info-item p.valor-imovel{
+		font-weight: bold;
+	}
+
+	section.lista-linha a.item-imovel footer.info-item p.metragem-imovel{
+		margin-left: 20px;
+	}
+
+	section.lista-linha a.item-imovel footer.info-item p.metragem-imovel,
+	section.lista-linha a.item-imovel footer.info-item p.vaga-imovel,
+	section.lista-linha a.item-imovel footer.info-item p.valor-imovel{
+		flex-basis: calc(100% / 3);
+	}
+}
+
+@media screen and(max-width: 1050px) {
+	section.bloco-lista section.lista-linha a.item-imovel,
+	section.bloco-lista-match section.lista-linha a.item-imovel{
+		width: calc(100% / 3);
+	}
+	section.bloco-lista section.lista-linha header.linha--topo p.topo--info,
+	 section.bloco-lista-match section.lista-linha header.linha--topo p.topo--info,
+	 section.bloco-lista section.lista-linha header.linha--topo a.topo--link, section.bloco-lista-match section.lista-linha header.linha--topo a.topo--link{
+		 flex-basis: 50%;
+	 }
+}
+
+@media screen and(max-width: 900px) {
+	section.bloco-lista section.lista-linha a.item-imovel,
+	section.bloco-lista-match section.lista-linha a.item-imovel{
+		width: calc(100% / 2);
+	}
+}
+
+@media screen and(max-width: 600px) {
+	section.bloco-lista section.lista-linha a.item-imovel,
+	section.bloco-lista-match section.lista-linha a.item-imovel{
+		width: 100%;
+	}
+
+	section.bloco-lista section.lista-linha header.linha--topo p.topo--info,
+	 section.bloco-lista-match section.lista-linha header.linha--topo p.topo--info,
+	 section.bloco-lista section.lista-linha header.linha--topo a.topo--link, section.bloco-lista-match section.lista-linha header.linha--topo a.topo--link{
+		 flex-basis:100%;
+	 }
+}
+
+section.bloco-lista-match{
+	.centralizar{
+		background: $branco-padrao;
+		border: 1px solid $cinza-icones;
+		border-radius: 10px;
+		padding-top: 20px;
+	}
+
+	header.titulo--padrao h1.titulo{
+		font-size: 2em;
+		font-weight: bold;
+	}
+
+	section.lista-linha a.item-imovel label.label-check-button{
+		font-size: 1em;
+		font-weight: bold;
+		color: $cinza-icones;
+		display: flex;
+		text-transform: uppercase;
+		align-items: center;
+		cursor: pointer;
+		margin: -10px 0 0 -10px;
+		position: absolute;
+		z-index: 3;
+	}
+
+	section.lista-linha a.item-imovel label.label-check-button input[type='checkbox']{
+		position: relative;
+		margin-right: 10px;
+		&::before{
+			content: "";
+			display: block;
+			border-radius: 100%;
+			background: $branco-padrao;
+			border: 1px solid $cinza-icones;
+			width: 32px;
+			height: 32px;
+			padding: 2px;
+		}
+		&:checked::after{
+			content: "";
+			display: block;
+			position: absolute;
+			top: 4px;
+			left: 4px;
+			border-radius: 100%;
+			width: 30px;
+			height: 30px;
+			background: $cinza-icones;
+		}
+	}
+}
+
+#mapa-detalhe{
+	div.container-bg{
+		background: $corpo-bg;
+		padding: 30px;
+		width: 100%;
+		max-width: 1100px;
+		height: 800px;
+		display: flex;
+		flex-wrap: wrap;
+		overflow-y: auto;
+		top: 40px;
+		left: calc(50% - 350px);
+		justify-content: space-between;
+	}
+
+	div.container-bg div.close{
+		color: $cinza-icones;
+		top: -5px;
+	}
+}
+
+/*-- FINAL LISTA IMÓVEIS / REPÚBLICAS --*/
+/*-- BLOCO FILTRO --*/
+
+section.bloco-filtro{
+	width: 100%;
+	padding: 20px 0;
+	background: $branco-padrao;
+
+	.centralizar{
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%
+	}
+
+	div.filtro-controles{
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		align-content: center;
+		border-bottom: 1px solid $cinza-site;
+		padding: 10px 0;
+	}
+
+	div.filtro-controles header.controles-topo{
+		width: 70%;
+	}
+
+	div.filtro-controles header.controles-topo h1.topo-titulo{
+		font-size: 1em;
+		font-weight: bold;
+	}
+
+	div.filtro-controles div.bloco-botoes{
+		width: 30%;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	div.filtro-controles div.bloco-botoes p.controles-botao_alerta,
+	div.filtro-controles div.bloco-botoes p.controles-botao_filtrar{
+		@include botao-padrao;
+		font-weight: bold;
+		padding: 10px;
+		border: 1px solid $cinza-site;
+		cursor: pointer;
+	}
+	div.filtro-controles div.bloco-botoes p.controles-botao_filtrar{
+		margin-right: 10px;
+	}
+	div.filtro-breadcrumbs{
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		@include margem-padrao-topo;
+	}
+	div.filtro-breadcrumbs form select.select-padrao{
+		width: 100%;
+		color: $preto-padrao;
+		font-size: 1.2em;
+		padding-left: 10px;
+		position: relative;
+		background-repeat: no-repeat;
+		background-position: right;
+	}
+}
+
+/*-- FINAL BLOCO FILTRO --*/
+/*-- PADROES FORMULARIOS --*/
+form.formulario-registro{
+	position: relative;
+}
+.bloco-unico-formulario.bt-flutuante{
+	position: absolute;
+	bottom: 40px;
+	padding: 0 20px;
+	z-index: 2;
+	animation-name: transicao;
+	animation-duration: .4s;
+	animation-timing-function: cubic-bezier();
+}
+.bloco-unico-formulario{
+	position: relative;
+	width: 100%;
+	@include margem-padrao-formulario;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+	align-content: flex-start;
+	span{
+		position: absolute;
+		bottom: -20px;
+		left: 5px;
+		width: 100%;
+		font-size: .8em;
+		color: $cinza-site;
+	}
+	button.botao-formulario-padrao,
+	a.botao-formulario-padrao{
+		align-self: flex-end;
+		@include padrao-proximo;
+	}
+
+	button.botao-formulario-padrao.voltar,
+	a.botao-formulario-padrao.voltar{
+		background: $cinza-icones;
+	}
+
+	button.botao-formulario-padrao i.icone-botao-voltar{
+		margin-right: 10px;
+	}
+}
+
+section.formulario--cadastro{
+	width: 100%;
+	max-width: 900px;
+	border-radius: 5px;
+	border: 1px solid $cinza-site;
+	background: $branco-padrao;
+	padding: 20px 20px 80px 20px;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	animation-name: transicao;
+	animation-duration: .4s;
+	animation-timing-function: cubic-bezier();
+	@include margem-padrao;
+	&:nth-child(2){
+		animation-name: none;
+	}
+
+	header.cadastro-titulo{
+		width: 100%;
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		justify-content: center;
+		@include margem-padrao-base;
+	}
+
+	header.cadastro-titulo div.icones{
+		width: 100%;
+		@include margem-padrao-formulario;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	header.cadastro-titulo div.icones i.icone-formulario{
+		font-size: 1.5em;
+		color: lighten($cinza-icones, 10);
+		margin: 0 10px;
+	}
+
+	header.cadastro-titulo div.icones i.icone-formulario.ativo{
+		color: $cinza-icones;
+	}
+
+	header.cadastro-titulo div.icones i.icone-formulario.inativo{
+		color: lighten($cinza-icones, 20);
+	}
+
+	header.cadastro-titulo h1.titulo{
+		color: $cinza-icones;
+		font-weight: bold;
+		font-size: 1.5em;
+		text-transform: uppercase;
+	}
+
+	.bloco-unico-formulario,
+	.bloco-terco-formulario,
+	.bloco-quarto-formulario,
+	.bloco-quinto-formulario,
+	.bloco-meio-formulario,
+	.pos-span{
+		position: relative;
+		width: 100%;
+		@include margem-padrao-formulario;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: flex-start;
+		align-content: flex-start;
+		span{
+			position: absolute;
+			bottom: -20px;
+			left: 5px;
+			width: 100%;
+			font-size: .8em;
+			color: $cinza-site;
+		}
+	}
+
+	.checkbox_overflow{
+		max-height: 330px;
+		overflow-y: auto;
+	}
+
+	.checkbox_overflow::-webkit-scrollbar{
+		width: 3px;
+	}
+
+	.checkbox_overflow::-webkit-scrollbar-thumb{
+		background: $cinza-icones;
+	}
+
+	.checkbox_overflow::-webkit-scrollbar-track{
+		background: #eee;
+	}
+
+	.bloco-unico-formulario{
+		width: 100%;
+		&:last-child{
+			@include margem-padrao;
+		}
+	}
+
+	.bloco-quinto-formulario{
+		width: calc((100% / 5) - 10px);
+	}
+
+	.bloco-terco-formulario{
+		width: calc((100% / 3) - 10px);
+	}
+
+	.bloco-meio-formulario{
+		width: calc((100% / 2) - 10px);
+	}
+
+	.bloco-quarto-formulario{
+		width: calc((100% / 4) - 10px);
+	}
+
+	.wrapperMap{
+		height:225px;
+		width:400px;
+	}
+
+	input.input-padrao,
+	textarea.input-padrao{
+		position: relative;
+		width: 100%;
+		max-height: 40px;
+		padding: 5px;
+		background: $branco-padrao;
+		color: $preto-padrao;
+		font-size: 1.2em;
+		padding-left: 10px;
+		border-radius: 5px;
+		border: 1px solid $cinza-site;
+		@include sombra-inputs;
+		@include margem-padrao-formulario;
+		&::placeholder{
+			color: $cinza-site;
+			}
+	}
+
+	textarea.input-padrao{
+		max-height: 200px;
+		min-height: 200px;
+	}
+
+	select.select-padrao{
+		width: 100%;
+		color: $preto-padrao;
+		font-size: 1.2em;
+		padding-left: 10px;
+		border: 1px solid $cinza-site;
+		@include sombra-inputs;
+		position: relative;
+		background-image: url('/sheephaus/public/images/icones/seta_select.png');
+		background-repeat: no-repeat;
+		background-position: right;
+	}
+
+	label.label-texto{
+		padding-top: 10px;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		font-size: 1em;
+		color: $cinza-icones;
+		font-weight: bold;
+	}
+
+	input.input-data{
+		width: 100%;
+		padding: 5px;
+		color: $preto-padrao;
+		font-size: 1.2em;
+		padding-left: 10px;
+		border-radius: 5px;
+		border: 1px solid $cinza-site;
+		@include sombra-inputs;
+		margin-top: 10px;
+		&::placeholder{
+			color: $cinza-site;
+			}
+		&::-webkit-clear-button,
+		&::-webkit-calendar-picker-indicator{
+			display: none;
+		}
+	}
+
+	label.label-radio-button,
+	label.label-check-button{
+		width: 100%;
+		font-size: 1em;
+		font-weight: bold;
+		color: $cinza-icones;
+		display: flex;
+		text-transform: uppercase;
+		align-items: center;
+		cursor: pointer;
+		padding-left: 20px;
+		margin: 5px 0;
+	}
+
+	label.label-radio-button input[type='radio'],
+	label.label-check-button input[type='checkbox']{
+		position: relative;
+		margin-right: 10px;
+		&::before{
+			content: "";
+			display: block;
+			border-radius: 100%;
+			border: 1px solid $cinza-icones;
+			width: 26px;
+			height: 26px;
+			padding: 2px;
+		}
+		&:checked::after{
+			content: "";
+			display: block;
+			position: absolute;
+			top: 4px;
+			left: 4px;
+			border-radius: 100%;
+			width: 23px;
+			height: 23px;
+			background: $cinza-icones;
+		}
+	}
+
+	button.botao-formulario-padrao,
+	a.botao-formulario-padrao{
+		align-self: flex-end;
+		@include padrao-proximo;
+		&:first-child{
+			background: $cinza-icones;
+		}
+	}
+
+	iframe{
+		width: 100%;
+		max-height: 280px;
+		border: 2px solid $cinza-icones;
+	}
+
+	.formulario-concluido{
+		max-width: 400px;
+		margin: 0 auto;
+	}
+	.formulario-concluido header.cadastro-titulo{
+		text-align: center;
+	}
+
+	.formulario-concluido header.cadastro-titulo div.icones i.icone-formulario-concluido{
+		font-size: 3em;
+	}
+
+	.formulario-concluido header.cadastro-titulo h1.titulo{
+		margin: 10px 0;
+	}
+
+	.formulario-concluido .bloco-unico-formulario:last-child{
+		justify-content: center;
+	}
+}
+/*-- FINAL PADROES FORMULARIOS --*/
+
+/*-- BLOCO CADASTRO CLIENTE --*/
+
+section.bloco--cadastro-cliente{
+	width: 100%;
+	@include padding-bloco;
+
+	.centralizar{
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		justify-content: center;
+	}
+
+	header.titulo--padrao h1.titulo{
+		color: $vermelho-site;
+	}
+
+	button.botao-formulario-padrao.cadastro{
+		margin-left: calc(100% - 100px);
+		background: $verde-site;
+	}
+
+	select.select-padrao{
+		@include margem-padrao-topo;
+	}
+
+	label.foto-carta{
+		width: 100%;
+		height: 100%;
+		position: relative;
+		cursor: pointer;
+	}
+
+
+	.authorization{
+		display:none;
+	}
+
+	label.foto-carta input[type="file"]{
+		display: none;
+	}
+
+	label.foto-carta figure.imovel-bg,
+	figure.anuncio-bg{
+		position: relative;
+		width: 100%;
+		height: 240px;
+		margin-bottom: 10px;
+		background-image:url("https://via.placeholder.com/150");
+		@include padrao-bg-user;
+		border: 1px solid $cinza-icones;
+		&:after{
+			content: "";
+			display: block;
+			position: absolute;
+			border: 2px solid $branco-padrao;
+			width: calc(100% - 4px);
+			height: calc(100% - 4px);
+		}
+	}
+
+	label.foto-carta input[type="text"]{
+		width: 80%;
+		pointer-events: none;
+	}
+
+	label.foto-carta i.icone-formulario{
+		width: 20%;
+		margin-left: 10px;
+	}
+
+	div.publico{
+		width: 80%;
+		max-width: 300px;
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	div.publico p.texto{
+		font-size: 0.9em;
+		color: $cinza-icones;
+		font-weight: bold;
+	}
+
+	div.publico label.label-radio-button{
+		width: calc(50% - 10px);
+	}
+
+	button.botao-formulario-padrao.morador{
+		background: $verde-site;
+		position: absolute;
+		right: 0;
+	}
+
+	section.formulario--cadastro.adm .bloco-terco-formulario{
+		height: 100%;
+	}
+
+	section.formulario--cadastro.adm .bloco-terco-formulario.escolha{
+		padding: 20px 0;
+		border: 1px solid rgba(0,0,0,0);
+		&:hover{
+			border: 1px solid $cinza-icones;
+			cursor: pointer;
+			padding: 20px 0;
+		}
+	}
+
+	section.formulario--cadastro.adm .bloco-terco-formulario figure{
+		width: 100%;
+		text-align: center;
+	}
+
+	section.formulario--cadastro.adm .bloco-terco-formulario figure i{
+		font-size: 3em;
+		@include margem-padrao;
+	}
+
+	section.formulario--cadastro.adm .bloco-terco-formulario p.texto.escolha{
+		font-size: 1em;
+		color: #8a94aa;
+		font-weight: bold;
+		width: 100%;
+		text-align: center;
+	}
+
+	p.termo{
+		padding: 10px;
+		background: $preto-padrao;
+		color: $branco-padrao;
+		margin: 0px auto 10px auto;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+	label.label-check-button.termo{
+		font-weight: normal;
+		font-size: 0.8em;
+		margin: 5px auto;
+		max-width: 200px;
+	}
+}
+
+/*-- FINAL BLOCO CADASTRO CLIENTE --*/
+/*-- BLOCO CADASTRO GERAL --*/
+
+section.bloco--cadastro-imovel,
+section.bloco--cadastro-republica,
+section.bloco--cadastro-anuncio,
+section.bloco--cadastro-vaga{
+	width: 100%;
+	@include padding-bloco;
+
+	.centralizar{
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		justify-content: center;
+	}
+
+	.localizacao{
+		flex-direction: column;
+	}
+
+	label.label-texto{
+		margin-top: 20px;
+	}
+
+	header.titulo--padrao h1.titulo{
+		color: $vermelho-site;
+	}
+
+	button.botao-formulario-padrao.cadastro{
+		margin-left: calc(100% - 100px);
+	}
+
+	label.foto-imovel{
+		width: 100%;
+		position: relative;
+		cursor: pointer;
+	}
+
+	label.foto-imovel input[type="file"]{
+		display: none;
+	}
+
+	label.foto-imovel figure.imovel-bg,
+	figure.pre-visualizacao{
+		position: relative;
+		width: 100%;
+		height: 240px;
+		margin-bottom: 10px;
+		background-image:url("https://via.placeholder.com/150");
+		@include padrao-bg-user;
+		border: 1px solid $cinza-icones;
+		&:after{
+			content: "";
+			display: block;
+			position: absolute;
+			border: 2px solid $branco-padrao;
+			width: calc(100% - 4px);
+			height: calc(100% - 4px);
+		}
+	}
+
+	figure.pre-visualizacao{
+		height: 150px;
+		max-width: 250px;
+		margin: 0 auto;
+	}
+
+	label.foto-imovel input[type="text"]{
+		width: 90%;
+		pointer-events: none;
+	}
+
+	label.foto-imovel ul.imovel-foto-lista{
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+
+	label.foto-imovel ul.imovel-foto-lista li.imovel-foto-item{
+		width: calc((100% / 4) - 10px);
+		height: 180px;
+		padding: 2px;
+		border: 1px solid $cinza-icones;
+		position: relative;
+		margin-top: 10px;
+	}
+
+	label.foto-imovel ul.imovel-foto-lista li.imovel-foto-item img{
+		width: 100%;
+		height: 100%;
+	}
+
+	label.foto-imovel ul.imovel-foto-lista li.imovel-foto-item a{
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		background: $vermelho-site;
+		color: $branco-padrao;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 3px 5px;
+	}
+
+	label.foto-imovel i.icone-formulario{
+		width: 10%;
+		margin-left: 10px;
+	}
+
+	label.foto-imovel i.icone-formulario .pasta{
+		font-size: 2em;
+		color: $cinza-icones;
+	}
+
+	div.contas-adicionar,
+	div.contas-remover{
+		width: 100%;
+		display: flex;
+		align-items: center;
+		@include margem-padrao-formulario;
+	}
+
+	div.contas-adicionar{
+		cursor: pointer;
+		@include margem-padrao-topo;
+	}
+
+	div.contas-remover{
+		justify-content: space-between;
+	}
+
+	div.contas-adicionar i.bt-adicionar,
+	div.contas-remover i.bt-remover{
+		@include botao-adicionar;
+	}
+
+	div.contas-adicionar p.texto
+	div.contas-remover p.texto{
+		display: flex;
+		align-items: center;
+	}
+
+	ul.formulario-contas-lista{
+		width: 100%;
+		overflow-y: auto;
+		min-height: 253px;
+		max-height: 253px;
+		border-radius: 5px;
+		border: 1px solid $cinza-icones;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		align-content: flex-start;
+		@include sombra-inputs;
+	}
+
+	ul.formulario-contas-lista li.contas-item{
+		width: 100%;
+		color: $cinza-icones;
+		font-size: 0.9em;
+		font-weight: bold;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-left: 10px;
+		border-bottom: 1px solid $cinza-icones;
+	}
+}
+
+/*-- FINAL BLOCO CADASTRO GERAL --*/
+
+/*------------- VARIAÇÕES DO CADASTRO -----------------*/
+
+/*-- ANUNCIO ---*/
+
+.bloco--cadastro-anuncio .formulario--cadastro{
+	padding: 20px 80px;
+}
+
+.bloco--cadastro-anuncio .formulario--cadastro .bloco-meio-formulario{
+	width: calc(50% - 80px);
+}
+
+.bloco--cadastro-anuncio .formulario--cadastro .bloco-unico-formulario p.texto,
+.bloco--cadastro-anuncio .formulario--cadastro .bloco-meio-formulario p.texto,
+.bloco--cadastro-anuncio .formulario--cadastro .bloco-terco-formulario p.texto{
+	width: 100%;
+	font-weight: bold;
+	color: $cinza-icones;
+	text-align: center;
+	@include margem-padrao-base;
+}
+
+.bloco--cadastro-anuncio .formulario--cadastro .bloco-meio-formulario p.texto,
+.bloco--cadastro-anuncio .formulario--cadastro .bloco-terco-formulario p.texto{
+	text-align: left;
+}
+
+.bloco--cadastro-anuncio .formulario--cadastro .bloco-terco-formulario p.texto_cor{
+	margin-bottom: 0;
+	margin-top: 20px;
+}
+
+.bloco--cadastro-anuncio .formulario--cadastro .bloco-terco-formulario .escolha_cores{
+	display: flex;
+	justify-content: flex-start;
+}
+
+.bloco--cadastro-anuncio section.formulario--cadastro label.label-radio-button{
+	width: calc(100% / 5);
+	color: #8a94aa;
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+}
+
+.bloco--cadastro-anuncio section.formulario--cadastro label.label-radio-button input{
+	&::before{
+		border-radius: 2px
+	}
+}
+
+.bloco--cadastro-anuncio section.formulario--cadastro label.label-radio-button input:checked{
+	&::after{
+		content: "";
+	    display: block;
+	    position: absolute;
+	    top: 0px;
+	    left: 0px;
+	    border-radius: 2px;
+		border: 2px solid $verde-site;
+	    width: 90%;
+	    height: 93%;
+	    background: none;
+	}
+}
+
+/*-- IMVÓEL --*/
+
+/*-- REPÚBLICA --*/
+
+/*-- VAGA --*/
+
+.label-vaga{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.label-vaga div.entrada,
+.label-vaga div.saida{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	p.texto-data{
+		align-items: center;
+		display: flex;
+		justify-content: flex-end;
+		width: 100%;
+	}
+}
+
+.label-vaga p.texto-data i{
+	width: 30px;
+	font-size: 1.4em;
+	font-weight: bold;
+	margin: 0 15px;
+}
+
+.label-vaga p.texto-data .input-padrao{
+	max-width: 250px;
+}
+
+.bloco--cadastro-vaga .input-padrao.vaga-valor{
+	width: 80%;
+}
+
+i.vaga-icone{
+	width: 20%;
+	text-align: center;
+	max-height: 40px;
+	font-size: 2em;
+	color: $cinza-icones;
+}
+
+.bloco--cadastro-vaga section.formulario--cadastro .bloco-meio-formulario{
+	align-content: center;
+}
+
+.bloco--cadastro-vaga section.formulario--cadastro .bloco-terco-formulario.escolha{
+	padding: 20px 0;
+	border: 1px solid rgba(0,0,0,0);
+	&:hover{
+		border: 1px solid $cinza-icones;
+		cursor: pointer;
+		padding: 20px 0;
+	}
+}
+
+.bloco--cadastro-vaga section.formulario--cadastro .bloco-terco-formulario figure{
+	width: 100%;
+	text-align: center;
+}
+
+.bloco--cadastro-vaga section.formulario--cadastro .bloco-terco-formulario figure i{
+	font-size: 3em;
+	@include margem-padrao;
+}
+
+.bloco--cadastro-vaga section.formulario--cadastro .bloco-terco-formulario p.texto.escolha{
+	font-size: 1em;
+	color: #8a94aa;
+	font-weight: bold;
+	width: 100%;
+	text-align: center;
+}
+
+/*--------------- FINAL VARIAÇÕES DO CADASTRO ------------*/
+
+/*--------------- ADM GERAL ------------*/
+
+.bloco-adm{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+header.adm-breadcrumb{
+	width: 100%;
+	@include margem-padrao;
+}
+
+section.adm-primeiro-bloco,
+section.adm-segundo-bloco,
+section.adm-terceiro-bloco,
+section.adm-dobro-bloco,
+section.adm-unico-bloco{
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+}
+
+section.adm-primeiro-bloco.detalhe{
+	width: calc(60% - 20px);
+	@include margem-padrao-base;
+}
+
+section.adm-segundo-bloco.detalhe{
+	width: calc(40% - 20px);
+}
+
+section.adm-unico-bloco{
+	width: 100%
+}
+
+section.adm-primeiro-bloco{
+	width: calc(55% - 20px);
+}
+
+section.adm-segundo-bloco,
+section.adm-terceiro-bloco{
+	width: calc(22.5% - 20px);
+}
+
+section.adm-dobro-bloco{
+    width: calc(77.5% - 20px);
+}
+
+section.formulario--cadastro.adm{
+	padding: 0;
+	border: none;
+	box-shadow: none;
+}
+
+a.adicionar,
+a.remover{
+	display: flex;
+}
+
+a.adicionar i.icone,
+a.remover i.icone{
+	@include botao-adicionar;
+}
+
+a.adicionar span,
+a.remover span{
+	@include botao-padrao;
+	font-size: 0.8em;
+	font-weight: bold;
+	padding: 0 15px;
+	display: flex;
+	align-items: center;
+}
+
+ul.lista{
+	width: 100%;
+	@include margem-padrao;
+}
+
+ul.lista li.item-lista{
+	border: 1px solid $cinza-icones;
+	display: flex;
+	width: 100%;
+	padding: 5px;
+	justify-content: space-between;
+}
+
+ul.lista li.item-lista p.texto{
+	width: 90%;
+}
+
+ul.lista li.item-lista i.icone{
+	width: 10%;
+}
+
+@media screen and (max-width: 1150px){
+	section.adm-primeiro-bloco,
+	section.adm-segundo-bloco{
+		width: calc(50% - 10px);
+	}
+
+	section.adm-terceiro-bloco{
+		@include margem-padrao-topo;
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 850px){
+	section.adm-terceiro-bloco,
+	section.adm-primeiro-bloco,
+	section.adm-segundo-bloco{
+		width: 100%;
+	}
+}
+
+/*--------------- FINAL ADM GERAL ------------*/
+
+/*--------------- BLOCO ADM SERVICOS ------------*/
+
+section.servicos{
+	display: flex;
+	flex-wrap: wrap;
+	background: $branco-padrao;
+	padding: 10px;
+
+	header.titulo-servicos{
+		width: 100%;
+		display: flex;
+		@include margem-padrao;
+	}
+
+	header.titulo-servicos i.icone-servicos{
+		width: 10%;
+		text-align: center;
+	}
+
+	header.titulo-servicos h1.titulo{
+		text-align: center;
+		width: 90%;
+		font-size: 1.2em;
+		font-weight: bold;
+		text-align: center;
+		color: $cinza-icones;
+	}
+
+	ul.lista-servicos{
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+	}
+
+	ul.lista-servicos li.servicos-item{
+		width: 100%;
+		height: 100px;
+		@include margem-padrao-base;
+		position: relative;
+	}
+
+	ul.lista-servicos li.servicos-item a.link-servicos{
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	ul.lista-servicos li.servicos-item a.link-servicos figure.baner-servicos{
+		position: relative;
+		width: 100%;
+		height: 100%;
+		@include padrao-bg-user;
+		background-image: url('/sheephaus/public/images/baners/baner_home.jpg');
+	}
+
+	div.links{
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	div.links a{
+		&:first-child{
+			@include botao-padrao;
+			padding: 3px 6px;
+			font-size: 0.8em;
+			font-weight: bold;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		&:last-child{
+			@include botao-padrao($vermelho-site);
+			padding: 3px 6px;
+			font-size: 0.8em;
+			font-weight: bold;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+}
+
+@media screen and (max-width: 1150px){
+	section.servicos{
+		width: 100%;
+	}
+	section.servicos ul.lista-servicos{
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	section.servicos ul.lista-servicos li.servicos-item{
+		width: calc((100% / 4) - 10px);
+	}
+}
+
+@media screen and (max-width: 850px){
+	section.servicos ul.lista-servicos li.servicos-item{
+		width: calc((100% / 2) - 10px);
+	}
+}
+
+@media screen and (max-width: 500px){
+	section.servicos ul.lista-servicos li.servicos-item{
+		width: 100%;
+	}
+}
+
+/*--------------- FINAL BLOCO ADM SERVICOS ------------*/
+
+/*--------------- BLOCO ADM MINI_MENSAGENS ------------*/
+
+section.mensagens{
+	display: flex;
+	flex-wrap: wrap;
+	background: $branco-padrao;
+	padding: 10px;
+
+	header.titulo-mensagens{
+		width: 100%;
+		display: flex;
+		@include margem-padrao-topo;
+		border-bottom: 1px solid $cinza-site;
+	}
+
+	header.titulo-mensagens i.icone-servicos{
+		width: 10%;
+		text-align: center;
+	}
+
+	header.titulo-mensagens h1.titulo{
+		text-align: center;
+		width: 90%;
+		font-size: 1.2em;
+		font-weight: bold;
+		text-align: center;
+		color: $cinza-icones;
+	}
+
+	ul.lista-mensagens{
+		width: 100%;
+		height: 280px;
+		overflow-y: auto;
+		display: flex;
+		flex-wrap: wrap;
+		align-content: flex-start;
+		border-bottom: 1px solid $cinza-site;
+		@include margem-padrao;
+		padding: 5px 10px;
+	}
+
+	ul.lista-mensagens li.mensagens-item{
+		width: 100%;
+		height: 120px;
+		@include margem-padrao-base;
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		border: 1px solid $cinza-icones;
+		border-radius: 5px;
+		position: relative;
+		a{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			padding: 5px;
+		}
+	}
+
+	ul.lista-mensagens li.mensagens-item header.item-titulo{
+		width: 100%;
+		margin-bottom: 10px;
+	}
+
+	ul.lista-mensagens li.mensagens-item header.item-titulo h3.titulo-nome{
+		font-size: 0.8em;
+		font-weight: bold;
+		color: $cinza-icones
+	}
+
+	ul.lista-mensagens li.mensagens-item p.texto{
+		font-size: 0.8em;
+		height: 4.5em;
+		overflow: hidden;
+		margin-bottom: 10px;
+	}
+
+	ul.lista-mensagens li.mensagens-item footer.item-rodape{
+		font-size: 0.8em;
+		width: 100%;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	ul.lista-mensagens li.mensagens-item footer.item-rodape p.item-data,
+	ul.lista-mensagens li.mensagens-item footer.item-rodape p.item-hora{
+		font-size: 0.7em;
+		margin-left: 15px;
+	}
+
+	div.links{
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	div.links a i{
+		font-size: 2em;
+		margin: 5px 0;
+		text-align: center;
+	}
+
+	div.links a:first-child p{
+		@include botao-padrao-borda;
+		border: 1px solid $azul-site;
+		color: $azul-site;
+		padding: 3px 6px;
+		font-size: 0.8em;
+		font-weight: bold;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	div.links a:last-child p{
+		@include botao-padrao-borda;
+		border: 1px solid $vermelho-site;
+		color: $vermelho-site;
+		padding: 3px 6px;
+		font-size: 0.8em;
+		font-weight: bold;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	div.links a{
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+	}
+}
+
+section.anunciar-vaga{
+	width: 100%;
+	height: 50px;
+	max-width: 200px;
+	background: $vermelho-site;
+	border-radius: 10px;
+	position: relative;
+	margin: 20px auto;
+	align-items: center;
+
+	a.bt-anunciar{
+		display: flex;
+		font-size: 1.2em;
+		font-weight: bold;
+		color: $branco-padrao;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		justify-content: space-around;
+		align-items: center;
+	}
+}
+
+section.mensagens.membros,
+section.mensagens.contas{
+	width: 100%;
+	padding: 10px;
+	background: $branco-padrao;
+
+	header.titulo-mensagens{
+		border-bottom: none;
+	}
+
+	header.titulo-mensagens h1.titulo{
+		width: 100%;
+		font-size: 1em;
+	}
+}
+
+section.mensagens.membros{
+	ul.lista-mensagens{
+		width: 100%;
+		height: auto;
+		overflow-y: hidden;
+		display: flex;
+		flex-wrap: wrap;
+		align-content: flex-start;
+		border-bottom: 1px solid $cinza-site;
+		@include margem-padrao;
+		padding: 5px 10px;
+	}
+
+	ul.lista-mensagens li.mensagens-item{
+		width: 100%;
+		height: auto;
+		padding-left: 5px;
+		@include margem-padrao-base;
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		border: 1px solid $cinza-icones;
+		border-radius: 5px;
+		position: relative;
+		font-size: 0.8em;
+		align-items: center;
+		a{
+			position: relative;
+			width: auto;
+			height: auto;
+		}
+	}
+
+	footer.mensagem-nova{
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+	}
+
+	footer.mensagem-nova a{
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+	}
+
+	footer.mensagem-nova a p.texto{
+		border: 1px solid $azul-site;
+		padding: 5px 10px;
+		font-size: 0.8em;
+		font-weight: bold;
+		@include botao-padrao($branco-padrao, $azul-site);
+	}
+}
+
+section.mensagens.contas{
+	@include margem-padrao;
+
+	div.contas{
+		width: 100%;
+		display: flex;
+		@include margem-padrao;
+		justify-content: space-between;
+	}
+	div.contas ul.lista-contas{
+		width: 50%;
+		height: auto;
+		overflow-y: hidden;
+		display: flex;
+		flex-wrap: wrap;
+		align-content: flex-start;
+		border-bottom: 1px solid $cinza-site;
+		padding: 5px 10px;
+	}
+
+	div.contas ul.lista-contas li.contas-item{
+		width: 100%;
+		height: auto;
+		padding-left: 5px;
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		position: relative;
+		font-size: 0.8em;
+		align-items: center;
+		margin: 5px 0;
+		&:first-child{
+			margin-bottom: 10px;
+			justify-content: center;
+		}
+	}
+
+	footer.mensagem-nova{
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+	}
+
+	footer.mensagem-nova a{
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+	}
+
+	footer.mensagem-nova a p.texto{
+		border: 1px solid $vermelho-site;
+		padding: 5px 10px;
+		font-size: 0.8em;
+		font-weight: bold;
+		@include botao-padrao($branco-padrao, $vermelho-site);
+	}
+}
+
+@media screen and (max-width: 1150px){
+	section.mensagens{
+		width: 100%;
+	}
+}
+
+/*--------------- FINAL BLOCO ADM MINI_MENSAGENS ------------*/
+
+/*---------------  BLOCO ADM MENSAGENS_GRANDE ------------*/
+.mensagens-grande{
+	@include padrao-bloco-adm;
+
+	header.titulo-mensagens{
+		width: 100%;
+		display: flex;
+		@include margem-padrao-topo;
+		border-bottom: 1px solid $cinza-icones;
+	}
+
+	header.titulo-mensagens i.icone-mensagens{
+		width: 10%;
+		text-align: center;
+	}
+
+	header.titulo-mensagens h1.titulo{
+		@include titulos-adm;
+		text-align: center;
+	}
+
+	ul.lista-mensagens{
+		width: 100%;
+		height: 540px;
+		overflow-y: auto;
+		display: flex;
+		flex-wrap: wrap;
+		align-content: flex-start;
+		border-bottom: 1px solid $cinza-site;
+		@include margem-padrao;
+		padding: 5px 10px;
+	}
+
+	ul.lista-mensagens li.mensagens-item{
+		width: 100%;
+		height: 135px;
+		@include margem-padrao-base;
+		position: relative;
+		display: flex;
+		flex-wrap: wrap;
+		border: 1px solid $cinza-icones;
+		border-radius: 5px;
+		position: relative;
+		a{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			padding: 5px;
+		}
+	}
+
+	ul.lista-mensagens li.mensagens-item header.item-titulo{
+		width: 100%;
+		margin-bottom: 10px;
+	}
+
+	ul.lista-mensagens li.mensagens-item header.item-titulo h3.titulo-nome{
+		font-size: 0.9em;
+		font-weight: bold;
+		color: $cinza-icones
+	}
+
+	ul.lista-mensagens li.mensagens-item p.texto{
+		font-size: 0.9em;
+		height: 4.8em;
+		overflow: hidden;
+		margin-bottom: 10px;
+	}
+
+	ul.lista-mensagens li.mensagens-item footer.item-rodape{
+		font-size: 0.9em;
+		width: 100%;
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	ul.lista-mensagens li.mensagens-item footer.item-rodape p.item-data,
+	ul.lista-mensagens li.mensagens-item footer.item-rodape p.item-hora{
+		font-size: 0.8em;
+		margin-left: 15px;
+	}
+}
+
+/*--------------- FINAL BLOCO ADM MENSAGENS_GRANDE ------------*/
+
+/*--------------- BLOCO ADM CONTAS PENDENTES ------------*/
+
+.contas-pendentes{
+	@include padrao-bloco-adm;
+
+	header.titulo-contas{
+		width: 100%;
+		display: flex;
+		@include margem-padrao-topo;
+	}
+
+	header.titulo-contas i.icone-contas{
+		width: 10%;
+		text-align: center;
+	}
+
+	header.titulo-contas h1.titulo{
+		@include titulos-adm;
+		text-align: center;
+	}
+
+	div.lista-contas{
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		@include margem-padrao;
+		justify-content: space-between;
+	}
+	div.lista-contas header{
+		width: 100%;
+	}
+	div.lista-contas header h3.titulo{
+		@include titulos-adm;
+		font-size: 1em;
+	}
+	div.lista-contas ul.lista-contas{
+		width: calc(100% / 3);
+		height: auto;
+		overflow-y: hidden;
+		display: flex;
+		flex-wrap: wrap;
+		align-content: flex-start;
+		padding: 5px 10px;
+	}
+
+	div.lista-contas ul.lista-contas li.contas-item{
+		width: 100%;
+		height: auto;
+		padding-left: 5px;
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		position: relative;
+		font-size: 0.8em;
+		align-items: center;
+		margin: 5px 0;
+	}
+}
+
+/*--------------- FINAL BLOCO ADM CONTAS PENDENTES ------------*/
+
+/*--------------- BLOCO ADM CONTAS ADICIONAR ------------*/
+
+.contas-adicionar{
+	@include padrao-bloco-adm;
+	min-height: auto;
+
+	header.titulo-contas{
+		width: 100%;
+		display: flex;
+		@include margem-padrao-topo;
+	}
+
+	header.titulo-contas i.icone-contas{
+		width: 10%;
+		text-align: center;
+	}
+
+	header.titulo-contas h1.titulo{
+		@include titulos-adm;
+		text-align: center;
+	}
+
+	form{
+		display: flex;
+		justify-content: space-between;
+		@include margem-padrao;
+
+	form section.formulario--cadastro{
+		animation: none;
+		width: calc(50% - 10px);
+		border: 0;
+		margin: 0;
+		padding: 0;
+	}
+
+	form section.formulario--cadastro label.label-radio-button,
+	form section.formulario--cadastro label.label-check-button{
+		padding: 0;
+	}
+
+	form section.formulario--cadastro label.label-radio-button.tipo{
+		width: 50%;
+	}
+
+	form section.formulario--cadastro .bloco-unico-formulario:last-child{
+	justify-content: center;
+	}
+}
+
+/*--------------- FINAL BLOCO ADM CONTAS ADICIONAR ------------*/
+
+/*--------------- BLOCO ADM VAGAS ------------*/
+
+.adm-vagas{
+	@include padrao-bloco-adm;
+	justify-content: center;
+
+	header.titulo-contas{
+		width: 100%;
+		display: flex;
+		@include margem-padrao-base;
+	}
+
+	header.titulo-contas h1.titulo{
+		@include titulos-adm;
+		text-align: center;
+	}
+
+	section.adm-imovel{
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	section.adm-imovel div.imovel{
+		width: calc(50% - 20px);
+		display: flex;
+		flex-wrap: wrap;
+		align-content: flex-start;
+		justify-content: center;
+	}
+
+	section.adm-imovel div.imovel header{
+		width: 100%
+	}
+
+	section.adm-imovel div.imovel header figure{
+		height: 200px;
+		@include padrao-bg-user;
+		@include margem-padrao-base;
+	}
+
+	section.adm-imovel div.imovel header h1.titulo{
+		@include titulos-adm;
+		text-align: center;
+		padding: 0 10px;
+	}
+	section.adm-imovel div.imovel p.texto{
+		width: 100%;
+		font-size: 1em;
+		text-align: center;
+		padding: 0 10px;
+		@include margem-padrao-formulario;
+	}
+
+	section.adm-imovel div.info{
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+		@include margem-padrao-base;
+	}
+
+	section.adm-imovel div.info p.valor,
+	section.adm-imovel div.info p.metragem,
+	section.adm-imovel div.info p.vagas{
+		color: $cinza-icones;
+		font-weight: bold;
+		font-size: 0.9em;
+	}
+
+	section.adm-imovel div.imovel a.link{
+		border-radius: 5px;
+		font-size: .8em;
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: $cinza-icones;
+		color: $branco-padrao;
+		width: 100%;
+		max-width: 100px;
+		height: 35px;
+		font-weight: bold;
+	}
+
+	section.adm-imovel div.imovel a.link.destacar{
+		border: 1px solid $azul-site;
+		max-width: 200px;
+		color: $azul-site;
+		background: $branco-padrao;
+		@include margem-padrao-formulario;
+	}
+
+	section.adm-imovel div.imovel a.link.destacar i {
+		margin-left: 10px;
+	}
+
+	section.adm-imovel div.imovel div.links{
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+
+
+}
+/*--------------- FINAL BLOCO ADM SERVICOS ------------*/
+
+/*--------------- BLOCO ADM SERVICOS ------------*/
+
+.adm-servicos{
+	@include padrao-bloco-adm;
+	justify-content: center;
+	@include margem-padrao-topo;
+
+	header.titulo-contas{
+		width: 100%;
+		display: flex;
+		@include margem-padrao-base;
+	}
+
+	header.titulo-contas h1.titulo{
+		@include titulos-adm;
+		font-size: 1.2em;
+		text-align: center;
+	}
+
+	section.adm-tipo_servico{
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	section.adm-tipo_servico div.servico{
+		width: calc(50% - 20px);
+		display: flex;
+		flex-wrap: wrap;
+		align-content: flex-start;
+		justify-content: center;
+	}
+
+	section.adm-tipo_servico div.servico header{
+		width: 100%
+	}
+
+	section.adm-tipo_servico div.servico header figure{
+		height: 200px;
+		@include padrao-bg-user;
+		@include margem-padrao-base;
+	}
+
+	section.adm-tipo_servico div.servico a.link{
+		border-radius: 5px;
+		font-size: .8em;
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: $cinza-icones;
+		color: $branco-padrao;
+		width: 100%;
+		max-width: 100px;
+		height: 35px;
+		font-weight: bold;
+	}
+
+	section.adm-tipo_servico div.servico div.links{
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+
+
+}
+
+/*--------------- BLOCO ADM REPUBLICA / IMOVEL ------------*/
+
+.adm-republica,
+.adm-imovel{
+	@include padrao-bloco-adm;
+	justify-content: space-between;
+	display: flex;
+
+	section.mensagens.contas{
+		margin: 0;
+	}
+
+	section.mensagens.contas div.contas ul.lista-contas{
+		border: none;
+	}
+
+	section.mensagens.contas div.moradores{
+		width: 100%;
+	}
+
+	section.mensagens.contas div.moradores ul.lista-moradores{
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		@include margem-padrao;
+	}
+
+	section.mensagens.contas div.moradores ul.lista-moradores li.moradores-item{
+		padding: 5px;
+		border: 1px solid $cinza-site;
+		width: 100%;
+		margin: 5px 0;
+	}
+
+	div.preferencias{
+		max-width: 150px;
+		margin: 0 auto;
+	}
+
+	div.preferencias header{
+		width: 100%;
+	}
+
+	div.preferencias header h1.titulo{
+		@include titulos-adm;
+		font-size: 1em;
+		text-align: center;
+		width: 100%;
+		@include margem-padrao;
+	}
+
+	div.preferencias button.botao-formulario-padrao,
+	div.preferencias a.botao-formulario-padrao{
+		@include padrao-proximo;
+		background: $cinza-icones;
+		font-size: 0.9em;
+		margin: 5px auto;
+	}
+
+	section.mensagens.contas a.botao-formulario-padrao{
+		@include padrao-proximo;
+		background: $cinza-icones;
+		font-size: 0.9em;
+		margin: 5px auto;
+	}
+
+	header.adm-republica_topo{
+		width: 100%;
+		display: flex;
+		@include margem-padrao-base;
+	}
+
+	header.adm-republica_topo figure{
+		width: 40%;
+		height: 100px;
+		@include padrao-bg-user;
+	}
+
+	header.adm-republica_topo div.separador-texto{
+		width: 60%;
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	header.adm-republica_topo h1.titulo{
+		@include titulos-adm;
+		text-align: center;
+	}
+	header.adm-republica_topo h2.subtitulo{
+		font-size: 0.8em;
+	}
+}
+
+/*--------------- FINAL BLOCO ADM REPUBLICA/IMOVEL ------------*/
+
+/*--------------- BLOCO ADM MORADORES ------------*/
+
+.adm-moradores{
+	@include padrao-bloco-adm;
+	justify-content: space-between;
+	display: flex;
+	flex-wrap: wrap;
+
+	header.titulo-contas{
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		@include margem-padrao-base;
+	}
+
+	header.titulo-contas h1.titulo{
+		@include titulos-adm;
+		text-align: center;
+	}
+
+	section.bloco-meio header.adm-moradores_topo{
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		align-self: flex-start;
+		justify-content: center;
+	}
+	section.bloco-meio header.adm-moradores_topo figure{
+		height: 100px;
+		width: 100px;
+		align-self: center;
+		@include padrao-bg-user;
+	}
+	section.bloco-meio header.adm-moradores_topo div.separador-texto{
+		width: 100%;
+		@include margem-padrao-topo;
+		text-align: center;
+	}
+	section.bloco-meio header.adm-moradores_topo div.separador-texto h1.titulo{
+		@include titulos-adm;
+		font-size: 1em;
+	}
+
+	section.bloco-meio header.adm-moradores_topo div.separador-texto p.texto{
+		font-size: 1em;
+	}
+
+	section.formulario--cadastro.adm div.preferencias{
+		margin: 0 auto;
+	}
+
+	section.formulario--cadastro.adm a.remover{
+		margin: 20px auto 0 auto;
+	}
+
+}
+
+/*--------------- FINAL BLOCO ADM SMORADORES ------------*/
+
+/*--------------- BLOCO LISTA MORADORES ------------*/
+
+.bloco-lista-moradores{
+	@include padrao-bloco-adm;
+
+	header.titulo-moradores{
+		width: 100%;
+		display: flex;
+		@include margem-padrao-topo;
+	}
+
+    header.titulo-moradores h1.titulo{
+		@include titulos-adm;
+		text-align: center;
+	}
+
+	form.formulario-curso{
+		border-bottom: 1px solid $cinza-site;
+	}
+
+	.bloco-meio-formulario.completar{
+		width: calc(75% - 10px);
+
+		label.label-radio-button,
+		label.label-check-button{
+			width: 100%;
+			font-size: 0.8em;
+			font-weight: bold;
+			color: $cinza-icones;
+			display: flex;
+			text-transform: uppercase;
+			align-items: center;
+			cursor: pointer;
+			padding-left: 5px;
+			margin: 5px 0;
+		}
+
+		label.label-radio-button input[type='radio'],
+		label.label-check-button input[type='checkbox']{
+			position: relative;
+			margin-right: 5px;
+			&::before{
+				content: "";
+				display: block;
+				border-radius: 100%;
+				border: 1px solid $cinza-icones;
+				width: 15px;
+				height: 15px;
+				padding: 2px;
+			}
+			&:checked::after{
+				content: "";
+				display: block;
+				position: absolute;
+				top: 4px;
+				left: 4px;
+				border-radius: 100%;
+				width: 14px;
+				height: 13px;
+				background: $cinza-icones;
+			}
+		}
+	}
+
+	.lista-linha ul.lista-moradores{
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.lista-linha ul.lista-moradores li.item-moradores{
+		width: calc((100% / 3) - 20px);
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		@include margem-padrao;
+		padding: 10px;
+		background: $corpo-bg;
+	}
+
+	.lista-linha ul.lista-moradores li.item-moradores .formulario--cadastro{
+		background: $corpo-bg;
+	}
+
+	.lista-linha ul.lista-moradores li.item-moradores header.adm-moradores_topo{
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		align-self: flex-start;
+		justify-content: center;
+	}
+	.lista-linha ul.lista-moradores li.item-moradores header.adm-moradores_topo figure{
+		height: 100px;
+		width: 100px;
+		align-self: center;
+		@include padrao-bg-user;
+	}
+	.lista-linha ul.lista-moradores li.item-moradores header.adm-moradores_topo div.separador-texto{
+		width: 100%;
+		@include margem-padrao-topo;
+		text-align: center;
+	}
+	.lista-linha ul.lista-moradores li.item-moradores header.adm-moradores_topo div.separador-texto h1.titulo{
+		@include titulos-adm;
+		font-size: 1em;
+	}
+
+	.lista-linha ul.lista-moradores li.item-moradores header.adm-moradores_topo div.separador-texto p.texto{
+		font-size: 1em;
+	}
+
+	section.formulario--cadastro.adm div.preferencias{
+		margin: 0 auto;
+	}
+
+	section.formulario--cadastro.adm a.mensagem{
+		@include margem-padrao-topo;
+	}
+
+	section.formulario--cadastro.adm a.mensagem span{
+		border: 1px solid $azul-site;
+		padding: 5px 10px;
+		font-size: 0.8em;
+		font-weight: bold;
+		@include botao-padrao($branco-padrao,$azul-site);
+		margin-left: 10px;
+	}
+}
+
+/*--------------- FINAL BLOCO LISTA MORADORES ------------*/
+/*--------------- BLOCO LISTA SERVICOS ------------*/
+
+.bloco-lista-servicos{
+	@include padrao-bloco-adm;
+
+	header.titulo-servicos{
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+
+	header.titulo-servicos form{
+		display: flex;
+		justify-content: center;
+		max-width: 300px;
+	}
+
+	section.lista-linha{
+		width: 100%;
+		@include margem-padrao-topo;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	section.lista-linha ul.lista-servicos{
+		width: calc((100% / 3) - 20px);
+	}
+
+	section.lista-linha ul.lista-servicos.completo{
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		li.item-servicos.completo{
+			width: calc((100% / 3) - 20px);
+		}
+	}
+
+	section.lista-linha ul.lista-servicos li.item-servicos{
+		display: flex;
+		position: relative;
+		width: 100%;
+		height: 200px;
+		@include margem-padrao-topo;
+		justify-content: center;
+		&:first-child{
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	section.lista-linha ul.lista-servicos li.item-servicos h1.titulo{
+		@include titulos-adm;
+	}
+
+	section.lista-linha ul.lista-servicos li.item-servicos a{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+}
+
+/*--------------- FINAL BLOCO LISTA SERVICOS ------------*/
+
+/*--------------- BLOCO GALERIA VERTICAL ------------*/
+
+section.bloco-galeria-vertical{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	background: $branco-padrao;
+	padding: 10px;
+
+	div.tumbnails img,
+	div.foto-grande img{
+		width: 100%;
+		height: 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	div.foto-grande{
+		width: calc(75% - 10px);
+		height: 400px;
+		position: relative;
+	}
+
+	div.foto-grande a.item-foto{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+	}
+
+	div.tumbnails{
+		width: calc(25% - 10px);
+		display: flex;
+		flex-wrap: wrap;
+		height: 400px;
+	}
+
+	div.tumbnails ul{
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		height: 400px;
+		overflow: hidden;
+	}
+
+	div.tumbnails ul li{
+		width: 100%;
+		height: 90px;
+		position: relative;
+		margin: 8px 0 5px 0;
+		&:first-child{
+			margin-top: 0;
+		}
+		&:nth-child(4){
+			margin-bottom: 0;
+		}
+		&:nth-child(5){
+			margin-top: 0px;
+		}
+		&:nth-child(4):after{
+			content:attr(data-quantidade);
+			justify-content: center;
+			align-items: center;
+			font-size: 1.2em;
+			color: $azul-site;
+			font-weight:bold;
+			display: flex;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: rgba($cinza-site,0.4);
+		}
+	}
+
+	div.tumbnails a.item-foto{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+	}
+}
+
+/*--------------- FINAL BLOCO GALERIA VERTICAL ------------*/
+
+/*--------------- BLOCO GALERIA HORIZONTAL ------------*/
+
+section.bloco-galeria-horizontal{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	div.tumbnails img,
+	div.foto-grande img{
+		width: 100%;
+		height: 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	div.foto-grande{
+		width: calc(100%);
+		height: 300px;
+		position: relative;
+	}
+
+	div.foto-grande a.item-foto{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+	}
+
+	div.tumbnails{
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		@include margem-padrao-topo
+	}
+
+	div.tumbnails ul{
+		width: 100%;
+		height: 90px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		overflow: hidden;
+	}
+
+	div.tumbnails ul li{
+		width: calc((100% / 4) - 10px);
+		height: 90px;
+		position: relative;
+		&:first-child{
+			margin-top: 0;
+		}
+		&:nth-child(4){
+			margin-bottom: 0;
+		}
+		&:nth-child(5){
+			margin-top: 0px;
+		}
+		&:nth-child(4):after{
+			content:attr(data-quantidade);
+			justify-content: center;
+			align-items: center;
+			font-size: 1.2em;
+			color: $azul-site;
+			font-weight:bold;
+			display: flex;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: rgba($cinza-site,0.4);
+		}
+	}
+
+	div.tumbnails a.item-foto{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+	}
+}
+
+/*--------------- FINAL BLOCO GALERIA HORIZONTAL ------------*/
+
+/*--------------- BLOCO MAPA ------------*/
+
+section.mapa{
+	height:100%;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	position: relative;
+	&:hover a.link_mapa{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	iframe,
+	a.link_mapa{
+		width: 100%;
+		height: 400px;
+		top: 10px;
+		left: 10px;
+	}
+
+	a.link_mapa{
+		width: calc(100% - 20px);
+		height: calc(100% - 20px);
+		display: none;
+		position: absolute;
+		background: rgba($cinza-site,0.4);
+		animation-name: aparecer;
+		animation-duration: 0.3s;
+	}
+
+	a.link_mapa p.botao_link{
+		color: $branco-padrao;
+		background: $azul-site;
+		font-size: 1em;
+		font-weight: bold;
+		padding: 10px 20px;
+		border-radius: 5px;
+	}
+}
+
+/*--------------- FINAL BLOCO MAPA ------------*/
+
+/*--------------- BLOCO APRESENTACAO ------------*/
+
+section.apresentacao{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	background: $branco-padrao;
+	padding: 10px;
+
+	header.titulo-apresentacao{
+		width: 100%;
+		display: flex;
+		@include margem-padrao;
+	}
+
+	header.titulo-apresentacao h1.titulo,
+	p.titulo,
+	p.data_entrada{
+		text-align: center;
+		width: 90%;
+		font-size: 1.2em;
+		font-weight: bold;
+		text-align: center;
+		color: $cinza-icones;
+	}
+	p.titulo{
+		text-align: left;
+	}
+	p.despesas{
+		font-weight: bold;
+	}
+	p{
+		margin: 5px 0;
+	}
+}
+
+section.mensagem-nova{
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	@include margem-padrao-topo;
+
+	a{
+		width: 100%;
+		max-width: 180px;
+		display: flex;
+		justify-content: space-around;
+		@include botao-padrao($vermelho-site, $branco-padrao);
+	}
+
+	a p.texto{
+		padding: 5px 10px;
+		font-size: 1.2em;
+		font-weight: bold;
+	}
+}
+
+
+section.apresentacao.vaga{
+	background: none;
+	padding: 0;
+	margin-top: 40px;
+
+	p.titulo{
+		font-size: 2em;
+	}
+
+	p.texto.despesas{
+		width: 100%;
+		font-size: 1.5em;
+	}
+
+	p.texto.extras{
+		color: $cinza-icones;
+		span{
+			font-weight: bold;
+		}
+	}
+}
+
+/*--------------- FINAL BLOCO APRESENTACAO ------------*/
+
+/*--------------- BLOCO DESCRIÇÃO ------------*/
+
+section.descricao{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	background: $branco-padrao;
+	padding: 10px;
+
+	header.titulo-descricao{
+		width: 100%;
+		display: flex;
+		padding-left: 10px;
+		@include margem-padrao;
+	}
+
+	header.titulo-descricao h1.titulo{
+		text-align: center;
+		margin-left: 10px;
+		font-size: 1.2em;
+		font-weight: bold;
+		text-align: center;
+		color: $cinza-icones;
+	}
+
+	section.sobre-republica,
+	section.sobre-moradores,
+	section.sobre-quarto{
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	ul.lista-descricao{
+		width: 100%;
+		justify-content: space-between;
+		display: flex;
+		flex-wrap: wrap;
+		margin-left: 30px;
+	}
+
+	ul.lista-descricao li.item-descricao{
+		width: calc((100% / 3) - 10px);
+		margin: 10px 0;
+	}
+}
+
+section.descricao.vaga{
+	background: none;
+	padding: 0;
+	margin-top: 40px;
+	padding-top: 63px;
+
+	section.sobre-republica{
+		width: calc((100% / 3) - 10px);
+		display: flex;
+		flex-wrap: wrap;
+		align-content: flex-start;
+		header.titulo-descricao{
+			width: 100%;
+			display: flex;
+			padding-left: 0px;
+			margin: 0;
+		}
+		ul.lista-descricao{
+			margin-left: 0;
+		}
+		header.titulo-descricao h1.titulo{
+			text-align: center;
+			margin-left: 0px;
+			font-size: 1em;
+			font-weight: bold;
+			text-align: center;
+			color: $preto-padrao;
+		}
+		ul.lista-descricao li.item-descricao{
+			width: 100%;
+			margin: 2px 0;
+			font-weight: bold;
+		}
+	}
+	ul.lista-descricao li.item-descricao{
+		margin: 5px 0;
+	}
+}
+
+/*--------------- FINAL BLOCO DESCRIÇÃO ------------*/
+
+/*--------------- BLOCO RESET ------------*/
+
+div.reset-password{
+	width: 100%;
+	min-height: 398px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	div.card-header{
+		width: 100%;
+		@include margem-padrao;
+	}
+	div.card{
+		width: 100%;
+		max-width: 600px;
+	}
+	div.card-header h1.titulo{
+		@include titulos-adm;
+	}
+	div.card-body{
+		@include margem-padrao;
+		padding: 20px;
+		background: $branco-padrao;
+		border: 1px solid $cinza-icones;
+		border-radius: 5px;
+	}
+	div.card-body input.input-padrao{
+		position: relative;
+		width: 100%;
+		max-height: 40px;
+		padding: 5px;
+		background: $branco-padrao;
+		color: $preto-padrao;
+		font-size: 1.2em;
+		padding-left: 10px;
+		border-radius: 5px;
+		border: 1px solid $cinza-site;
+		@include sombra-inputs;
+		@include margem-padrao-formulario;
+		&::placeholder{
+			color: $cinza-site;
+			}
+	}
+
+	div.card-body button.botao-padrao{
+		@include botao-padrao($verde-site, $branco-padrao);
+		padding: 5px 20px;
+		font-weight: bold;
+	}
+
+}
+
+/*--------------- FINAL BLOCO RESET ------------*/
+
+/*--------------- BLOCO TERMO ------------*/
+
+section.bloco-termo-uso{
+	width: 100%;
+	max-width: 800px;
+	max-height: 700px;
+	background: $branco-padrao;
+	display: flex;
+	flex-wrap: wrap;
+	top: 30px;
+	left: calc(50% - 400px);
+	position: relative;
+	overflow-y: auto;
+	header.titulo-termo{
+		width: 100%;
+		@include margem-padrao-base;
+	}
+
+	header.titulo-termo figure{
+		width: 100%;
+		height: 150px;
+	}
+
+	header.titulo-termo figure img{
+		height: 100%;
+	}
+
+	header.titulo-termo h1.titulo{
+		@include titulos-adm;
+		text-align: center;
+		@include margem-padrao;
+	}
+
+	section.conteudo-termo{
+		width: 60%;
+		padding: 20px;
+		border: 1px solid $cinza-icones;
+		border-radius: 5px;
+		margin: 0 auto 20px auto;
+	}
+}
+
+/*--------------- FINAL BLOCO TERMO ------------*/
+
+/*--------------- BLOCO SOBRE ------------*/
+
+section.bloco-contato{
+	width: 100%;
+	min-height: 398px;
+	div.centralizar{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	div.apresentacao{
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		@include margem-padrao;
+		padding: 20px;
+		background: $corpo-bg;
+	}
+
+	div.apresentacao figure{
+		width: calc(40% - 10px);
+		height: 150px;
+	}
+
+	div.apresentacao figure img{
+		height: 100%;
+	}
+
+	div.apresentacao div.conteudo{
+		width: calc(60% - 10px);
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	div.apresentacao div.conteudo header{
+		width: 100%;
+	}
+	div.apresentacao div.conteudo header h1.titulo{
+		@include titulos-adm;
+		font-size: 3em;
+	}
+
+	div.valores{
+		display: flex;
+		justify-content: space-between;
+		padding: 20px 30px;
+		background: $branco-padrao;
+		@include margem-padrao;
+	}
+
+	div.valores  .bloco-terco{
+		text-align: center;
+	}
+
+	div.valores  .bloco-terco figure{
+		width: 100%;
+		height: 80px;
+	}
+
+	div.valores  .bloco-terco figure img{
+		height: 100%;
+	}
+
+	div.valores  .bloco-terco header{
+		width: 100%;
+		@include margem-padrao;
+	}
+	div.valores  .bloco-terco header h2.subtitulo{
+		@include titulos-adm;
+		font-size: 2em;
+	}
+
+	div.valores  .bloco-terco p.texto{
+		color: $cinza-site;
+	}
+
+	div.contato{
+		width: 100%;
+		@include margem-padrao-base;
+	}
+
+	div.contato p.texto{
+		width: 100%;
+	}
+
+	div.contato a.botao-padrao{
+		@include botao-padrao($azul-site, $branco-padrao);
+		width: 100%;
+		max-width: 250px;
+		font-weight: bold;
+		font-size: 1.5em;
+		margin: 0 auto;
+		text-align: center;
+		@include margem-padrao-topo;
+		i{
+			margin-right: 10px;
+		}
+	}
+}
+/*--------------- FINAL BLOCO SOBRE ------------*/
+
+/*--------------- BLOCO RESERVA / BUSCA ------------*/
+
+.reserva.vaga,
+.buscar.vaga{
+	width: 100%;
+	background: $branco-padrao;
+	padding: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	@include margem-padrao-base;
+
+	header{
+		width: 100%;
+		@include margem-padrao;
+	}
+
+	header h1.titulo{
+		font-size: 1.8em;
+		font-weight: bold;
+		color: $cinza-icones;
+	}
+
+	header h1.titulo span{
+		font-size: 1em;
+	}
+
+	form{
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	form .bloco{
+		width: calc(50% - 10px);
+		display: flex;
+		flex-wrap: wrap;
+		@include margem-padrao-base;
+	}
+
+	form .bloco.local,
+	form .bloco.preco{
+		width: 100%;
+	}
+
+	form .bloco.preco{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	form .bloco.preco label{
+		width: 50%;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	form .bloco.preco p{
+		color: $cinza-icones;
+		font-size: 1em;
+	}
+
+	form .bloco label{
+		width: 100%;
+		color: $cinza-icones;
+		@include margem-padrao-formulario;
+	}
+	form .bloco input{
+		width: 100%;
+		height: 50px;
+		padding: 10px;
+		border-radius: 5px;
+		border: 1px solid $cinza-site;
+	}
+
+	form .bloco input[type="range"]{
+		border:none;
+		@include rangeInput;
+	}
+
+	form button.bt_reserva{
+		@include botao-padrao($branco-padrao, $vermelho-site);
+		border: 1px solid $vermelho-site;
+		font-size: 1.8em;
+		margin: 0 auto;
+		padding: 5px 45px;
+	}
+
+	div.info{
+		width: 100%;
+		@include margem-padrao;
+	}
+
+	div.info p.texto{
+		font-size: 1em;
+		color: $cinza-site;
+		text-align: center;
+		width: 100%;
+	}
+}
+}

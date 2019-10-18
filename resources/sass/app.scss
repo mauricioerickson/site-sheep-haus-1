@@ -1,6 +1,7 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Nunito");
-
+//reset CSS
+@import "reset";
 // Variables
 @import "variables";
 
@@ -10,3 +11,7 @@
 // resources/assets/sass/app.scss
 
 @import "~jquery-ui/themes/base/all.css";
+
+
+// Conteúdo Original
+@import "layout";
