@@ -66,8 +66,6 @@
 {{ Form::close() }}
 <br /><br /><br />
 
-{{-- $property->id --}}
-
 <div>
     @foreach ($galleries as $gallery)
     {{ Form::open(array('route' => 'property-image', 'method' => 'delete')) }}

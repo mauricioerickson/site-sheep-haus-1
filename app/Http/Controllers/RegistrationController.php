@@ -32,7 +32,8 @@ class RegistrationController extends Controller
         $user = $request->user();
         $validated = $request->validated();
 
-        User::where('id', $user->id)->update($validated);
+        $user = User::where('id', $user->id)->update($validated);
+
         return redirect()->route('dashboard');
     }
 }
