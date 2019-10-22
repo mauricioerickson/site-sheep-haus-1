@@ -24,12 +24,22 @@ class Property extends Model
         'country',
         'lat',
         'lng',
-        'habits_id', 
-        'owner_id'
+        'user_id'
     ];
 
     protected $casts = [
         'characteristics_id' => 'array',
         'habits_id' => 'array',
     ];
+
+    public function galeries()
+    {
+        return $this->hasMany('App\Gallery');
+    }
+
+    public function ihabit()
+    {
+        return $this->hasMany('App\IHabit');
+    }
+
 }

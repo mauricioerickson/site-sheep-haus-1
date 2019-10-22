@@ -51,7 +51,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('course_autocomplete', 'CourseController@search')->name('CourseAutocomplete');
 
     
-    Route::group(['middleware' => ['checkuser']], function () {
+    Route::group(['middleware' => ['checkproperty']], function () {
+
+
+        // Habitos Imoveis
+        Route::post('i_habit', 'IHabitsController@store')->name('i_habit.store');
 
         // Image Property
         Route::post('property-image', 'ImageUploadController@store')->name('property-image');
@@ -60,10 +64,17 @@ Route::group(['middleware' => ['auth']], function () {
         // Get Property
         Route::get('/properties', 'PropertyController@index')->name('properties');
         Route::get('/property/{id}/edit', 'PropertyController@edit')->name('property.edit');
-        Route::get('/property/create', 'PropertyController@edit')->name('property.create');
-        Route::post('/property/create', 'PropertyController@store')->name('property.create');
-        Route::delete('/property', 'PropertyController@delete')->name('property.delete');
-        Route::put('/property/{id}', 'PropertyController@update')->name('property');    
+        Route::get('/property/create', 'PropertyController@create')->name('property.create');
+        Route::post('/property/create', 'PropertyController@store')->name('property.store');
+        Route::delete('/property', 'PropertyController@destroy')->name('property.destroy');
+        Route::put('/property/{id}', 'PropertyController@update')->name('property.update');    
 
     });
+
+    Route::group(['middleware' => ['checkdweller']], function () {
+
+        Route::get('suggested_properties', 'SuggestedPropertiesController@index')->name('SeggestedProperties');
+
+    });
+
 });

@@ -37,7 +37,7 @@ class CreatePropertiesTable extends Migration
             $table->string('lng')->nullable();
    
             $table->string('habits_id')->nullable();
-            $table->string('owner_id')->nullable();
+            $table->string('user_id')->nullable();
 
             $table->timestamps();
         });

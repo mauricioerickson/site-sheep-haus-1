@@ -3,7 +3,7 @@
 @section('content')
 
 
-  {{ Form::open(array('route' => ['property', $property->id], 'method' => 'put')) }}
+  {{ Form::open(array('route' => ['property.update', $property->id], 'method' => 'put')) }}
       {{ Form::label('name', 'Nome') }}
       {{ Form::text('name', $property->name) }}
       <br />
@@ -33,37 +33,37 @@
   {{ Form::close() }}
 
 <br /><br /><br />
-<div id="map" style="width: 300px; height: 300px"></div>
-{{ Form::open(array('route' => ['property', $property->id], 'method' => 'put')) }}
+    <div id="map" style="width: 300px; height: 300px"></div>
+    {{ Form::open(array('route' => ['property.update', $property->id], 'method' => 'put')) }}
 
-    {{ Form::hidden('lng', $property->lng, array('id' => 'lng')) }}
-    {{ Form::hidden('lat', $property->lat, array('id' => 'lat')) }}
+        {{ Form::hidden('lng', $property->lng, array('id' => 'lng')) }}
+        {{ Form::hidden('lat', $property->lat, array('id' => 'lat')) }}
 
-    {{ Form::label('address', 'Endereço') }}
-    {{ Form::text('address', $property->address, array('id' => 'autocomplete')) }}
-    <br />
-    {{ Form::label('cep', 'CEP') }}
-    {{ Form::text('cep', $property->cep, array('id' => 'postal_code')) }}
-    <br />
-    {{ Form::label('district', 'Bairro') }}
-    {{ Form::text('district', $property->district) }}
-    <br />
-    {{ Form::label('city', 'Cidade') }}
-    {{ Form::text('city', $property->city, array('id' => 'locality')) }}
-    <br />
-    {{ Form::label('state', 'Estado') }}
-    {{ Form::text('state', $property->state, array('id' => 'administrative_area_level_1')) }}
-    <br />
-    {{ Form::label('number', 'Numero') }}
-    {{ Form::text('number', $property->number, array('id' => 'street_number')) }}
-    <br />
-    {{ Form::label('country', 'País') }}
-    {{ Form::text('country', $property->country, array('id' => 'country')) }}
-    <br />
-    
-    {{ Form::submit('Salvar') }}
+        {{ Form::label('address', 'Endereço') }}
+        {{ Form::text('address', $property->address, array('id' => 'autocomplete')) }}
+        <br />
+        {{ Form::label('cep', 'CEP') }}
+        {{ Form::text('cep', $property->cep, array('id' => 'postal_code')) }}
+        <br />
+        {{ Form::label('district', 'Bairro') }}
+        {{ Form::text('district', $property->district) }}
+        <br />
+        {{ Form::label('city', 'Cidade') }}
+        {{ Form::text('city', $property->city, array('id' => 'locality')) }}
+        <br />
+        {{ Form::label('state', 'Estado') }}
+        {{ Form::text('state', $property->state, array('id' => 'administrative_area_level_1')) }}
+        <br />
+        {{ Form::label('number', 'Numero') }}
+        {{ Form::text('number', $property->number, array('id' => 'street_number')) }}
+        <br />
+        {{ Form::label('country', 'País') }}
+        {{ Form::text('country', $property->country, array('id' => 'country')) }}
+        <br />
+        
+        {{ Form::submit('Salvar') }}
 
-{{ Form::close() }}
+    {{ Form::close() }}
 <br /><br /><br />
 
 <div>
@@ -86,14 +86,33 @@
 {{ Form::close() }}
 
 <br /><br /><br />
-{{ Form::open(array('route' => ['property', $property->id], 'method' => 'put', 'files' => true, 'enctype' => 'multipart/form-data')) }}
 
-    {{ Form::label('habits_id', 'Habitos') }}
-    {{ Form::select('habits_id', $habits, $property->habits_id, array('multiple'=>'multiple','name'=>'habits_id[]')) }}
-    <br />
-    {{ Form::submit('Salvar') }}
 
-{{ Form::close() }}
+
+<div>
+
+
+    <div>
+        
+    </div>
+
+    <div>
+        @foreach ($habits as $habit)
+            {{ Form::open(array('route' => 'i_habit.store', 'method' => 'post')) }}
+    
+            {{ Form::hidden('property_id', $property->id) }}
+            {{ Form::hidden('habit_id', $habit->id) }}
+    
+            {{ Form::label('name', $habit->name) }}
+            
+            {{ Form::submit('+') }}
+    
+            {{ Form::close() }}
+        @endforeach
+    </div>
+   
+</div>
+
 
 <br /><br /><br />
 

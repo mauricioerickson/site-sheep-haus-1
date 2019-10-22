@@ -2,7 +2,7 @@
 
 @section('content')
 
-  {{ Form::open(array('route' => 'property.create', 'method' => 'post')) }}
+  {{ Form::open(array('route' => 'property.store', 'method' => 'post')) }}
     {{ Form::label('name', 'Nome') }}
     {{ Form::text('name') }}
     <br />

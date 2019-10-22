@@ -4,11 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Habit extends Model
+class IHabit extends Model
 {
     protected $fillable = [
-        'id', 'name'
+        'id', 'property_id', 'habit_id'
     ];
-    
-    
 }

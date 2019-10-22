@@ -37,4 +37,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'habits_id' => 'array',
     ];
+
+
+    public function properties()
+    {
+        return $this->hasMany('App\Property');
+    }
+
 }

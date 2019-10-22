@@ -6,7 +6,7 @@ use Closure;
 use App\Property;
 use Illuminate\Support\Facades\Auth;
 
-class CheckUser
+class CheckProperty
 {
     /**
      * Handle an incoming request.
@@ -18,13 +18,20 @@ class CheckUser
     public function handle($request, Closure $next)
     {
         $user = Auth::user();
+        $id = $request->id;
 
-        if($request->id) {
-            $properties = Property::where('owner_id', '=', $user->id)->where('id', '=', $request->id)->first();
+        if($request->_method === 'DELETE'){
+            $id = $request->property_id;
+        }
+
+        if($id) {
+
+            $properties = Property::where('user_id', '=', $user->id)->where('id', '=', $id)->first();
 
             if(!$properties) {
                 return redirect()->route('properties');
             }
+            
         }
         
         if($user->function !== 'P') {

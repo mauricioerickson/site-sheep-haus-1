@@ -13,7 +13,7 @@ class AccountController extends Controller
         $user = $request->user();
 
         $user = [
-            'owner_id' => $user->id
+            'user_id' => $user->id
         ];
 
         $dados = array_merge($user, $request->except('_token'));
