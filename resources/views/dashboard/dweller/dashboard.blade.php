@@ -9,9 +9,6 @@
                 <div class="card-body">
                     <a href="{{ route('SeggestedProperties') }}" class="btn btn-primary">Imóveis Sugeridos</a>
                 </div>
-                <div class="edit-button">
-                    <a href="{{ route('profile') }}" class="btn btn-primary">Editar</a>
-                </div>
             </div>
         </div>
     </div>
