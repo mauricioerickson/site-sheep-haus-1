@@ -25,7 +25,6 @@ class StoreRegistration extends FormRequest
     public function rules()
     {
         return [
-            'habits_id' => 'required',
             'function' => 'required',
             'gender' => 'required',
             'cell_phone' => 'required|numeric',
@@ -36,7 +35,6 @@ class StoreRegistration extends FormRequest
     {
         return [
             'cell_phone.required' => 'É necessário preencher o campo "Celular".',
-            'habits_id.required' => 'Selecione os seus hábitos.',
             'function.required' => 'Selecione a sua ocupação.',
             'gender.required' => 'Selecione o seu gênero.',
             'birthday.required' => 'Preencha a sua data de nascimento, por exemplo "01/01/1994".',

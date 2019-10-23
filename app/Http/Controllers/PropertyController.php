@@ -108,7 +108,7 @@ class PropertyController extends Controller
 
     public function destroy(Request $request) {
         $user = Auth::user();
-        Property::where('id', '=', $request->property_id)->where('owner_id', '=', $user->id)->delete();
+        Property::where('id', '=', $request->property_id)->where('user_id', '=', $user->id)->delete();
         return redirect()->route('properties');
     }
 }

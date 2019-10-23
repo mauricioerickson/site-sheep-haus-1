@@ -163,7 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-
+        Sichikawa\LaravelSendgridDriver\SendgridTransportServiceProvider::class,
         /*
          * Package Service Providers...
          */

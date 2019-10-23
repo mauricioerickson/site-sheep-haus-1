@@ -50,6 +50,8 @@ Route::group(['middleware' => ['auth']], function () {
     // Get Course
     Route::get('course_autocomplete', 'CourseController@search')->name('CourseAutocomplete');
 
+    //Match
+    Route::post('match', 'MacthController@store')->name('match');
     
     Route::group(['middleware' => ['checkproperty']], function () {
 

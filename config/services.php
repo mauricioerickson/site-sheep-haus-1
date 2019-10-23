@@ -31,14 +31,17 @@ return [
     ],
 
     'google' => [
-        'client_id' => '622122697363-b4dpst5tb3huoebqk7ln6o2rg7d83ra1.apps.googleusercontent.com',
-        'client_secret' => 'gtwClGKzUEESbYk2bzpD259j',
-        'redirect' => 'http://127.0.0.1:8000/callback/google',
+        'client_id' => env('GOOGLE_CLIENTE_ID'),
+        'client_secret' => env('GOOGLE_SECRET_ID'),
+        'redirect' => env('GOOGLE_REDIRECT'),
     ], 
 
     'facebook' => [
-        'client_id' => '954105978307235',
-        'client_secret' => '22bbf8c7d849d516d631e518ccd043a3',
-        'redirect' => 'https://127.0.0.1:8000/callback/facebook',
-      ], 
+        'client_id' => env('FACEBOOK_CLIENTE_ID'),
+        'client_secret' => env('FACEBOOK_SECRET_ID'),
+        'redirect' => env('FACEBOOK_REDIRECT'),
+    ], 
+    'sendgrid' => [
+        'api_key' => env('SENDGRID_API_KEY'),
+    ],
 ];
