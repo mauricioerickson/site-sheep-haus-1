@@ -90,27 +90,33 @@
 
 
 <div>
-
-
-    <div>
-        
-    </div>
-
     <div>
         @foreach ($habits as $habit)
-            {{ Form::open(array('route' => 'i_habit.store', 'method' => 'post')) }}
-    
-            {{ Form::hidden('property_id', $property->id) }}
-            {{ Form::hidden('habit_id', $habit->id) }}
-    
-            {{ Form::label('name', $habit->name) }}
-            
-            {{ Form::submit('+') }}
-    
-            {{ Form::close() }}
+            @if(!in_array($habit->id, $ihabits_id))
+                {{ Form::open(array('route' => 'i_habit.store', 'method' => 'post')) }}
+        
+                {{ Form::hidden('property_id', $property->id) }}
+                {{ Form::hidden('habit_id', $habit->id) }}
+        
+                {{ Form::label('name', $habit->name) }}
+                
+                {{ Form::submit('+') }}
+        
+                {{ Form::close() }}
+            @else
+                {{ Form::open(array('route' => 'i_habit.destroy', 'method' => 'delete')) }}
+
+                {{ Form::hidden('property_id', $property->id) }}
+                {{ Form::hidden('habit_id', $habit->id) }}
+        
+                {{ Form::label('name', $habit->name) }}
+                
+                {{ Form::submit('x') }}
+        
+                {{ Form::close() }}
+            @endif
         @endforeach
     </div>
-   
 </div>
 
 

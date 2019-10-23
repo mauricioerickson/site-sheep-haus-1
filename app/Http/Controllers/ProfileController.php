@@ -14,16 +14,35 @@ class ProfileController extends Controller
 {
     public function index(){
 
-        $user = Auth::user();
+    }
+
+    public function edit() {
+        $auth = Auth::user();
         $habits = Habit::get();
+        $mhabits_id = [];
+        $mhabits = [];
+
+        $user = User::where('id', '=', $auth->id)->first();
 
         foreach($habits as $habit){
             $btn_habits[$habit->id] = $habit->name;
         }
 
+        foreach($user->mhabit as $value) {
+            $habit = Habit::where('id', '=', $value->habit_id)->first();
+            $mhabits_id[] = $value->habit_id; 
+            $mhabits[] = (object) array(
+                'id' => $value->habit_id,
+                'name' => $habit->name
+            );
+        }
+
+        
         return view('dashboard.profile', [
             'user' => (object) $user,
-            'habits' => $btn_habits
+            'habits' => $habits,
+            'mhabits' => (object) $mhabits,
+            'mhabits_id' => $mhabits_id,
         ]);
     }
 

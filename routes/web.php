@@ -34,7 +34,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/registration', 'RegistrationController@store')->name('registration');
     
     // Profile
-    Route::get('/profile', 'ProfileController@index')->name('profile');
+    Route::get('/profile', 'ProfileController@edit')->name('profile');
     Route::put('/profile', 'ProfileController@update')->name('profile');
     
     // Get Characteristics
@@ -53,9 +53,9 @@ Route::group(['middleware' => ['auth']], function () {
     
     Route::group(['middleware' => ['checkproperty']], function () {
 
-
         // Habitos Imoveis
         Route::post('i_habit', 'IHabitsController@store')->name('i_habit.store');
+        Route::delete('i_habit', 'IHabitsController@destroy')->name('i_habit.destroy');
 
         // Image Property
         Route::post('property-image', 'ImageUploadController@store')->name('property-image');
@@ -72,6 +72,10 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     Route::group(['middleware' => ['checkdweller']], function () {
+
+        // Habitos Imoveis
+        Route::post('m_habit', 'MHabitsController@store')->name('m_habit.store');
+        Route::delete('m_habit', 'MHabitsController@destroy')->name('m_habit.destroy');
 
         Route::get('suggested_properties', 'SuggestedPropertiesController@index')->name('SeggestedProperties');
 

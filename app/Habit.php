@@ -9,6 +9,5 @@ class Habit extends Model
     protected $fillable = [
         'id', 'name'
     ];
-    
-    
+
 }

@@ -19,10 +19,6 @@ class RegistrationMiddleware
         $user = Auth::user();
         $status = [];
 
-        if (empty($user->habits_id)) {
-            $status[] = 'Hábitos não cadastrados'; 
-        }
-
         if (empty($user->cell_phone)) {
             $status[] = 'Celular não cadastrado'; 
         }

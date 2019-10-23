@@ -17,7 +17,6 @@ class UsersSeeds extends Seeder
             [
                 'name' => 'Proprietário',
                 'last_name' => 'Proprietário',
-                'habits_id' => '["1","2","3","4","5","6","7","8","9","10"]',
                 'function' => 'P',
                 'telephone' => '+551111111111',
                 'cell_phone' => '+5511111111111',
@@ -31,7 +30,6 @@ class UsersSeeds extends Seeder
             [
                 'name' => 'Morador',
                 'last_name' => 'Morador',
-                'habits_id' => '["1","2","3","4","5","6","7","8","9","10"]',
                 'function' => 'M',
                 'telephone' => '+551111111111',
                 'cell_phone' => '+5511111111111',
@@ -45,7 +43,6 @@ class UsersSeeds extends Seeder
             [
                 'name' => 'Prestador',
                 'last_name' => 'Serviço',
-                'habits_id' => '["1","2","3","4","5","6","7","8","9","10"]',
                 'function' => 'S',
                 'telephone' => '+551111111111',
                 'cell_phone' => '+5511111111111',

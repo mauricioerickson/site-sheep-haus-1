@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id', 'name', 'last_name', 'function', 'university_id', 'course_id', 'habits_id', 'telephone', 'cell_phone', 'email', 'gender', 'birthday', 'provider', 'provider_id', 'email_verified_at', 'password'
+        'id', 'name', 'last_name', 'function', 'university_id', 'course_id', 'telephone', 'cell_phone', 'email', 'gender', 'birthday', 'provider', 'provider_id', 'email_verified_at', 'password'
     ];
 
     /**
@@ -35,13 +35,17 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'habits_id' => 'array',
     ];
 
 
     public function properties()
     {
         return $this->hasMany('App\Property');
+    }
+
+    public function mhabit()
+    {
+        return $this->hasMany('App\MHabit');
     }
 
 }

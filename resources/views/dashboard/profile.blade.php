@@ -18,9 +18,6 @@
     {{ Form::label('course_id', 'Curso') }}
     {{ Form::text('course_id', $user->course_id, array('id' => 'course_id', 'data-route' => route('CourseAutocomplete'))) }}
     <br />
-    {{ Form::label('habits_id', 'Hábitos') }}
-    {{ Form::select('habits_id', $habits, $user->habits_id, array('multiple'=>'multiple','name'=>'habits_id[]')) }}
-    <br />
     @if($user->function === null)
     {{ Form::label('function', 'Ocupação') }}
     {{ Form::select('function', array(null => 'Selecione', 'M' => 'Morador', 'P' => 'Proprietário', 'S' => 'Prestador de serviços')) }}
@@ -53,5 +50,36 @@
     <br />
     {{ Form::submit('Salvar') }}
     {{ Form::close() }}
+
+
+<div>
+    <div>
+        @foreach ($habits as $habit)
+            @if(!in_array($habit->id, $mhabits_id))
+                {{ Form::open(array('route' => 'm_habit.store', 'method' => 'post')) }}
+        
+                {{ Form::hidden('user_id', $user->id) }}
+                {{ Form::hidden('habit_id', $habit->id) }}
+        
+                {{ Form::label('name', $habit->name) }}
+                
+                {{ Form::submit('+') }}
+        
+                {{ Form::close() }}
+            @else
+                {{ Form::open(array('route' => 'm_habit.destroy', 'method' => 'delete')) }}
+
+                {{ Form::hidden('user_id', $user->id) }}
+                {{ Form::hidden('habit_id', $habit->id) }}
+        
+                {{ Form::label('name', $habit->name) }}
+                
+                {{ Form::submit('x') }}
+        
+                {{ Form::close() }}
+            @endif
+        @endforeach
+    </div>
+</div>
 
 @endsection

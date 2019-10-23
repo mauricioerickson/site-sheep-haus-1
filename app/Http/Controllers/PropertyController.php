@@ -48,22 +48,34 @@ class PropertyController extends Controller
         $btn_characteristics = [];
         $galleries = [];
         $accounts = [];
+        $ihabits = [];
+        $ihabits_id = [];
 
         $property = Property::where('id', $id)->first();
         $galleries = Gallery::where('property_id', $id)->get();
         $accounts = Account::where('property_id', $id)->get();
 
+
+        foreach($property->ihabit as $value) {
+            $habit = Habit::where('id', '=', $value->habit_id)->first();
+            $ihabits_id[] = $value->habit_id; 
+            $ihabits[] = (object) array(
+                'id' => $value->habit_id,
+                'name' => $habit->name
+            );
+        }
+
         foreach($characteristics as $characteristic){
             $btn_characteristics[$characteristic->id] = $characteristic->name;
         }
-
-        return $property->ihabit;
 
         return view('dashboard.owner.property.edit', [
             'id' => $id,
             'property' => (object) $property,
             'characteristics' => $btn_characteristics,
             'habits' => $habits,
+            'ihabits' => (object) $ihabits,
+            'ihabits_id' => $ihabits_id,
             'galleries' => $galleries,
             'accounts' => $accounts
         ]);

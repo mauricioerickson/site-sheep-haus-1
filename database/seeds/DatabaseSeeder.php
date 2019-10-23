@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PropertySeeds::class);
         $this->call(GalleriesSeeds::class);
         $this->call(AccountsSeeds::class);
+        $this->call(IHabitsSeeds::class);
     }
 }
