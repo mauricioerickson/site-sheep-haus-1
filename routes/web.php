@@ -22,6 +22,8 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/imoveis', 'ImoveisController@index')->name('imoveis');
+Route::get('/detalhe', 'ImoveisController@detalhe')->name('detalhe');
 
 Route::group(['middleware' => ['auth', 'registration']], function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');

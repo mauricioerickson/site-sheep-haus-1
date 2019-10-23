@@ -312,29 +312,54 @@ i.ativar-menu{
 		height: 100%;
 		display: flex;
 		align-items: center;
+		justify-content: space-between;
 		width: 100%;
 	}
 
 	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item{
 		width: calc(100% / 5);
+		height: 100%;
 		color: $azul-site;
 		text-align: center;
+		position: relative;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		align-content: center;
+		&:nth-child(4){
+			justify-content: flex-end;
+			margin-right: 10px;
+		}
+		&:nth-child(5){
+			margin-left: 10px;
+			justify-content: flex-start;
+		}
+		&:hover ul.sub_menu--itens_lista{
+			display: flex;
+		}
 	}
 
 	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item a,
+	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item p,
 	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item.menu--linguagem div.dropdown div.botao-dropdown{
 		font-weight: bold;
+		align-self: center;
+		margin-bottom: 0;
+		cursor: pointer;
 	}
 
-	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item.login{
-		div.botao-dropdown{
-			text-align: center;
-			cursor: pointer;
-			padding: 10px 30px;
-			color: $branco-padrao;
-			@include botao-padrao($verde-site);
-			top: 0 !important;
-		}
+	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item a.login,
+	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item a.registro{
+		text-align: center;
+		cursor: pointer;
+		padding: 10px 30px;
+		color: $branco-padrao;
+		@include botao-padrao($verde-site);
+		top: 0 !important;
+	}
+
+	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item a.registro{
+		@include botao-padrao($azul-site);
 	}
 
 	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item.login a{
@@ -345,6 +370,7 @@ i.ativar-menu{
 		position: relative;
 		height: 45px;
 		width: 100%;
+		align-self: center;
 	}
 
 	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item.menu--linguagem div.dropdown div.botao-dropdown{
@@ -384,6 +410,22 @@ i.ativar-menu{
 
 	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item.menu--linguagem div.dropdown input[type=checkbox]:checked + ul.dropdown-menu{
 		display: block;
+	}
+
+	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item ul.sub_menu--itens_lista{
+		display: none;
+		position: absolute;
+		flex-direction: column;
+		width: 100%;
+		margin-top: 70px;
+		background: rgba($branco-padrao, 0.6);
+	}
+
+	header.menu--topo section.menu--itens ul.menu--itens_lista li.lista-item ul.sub_menu--itens_lista li.sub-lista-item{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 40px;
 	}
 
 }
@@ -555,13 +597,35 @@ footer.rodape{
 		width: 100%;
 		display: flex;
 		flex-wrap: wrap;
-		align-items: flex-end;
+		align-items: flex-start;
+		align-content: flex-start;
 	}
 
 	nav.menu--rodape .menu--itens ul.menu--itens_lista li.lista-item{
-		width: 50%;
+		width: calc(100% / 3);
 		color: $preto-padrao;
 		@include margem-padrao-topo;
+		&:nth-child(4) a,
+		&:nth-child(5) a,
+		&:nth-child(6) a{
+			font-weight: bold;
+		}
+	}
+
+	nav.menu--rodape .menu--itens ul.menu--itens_lista li.lista-item p{
+		color: #ccc;
+		font-weight: bold;
+		pointer-events: none;
+		margin-bottom: 5px;
+	}
+
+	nav.menu--rodape .menu--itens ul.menu--itens_lista li.lista-item a{
+		color: $azul-site;
+	}
+
+	nav.menu--rodape .menu--itens ul.menu--itens_lista li.lista-item ul li.sub-lista-item{
+		color: $azul-site;
+		height: 30px;
 	}
 
 	nav.menu--rodape .menu--base{
@@ -1865,6 +1929,7 @@ i.vaga-icone{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	margin-top: 90px;
 }
 
 header.adm-breadcrumb{
@@ -2555,7 +2620,7 @@ section.mensagens.contas{
 		display: flex;
 		justify-content: space-between;
 		@include margem-padrao;
-
+	}
 	form section.formulario--cadastro{
 		animation: none;
 		width: calc(50% - 10px);
@@ -2574,7 +2639,7 @@ section.mensagens.contas{
 	}
 
 	form section.formulario--cadastro .bloco-unico-formulario:last-child{
-	justify-content: center;
+		justify-content: center;
 	}
 }
 
@@ -3789,5 +3854,4 @@ section.bloco-contato{
 		text-align: center;
 		width: 100%;
 	}
-}
 }
