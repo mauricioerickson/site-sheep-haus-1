@@ -21,7 +21,12 @@
         </a>
         {{ Form::submit('X') }}
       {{ Form::close() }}
+
+      <a href="{{ route('match_property', [$property->id]) }}">
+        Ver Matchs
+      </a>
       
+
 
     </div>
 @endforeach

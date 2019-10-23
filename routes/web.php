@@ -52,6 +52,9 @@ Route::group(['middleware' => ['auth']], function () {
 
     //Match
     Route::post('match', 'MacthController@store')->name('match');
+
+    //Views Match
+    Route::get('/match/property/{id}', 'PropertyMatchesController@show')->name('match_property');
     
     Route::group(['middleware' => ['checkproperty']], function () {
 
