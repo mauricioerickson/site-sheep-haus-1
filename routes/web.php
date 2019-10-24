@@ -58,6 +58,10 @@ Route::group(['middleware' => ['auth']], function () {
     
     Route::group(['middleware' => ['checkproperty']], function () {
 
+        // Alert
+        Route::get('/alert/property/{id}', 'AlertPropertyController@index')->name('alert.index');
+        Route::post('/alert/property', 'AlertPropertyController@store')->name('alert.store');
+
         // Habitos Imoveis
         Route::post('i_habit', 'IHabitsController@store')->name('i_habit.store');
         Route::delete('i_habit', 'IHabitsController@destroy')->name('i_habit.destroy');

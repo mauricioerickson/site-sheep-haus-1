@@ -48,9 +48,6 @@ class MacthController extends Controller
             ->bcc('jaumcj@gmail.com')
             ->send(new MatchMail($dados));
             return redirect()->back();
-        } 
-        else if($auth->function === 'P') {
-
         }
     }
 }

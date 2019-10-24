@@ -26,6 +26,10 @@
         Ver Matchs
       </a>
       
+      <a href="{{ route('alert.index', [$property->id]) }}">
+        Dar Macths
+      </a>
+      
 
 
     </div>

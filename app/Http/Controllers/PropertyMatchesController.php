@@ -12,15 +12,11 @@ class PropertyMatchesController extends Controller
 
         $dados = [];
 
-        $properties = Match::where('property_id', '=', $id)->get();
-
-        foreach($properties as $property) {
-            $user = User::where('id', '=', $property->user_id)->first();
-            $dados[] = $user;
-        }
+        $user_id = Match::where('property_id', '=', $id)->pluck('user_id')->toArray();
+        $Users = User::whereIn('id', $user_id)->get();
 
         return view('dashboard.owner.matches.index', [
-            'dados' => $dados,
+            'dados' => $Users,
         ]);
     }
 }
