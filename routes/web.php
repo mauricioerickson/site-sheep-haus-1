@@ -52,12 +52,19 @@ Route::group(['middleware' => ['auth']], function () {
 
     //Match
     Route::post('match', 'MacthController@store')->name('match');
-
-    //Views Match
-    Route::get('/match/property/{id}', 'PropertyMatchesController@show')->name('match_property');
     
+    //VMatch
+    Route::post('v_match', 'VMacthesController@store')->name('v_match');
+
     Route::group(['middleware' => ['checkproperty']], function () {
 
+        //Views Match Imovel
+        Route::get('/match/property/{id}', 'PropertyMatchesController@show')->name('match_property');
+
+        //Close contract
+        Route::post('/contract', 'ContractController@store')->name('contract');
+        Route::delete('/contract', 'ContractController@destroy')->name('contract');
+ 
         // Alert
         Route::get('/alert/property/{id}', 'AlertPropertyController@index')->name('alert.index');
         Route::post('/alert/property', 'AlertPropertyController@store')->name('alert.store');
@@ -82,6 +89,33 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::group(['middleware' => ['checkdweller']], function () {
 
+        //Close contract
+        Route::post('/v_contract', 'VContractController@store')->name('v_contract');
+        Route::delete('/v_contract', 'VContractController@destroy')->name('v_contract');
+
+        //Views Match Vaga
+        Route::get('/match/vacancy/{id}', 'VacancyMatchesController@show')->name('match_vacancy');
+
+        //Meu Imóvel
+        Route::get('my_property', 'DwellerPropertyController@index')->name('property.index'); 
+        
+        //Minhas Vagas
+        Route::get('my_vacancies', 'VacancyController@index')->name('vacancies');
+        Route::get('my_vacancies/{id}/create', 'VacancyController@create')->name('vacancies.create');
+        Route::get('my_vacancies/{id}/edit', 'VacancyController@edit')->name('vacancies.edit');
+        Route::post('my_vacancies', 'VacancyController@store')->name('vacancy');
+        Route::put('my_vacancies', 'VacancyController@update')->name('vacancy');
+        Route::delete('my_vacancies', 'VacancyController@destroy')->name('vacancy');
+
+        // Vagas Sugeridas
+        Route::get('suggested_vacancies', 'SuggestedVacanciesController@index')->name('SuggestedVacancies');
+        
+        
+        // Habitos Vagas
+        Route::post('v_habit', 'VHabitsController@store')->name('v_habit.store');
+        Route::delete('v_habit', 'VHabitsController@destroy')->name('v_habit.destroy');
+
+
         // Habitos Imoveis
         Route::post('m_habit', 'MHabitsController@store')->name('m_habit.store');
         Route::delete('m_habit', 'MHabitsController@destroy')->name('m_habit.destroy');
@@ -89,5 +123,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('suggested_properties', 'SuggestedPropertiesController@index')->name('SeggestedProperties');
 
     });
+
+
 
 });

@@ -12,19 +12,20 @@
   Telefone: {{ $dado->cell_phone }}
   <br />
   @if(empty($contract))
-    {{ Form::open(array('route' => 'contract', 'method' => 'post')) }}
+    {{ Form::open(array('route' => 'v_contract', 'method' => 'post')) }}
 
     {{ Form::hidden('user_id', $dado->id) }}
-    {{ Form::hidden('property_id', $property->id) }}
+    {{ Form::hidden('vacancy_id', $vacancy->id) }}
+    {{ Form::hidden('property_id', $vacancy->property_id) }}
 
     {{ Form::submit('Assinar') }}
 
     {{ Form::close() }}
   @else
-    {{ Form::open(array('route' => 'contract', 'method' => 'delete')) }}
+    {{ Form::open(array('route' => 'v_contract', 'method' => 'delete')) }}
 
     {{ Form::hidden('user_id', $dado->id) }}
-    {{ Form::hidden('property_id', $property->id) }}
+    {{ Form::hidden('vacancy_id', $vacancy->id) }}
 
     {{ Form::submit('Cancelar') }}
 

@@ -2,13 +2,13 @@
 
 @section('content')
 
-@if(!empty($property))
+
+@foreach ($properties as $property)
   <div>
-<<<<<<< HEAD
       @foreach ($property->galeries as $key => $item)
         @if($key === 0)
           <img src="/images/{{ $item->src }}" alt="" style="width: 100px; height: 100px">
-        @endif
+        @endif 
       @endforeach
       {{ $property->name }}
       {{ $property->description }}
@@ -18,20 +18,9 @@
             {{ Form::submit('Macth') }}
         {{ Form::close() }}
       @endif
-
-=======
-    @foreach ($property->galeries as $key => $item)
-      @if($key === 0)
-        <img src="/images/{{ $item->src }}" alt="" style="width: 100px; height: 100px">
-      @endif 
-    @endforeach
-    {{ $property->name }}
-    {{ $property->description }}
-    
-    <a href="{{ route('vacancies') }}" class="btn btn-primary">Vagas</a>
-   
->>>>>>> bfbeab6ea3f3706b8dc0b722e21b8b63e6a4ec0d
+      
   </div>
-@endif
+@endforeach
 
 @endsection
+

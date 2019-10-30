@@ -16,7 +16,7 @@ class CreateVacanciesTable extends Migration
         Schema::create('vacancies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('property_id')->nullable();
-            $table->string('resident_id')->nullable();
+            $table->string('user_id')->nullable();
             $table->string('value')->nullable();
             $table->string('expenses_id')->nullable();
             $table->string('details_id')->nullable();

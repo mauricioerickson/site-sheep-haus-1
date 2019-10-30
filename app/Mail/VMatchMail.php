@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class MatchMail extends Mailable
+class VMatchMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -32,7 +32,7 @@ class MatchMail extends Mailable
     {
         return $this
             ->from('contato@sheephaus.com.br')
-            ->subject('Match em Imóvel - ' . $this->dados['property']['name'])
-            ->view('mail.match');
+            ->subject('Match em Vaga - ' . $this->dados->vacancy->title)
+            ->view('mail.vmatch');
     }
 }
