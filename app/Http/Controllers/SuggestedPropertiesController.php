@@ -9,6 +9,7 @@ use App\Property;
 use App\IHabit;
 use App\User;
 use App\Match;
+use App\Contract;
 
 class SuggestedPropertiesController extends Controller
 {
@@ -16,32 +17,27 @@ class SuggestedPropertiesController extends Controller
 
         $auth = Auth::user();
         $user = User::where('id', '=', $auth->id)->first();
+        $contract = Contract::pluck('property_id')->toArray();
+
         $mhabit = [];
         $ihabit = [];
         $match = [];
 
-        foreach($user->mhabit as $MHabit) {
-            $mhabit[] = $MHabit->habit_id;
-        }
-
+        $mhabit = $user->mhabit->pluck('habit_id')->toArray();
         $IHabits = IHabit::whereIn('habit_id', $mhabit)->get();
 
-        foreach($IHabits as $IHabit) {
-            $ihabit[] = $IHabit->property_id;
-        }
-
+        $ihabit = $IHabits->pluck('property_id')->toArray();
         $ihabit = array_unique($ihabit);
-        $properties = Property::whereIn('id', $ihabit)->get();
 
-        $matches = Match::where('user_id', '=', $auth->id)->get();
+        $imoveis = array_diff($ihabit, $contract);
+       
+        $properties = Property::whereIn('id', $imoveis)->get();
 
-        foreach($matches as $value) {
-            $match[] = $value->property_id;
-        }
+        $matches = Match::where('user_id', '=', $auth->id)->pluck('property_id')->toArray();
 
-        return view('dashboard.dweller.property.index', [
+        return view('dashboard.dweller.propertes.index', [
             'properties' => $properties,
-            'match' => $match
+            'match' => $matches
         ]);
     }
 }

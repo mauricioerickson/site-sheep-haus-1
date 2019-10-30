@@ -8,6 +8,8 @@
 				<header class="adm-breadcrumb">Dashboard</header>
 				<div class="card-body">
 					<a href="{{ route('SeggestedProperties') }}" class="btn btn-primary">Imóveis Sugeridos</a>
+					<a href="{{ route('SuggestedVacancies') }}" class="btn btn-primary">Vagas Sugeridas</a>
+					<a href="{{ route('property.index') }}" class="btn btn-primary">Meu Imóvel</a>
 				</div>
 			</section>
 			<section class="adm-primeiro-bloco">
@@ -37,11 +39,11 @@
 								</div>
 								<div class="preferencias">
 									<ul class="lista-preferencias">
-										<li>- MASCULINO</li>
-										<li>- NÃO FUMANTE</li>
-										<li>- GOSTA DE BALADA</li>
-										<li>- SOLTEIRO</li>
-										<li>- POSSUI CARRO</li>
+										<li> - MASCULINO</li>
+										<li> - NÃO FUMANTE</li>
+										<li> - GOSTA DE BALADA</li>
+										<li> - SOLTEIRO</li>
+										<li> - POSSUI CARRO</li>
 									</ul>
 									<a href="" class="remover"><i data-fonte="" class="icone">M</i><span> APAGAR</span></a>
 								</div>
