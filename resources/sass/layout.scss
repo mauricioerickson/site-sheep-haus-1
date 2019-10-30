@@ -1075,18 +1075,18 @@ section.bloco-lista-match{
 		padding-right: 15px;
 	}
 
-	section.lista-linha a.item-imovel{
+	section.lista-linha div.item-imovel{
 		position: relative;
 		@include margem-padrao;
 	}
 
-	section.lista-linha a.item-imovel figure{
+	section.lista-linha div.item-imovel figure{
 		width: 100%;
 		height: 190px;
 		border-radius: 5px;
 	}
 
-	section.lista-linha a.item-imovel figure img{
+	section.lista-linha div.item-imovel figure img{
 		width: 100%;
 		height: 100%;
 		display: block;
@@ -1095,47 +1095,47 @@ section.bloco-lista-match{
 		border: none;
 	}
 
-	section.lista-linha a.item-imovel header.titulo-imovel{
+	section.lista-linha div.item-imovel header.titulo-imovel{
 		width: 100%;
 		@include margem-padrao-topo;
 	}
 
-	section.lista-linha a.item-imovel header.titulo-imovel h2{
+	section.lista-linha div.item-imovel header.titulo-imovel h2{
 		color: $verde-site;
 		font-size: 1em;
 		font-weight: bold;
 		line-height: 1.5em;
 	}
 
-	section.lista-linha a.item-imovel p.texto{
+	section.lista-linha div.item-imovel p.texto{
 		@include margem-padrao;
 	}
 
-	section.lista-linha a.item-imovel footer.info-item{
+	section.lista-linha div.item-imovel footer.info-item{
 		width: 100%;
 		display: flex;
 		justify-content: space-between;
 		text-align: left;
 	}
 
-	section.lista-linha a.item-imovel footer.info-item p.valor-imovel{
+	section.lista-linha div.item-imovel footer.info-item p.valor-imovel{
 		font-weight: bold;
 	}
 
-	section.lista-linha a.item-imovel footer.info-item p.metragem-imovel{
+	section.lista-linha div.item-imovel footer.info-item p.metragem-imovel{
 		margin-left: 20px;
 	}
 
-	section.lista-linha a.item-imovel footer.info-item p.metragem-imovel,
-	section.lista-linha a.item-imovel footer.info-item p.vaga-imovel,
-	section.lista-linha a.item-imovel footer.info-item p.valor-imovel{
+	section.lista-linha div.item-imovel footer.info-item p.metragem-imovel,
+	section.lista-linha div.item-imovel footer.info-item p.vaga-imovel,
+	section.lista-linha div.item-imovel footer.info-item p.valor-imovel{
 		flex-basis: calc(100% / 3);
 	}
 }
 
 @media screen and(max-width: 1050px) {
-	section.bloco-lista section.lista-linha a.item-imovel,
-	section.bloco-lista-match section.lista-linha a.item-imovel{
+	section.bloco-lista section.lista-linha div.item-imovel,
+	section.bloco-lista-match section.lista-linha div.item-imovel{
 		width: calc(100% / 3);
 	}
 	section.bloco-lista section.lista-linha header.linha--topo p.topo--info,
@@ -1146,15 +1146,15 @@ section.bloco-lista-match{
 }
 
 @media screen and(max-width: 900px) {
-	section.bloco-lista section.lista-linha a.item-imovel,
-	section.bloco-lista-match section.lista-linha a.item-imovel{
+	section.bloco-lista section.lista-linha div.item-imovel,
+	section.bloco-lista-match section.lista-linha div.item-imovel{
 		width: calc(100% / 2);
 	}
 }
 
 @media screen and(max-width: 600px) {
-	section.bloco-lista section.lista-linha a.item-imovel,
-	section.bloco-lista-match section.lista-linha a.item-imovel{
+	section.bloco-lista section.lista-linha div.item-imovel,
+	section.bloco-lista-match section.lista-linha div.item-imovel{
 		width: 100%;
 	}
 
@@ -1178,7 +1178,7 @@ section.bloco-lista-match{
 		font-weight: bold;
 	}
 
-	section.lista-linha a.item-imovel label.label-check-button{
+	section.lista-linha div.item-imovel label.label-check-button{
 		font-size: 1em;
 		font-weight: bold;
 		color: $cinza-icones;
@@ -1191,7 +1191,7 @@ section.bloco-lista-match{
 		z-index: 3;
 	}
 
-	section.lista-linha a.item-imovel label.label-check-button input[type='checkbox']{
+	section.lista-linha div.item-imovel label.label-check-button input[type='checkbox']{
 		position: relative;
 		margin-right: 10px;
 		&::before{
@@ -1337,18 +1337,18 @@ form.formulario-registro{
 		font-size: .8em;
 		color: $cinza-site;
 	}
-	button.botao-formulario-padrao,
+	input.botao-formulario-padrao,
 	a.botao-formulario-padrao{
 		align-self: flex-end;
 		@include padrao-proximo;
 	}
 
-	button.botao-formulario-padrao.voltar,
+	input.botao-formulario-padrao.voltar,
 	a.botao-formulario-padrao.voltar{
 		background: $cinza-icones;
 	}
 
-	button.botao-formulario-padrao i.icone-botao-voltar{
+	input.botao-formulario-padrao i.icone-botao-voltar{
 		margin-right: 10px;
 	}
 }
@@ -1370,7 +1370,53 @@ section.formulario--cadastro{
 	&:nth-child(2){
 		animation-name: none;
 	}
-
+	form.label-add{
+		width: calc((100% / 3) - 10px);
+		display: flex;
+		justify-content: space-between;
+		border: 1px solid $cinza-site;
+		margin: 5px 0;
+		min-height: 35px;
+		border-radius: 5px;
+		label{
+			width: 80%;
+			margin: 0;
+			padding-left: 10px;
+			display: flex;
+			align-items: center;
+		}
+	}
+	.cadastro-galeria{
+		width: calc((100% / 4) - 10px);
+		position: relative;
+		.cadastro-galeria_imagem{
+			height: 200px;
+			position: relative;
+		}
+		.botao-excluir_imagem{
+			position: absolute;
+			right: 10px;
+			top: 10px;
+			background: $vermelho-site;
+			color: $branco-padrao;
+			cursor: pointer;
+			width: 30px;
+			height: 30px;
+		}
+	}
+	.botao-escolha_imagem{
+		width: 100%;
+	}
+	.add-padrao,
+	.remove-padrao{
+		width: 35px;
+		background: $verde-site;
+		color: $branco-padrao;
+		border-radius: 0 5px 5px 0;
+	}
+	.remove-padrao{
+		background: $vermelho-site;
+	}
 	header.cadastro-titulo{
 		width: 100%;
 		display: flex;
@@ -1506,13 +1552,16 @@ section.formulario--cadastro{
 		width: 100%;
 		color: $preto-padrao;
 		font-size: 1.2em;
+		padding: 5px;
 		padding-left: 10px;
 		border: 1px solid $cinza-site;
+		border-radius: 5px;
 		@include sombra-inputs;
 		position: relative;
 		background-image: url('/sheephaus/public/images/icones/seta_select.png');
 		background-repeat: no-repeat;
 		background-position: right;
+		@include margem-padrao-formulario;
 	}
 
 	label.label-texto{
@@ -1546,7 +1595,7 @@ section.formulario--cadastro{
 
 	label.label-radio-button,
 	label.label-check-button{
-		width: 100%;
+		width: calc(100% / 3);
 		font-size: 1em;
 		font-weight: bold;
 		color: $cinza-icones;
@@ -1575,16 +1624,16 @@ section.formulario--cadastro{
 			content: "";
 			display: block;
 			position: absolute;
-			top: 4px;
-			left: 4px;
+			top: 3px;
+			left: 3px;
 			border-radius: 100%;
-			width: 23px;
-			height: 23px;
+			width: 20px;
+			height: 20px;
 			background: $cinza-icones;
 		}
 	}
 
-	button.botao-formulario-padrao,
+	input.botao-formulario-padrao,
 	a.botao-formulario-padrao{
 		align-self: flex-end;
 		@include padrao-proximo;
@@ -1638,7 +1687,7 @@ section.bloco--cadastro-cliente{
 		color: $vermelho-site;
 	}
 
-	button.botao-formulario-padrao.cadastro{
+	input.botao-formulario-padrao.cadastro{
 		margin-left: calc(100% - 100px);
 		background: $verde-site;
 	}
@@ -1710,7 +1759,7 @@ section.bloco--cadastro-cliente{
 		width: calc(50% - 10px);
 	}
 
-	button.botao-formulario-padrao.morador{
+	input.botao-formulario-padrao.morador{
 		background: $verde-site;
 		position: absolute;
 		right: 0;
@@ -1794,7 +1843,7 @@ section.bloco--cadastro-vaga{
 		color: $vermelho-site;
 	}
 
-	button.botao-formulario-padrao.cadastro{
+	input.botao-formulario-padrao.cadastro{
 		margin-left: calc(100% - 100px);
 	}
 
@@ -1898,9 +1947,12 @@ section.bloco--cadastro-vaga{
 		justify-content: space-between;
 	}
 
-	div.contas-adicionar i.bt-adicionar,
-	div.contas-remover i.bt-remover{
+	div.contas-adicionar input.bt-adicionar,
+	div.contas-remover input.bt-remover{
 		@include botao-adicionar;
+		width: 100px;
+		height: 25px;
+		font-size: 1em;
 	}
 
 	div.contas-adicionar p.texto
@@ -1933,6 +1985,15 @@ section.bloco--cadastro-vaga{
 		justify-content: space-between;
 		padding-left: 10px;
 		border-bottom: 1px solid $cinza-icones;
+		form{
+			width: 100%;
+			color: $cinza-icones;
+			font-weight: bold;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding-left: 10px;
+		}
 	}
 }
 
@@ -3031,7 +3092,7 @@ section.mensagens.contas{
 		@include margem-padrao;
 	}
 
-	div.preferencias button.botao-formulario-padrao,
+	div.preferencias input.botao-formulario-padrao,
 	div.preferencias a.botao-formulario-padrao{
 		@include padrao-proximo;
 		background: $cinza-icones;
@@ -3761,7 +3822,7 @@ div.reset-password{
 			}
 	}
 
-	div.card-body button.botao-padrao{
+	div.card-body input.botao-padrao{
 		@include botao-padrao($verde-site, $branco-padrao);
 		padding: 5px 20px;
 		font-weight: bold;
@@ -3997,7 +4058,7 @@ section.bloco-contato{
 		@include rangeInput;
 	}
 
-	form button.bt_reserva{
+	form input.bt_reserva{
 		@include botao-padrao($branco-padrao, $vermelho-site);
 		border: 1px solid $vermelho-site;
 		font-size: 1.8em;

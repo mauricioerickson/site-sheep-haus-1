@@ -1,167 +1,221 @@
 @extends('../layouts.app')
 
 @section('content')
+<section class="bloco--cadastro-imovel">
+	<div class="centralizar">
+		{{ Form::open(array('route' => 'property.store', 'method' => 'post')) }}
+			<section class="formulario--cadastro">
+				<header class="cadastro-titulo">
+					<div class="icones">
+						<i data-font="" class="icone-formulario">M</i>
+						<i data-font="" class="icone-formulario">M</i>
+						<i data-font="" class="icone-formulario">M</i>
+						<i data-font="" class="icone-formulario">M</i>
+					</div>
+					<h1 class="titulo">Como é seu imóvel</h1>
+				</header>
+				<div class="bloco-meio-formulario">
+					{{ Form::text('name', null, array('class' => 'input-padrao','placeholder' => 'NOME')) }}
+				</div>
+				<div class="bloco-meio-formulario">
+					{{ Form::select('type', array(null => 'Tipo de imovel', 'A' => 'Apartamento', 'C' => 'Casa'),null,['class'=>'select-padrao']) }}
+				</div>
+				<div class="bloco-unico-formulario">
+					{{ Form::text('description', null, array('class' => 'input-padrao', 'placeholder' => 'DESCRIÇÂO')) }}
+				</div>
+				<div class="bloco-unico-formulario">
+					<?php foreach ($characteristics as $valor): ?>
+						<label for="$valor" class="label-check-button">
+							{{ Form::checkbox('characteristics_id', $valor) }} {{$valor}}
+						</label>
+					<?php endforeach; ?>
+				</div>
+				<div class="bloco-quarto-formulario">
+						{{ Form::text('number_of_bedrooms',null,array('class'=>'input-padrao','placeholder'=>'Nº DE QUARTOS')) }}
+				</div>
+				<div class="bloco-quarto-formulario">
+						{{ Form::text('number_of_bathrooms',null,array('class'=>'input-padrao','placeholder'=>'Nº DE BANHEIROS')) }}
+				</div>
+				<div class="bloco-quarto-formulario">
+						{{ Form::text('number_of_residents',null,array('class'=>'input-padrao','placeholder'=>'Nº DE MORADORES')) }}
+				</div>
+				<div class="bloco-quarto-formulario">
+						{{ Form::text('property_size',null,array('class'=>'input-padrao','placeholder'=>'TAMANHO IMÓVEL')) }}
+						<span>Ex: 72m²</span>
+				</div>
+				<div class="bloco-unico-formulario">
+					{{ Form::submit('Salvar',['class'=>'botao-formulario-padrao']) }}
+				</div>
+			</section>
+		{{ Form::close() }}
+			<section class="formulario--cadastro">
+				<header class="cadastro-titulo">
+					<div class="icones">
+						<i data-font="" class="icone-formulario">M</i>
+						<i data-font="" class="icone-formulario">M</i>
+						<i data-font="" class="icone-formulario">M</i>
+						<i data-font="" class="icone-formulario">M</i>
+					</div>
+					<h1 class="titulo">Como é seu imóvel</h1>
+				</header>
+				<div class="bloco-meio-formulario">
+					<div id="map" style="width: 100%; height: 280px"></div>
+				</div>
+				<div class="bloco-meio-formulario localizacao">
+					{{ Form::open(array('route' => ['property.update', $property->id], 'method' => 'put')) }}
+					{{ Form::hidden('lng', $property->lng, array('id' => 'lng')) }}
+			        {{ Form::hidden('lat', $property->lat, array('id' => 'lat')) }}
+					{{ Form::text('cep', $property->cep, array('class'=>'input-padrao','placeholder'=>'CEP','id' => 'postal_code')) }}
+					{{ Form::text('state', $property->state, array('class'=>'input-padrao','placeholder'=>'ESTADO','id' => 'administrative_area_level_1')) }}
+					{{ Form::text('address', $property->address, array('class'=>'input-padrao','placeholder'=>'ENDEREÇO','id' => 'autocomplete')) }}
+					{{ Form::text('district', $property->district, array('class'=>'input-padrao','placeholder'=>'BAIRRO')) }}
+					{{ Form::text('city', $property->city, array('class'=>'input-padrao','placeholder'=>'CIDADE','id' => 'locality')) }}
+					{{ Form::text('number', $property->number, array('class'=>'input-padrao','placeholder'=>'NÚMERO','id' => 'street_number')) }}
+					{{ Form::text('country', $property->country, array('class'=>'input-padrao','placeholder'=>'PAÍS','id' => 'country')) }}
+					{{ Form::close() }}
+				</div>
+				<div class="bloco-unico-formulario">
+					{{ Form::submit('Salvar',['class'=>'botao-formulario-padrao']) }}
+				</div>
+			</section>
 
+		<section class="formulario--cadastro">
+				<header class="cadastro-titulo">
+					<div class="icones">
+						<i data-font="" class="icone-formulario">M</i>
+						<i data-font="" class="icone-formulario">M</i>
+						<i data-font="" class="icone-formulario">M</i>
+						<i data-font="" class="icone-formulario">M</i>
+					</div>
+					<h1 class="titulo">Como é seu imóvel</h1>
+				</header>
+				<div class="bloco-unico-formulario">
+					@foreach ($galleries as $gallery)
+					{{ Form::open(array('class'=>'cadastro-galeria','route' => 'property-image', 'method' => 'delete')) }}
+						{{ Form::hidden('property_id', $property->id) }}
+						{{ Form::hidden('id', $gallery->id) }}
+						<figure class="cadastro-galeria_imagem">
+							<img src="/images/{{ $gallery->src }}" alt="" style="width: 100px; height: 100px">
+							{{ Form::submit('X',['class'=>'botao-excluir_imagem']) }}
+						</figure>
+					{{ Form::close() }}
+					@endforeach
+					{{ Form::open(array('class'=>'botao-escolha_imagem','route' => 'property-image', 'method' => 'post', 'enctype' => 'multipart/form-data')) }}
 
-  {{ Form::open(array('route' => ['property.update', $property->id], 'method' => 'put')) }}
-      {{ Form::label('name', 'Nome') }}
-      {{ Form::text('name', $property->name) }}
-      <br />
-      {{ Form::label('description', 'Descrição') }}
-      {{ Form::text('description', $property->description) }}
-      <br />
-      {{ Form::label('type', 'Tipo de Imóvel') }}
-      {{ Form::select('type', array(null => 'Selecione', 'A' => 'Apartamento', 'C' => 'Casa'), $property->type) }}
-      <br />
-      {{ Form::label('characteristics_id', 'Características') }}
-      {{ Form::select('characteristics_id', $characteristics, $property->characteristics_id, array('multiple'=>'multiple','name'=>'characteristics_id[]')) }}
-      <br />
-      {{ Form::label('number_of_bedrooms', 'Numero de Quartos') }}
-      {{ Form::text('number_of_bedrooms', $property->number_of_bedrooms) }}
-      <br />
-      {{ Form::label('number_of_bathrooms', 'Numero de Banhairos') }}
-      {{ Form::text('number_of_bathrooms', $property->number_of_bathrooms) }}
-      <br />
-      {{ Form::label('number_of_residents', 'Numero de Moradores') }}
-      {{ Form::text('number_of_residents', $property->number_of_residents) }}
-      <br />
-      {{ Form::label('property_size', 'Tamanho do Imóvel') }}
-      {{ Form::text('property_size', $property->property_size) }}
-      <br />
-      {{ Form::submit('Salvar') }}
+						{{ Form::hidden('property_id', $property->id) }}
+						{{ Form::file('image') }}
+						<br />
 
-  {{ Form::close() }}
+				</div>
+				<div class="bloco-unico-formulario">
+					{{ Form::submit('Salvar',['class'=>'botao-formulario-padrao']) }}
+				</div>
+				{{ Form::close() }}
+			</section>
+		<section class="formulario--cadastro">
+				<header class="cadastro-titulo">
+					<div class="icones">
+						<i data-font="" class="icone-formulario">M</i>
+						<i data-font="" class="icone-formulario">M</i>
+						<i data-font="" class="icone-formulario">M</i>
+						<i data-font="" class="icone-formulario">M</i>
+					</div>
+					<h1 class="titulo">Perfil desejado para moradores</h1>
+				</header>
+				<div class="bloco-unico-formulario">
+					@foreach ($habits as $habit)
+			            @if(!in_array($habit->id, $ihabits_id))
+			                {{ Form::open(array('class'=>'label-add','route' => 'i_habit.store', 'method' => 'post')) }}
 
-<br /><br /><br />
-    <div id="map" style="width: 300px; height: 300px"></div>
-    {{ Form::open(array('route' => ['property.update', $property->id], 'method' => 'put')) }}
+			                {{ Form::hidden('property_id', $property->id) }}
+			                {{ Form::hidden('habit_id', $habit->id) }}
+								{{ Form::label('name', $habit->name) }}
+				                {{ Form::submit('+', ['class'=>'add-padrao']) }}
 
-        {{ Form::hidden('lng', $property->lng, array('id' => 'lng')) }}
-        {{ Form::hidden('lat', $property->lat, array('id' => 'lat')) }}
+			                {{ Form::close() }}
+			            @else
+			                {{ Form::open(array('class'=>'label-add','route' => 'i_habit.destroy', 'method' => 'delete')) }}
 
-        {{ Form::label('address', 'Endereço') }}
-        {{ Form::text('address', $property->address, array('id' => 'autocomplete')) }}
-        <br />
-        {{ Form::label('cep', 'CEP') }}
-        {{ Form::text('cep', $property->cep, array('id' => 'postal_code')) }}
-        <br />
-        {{ Form::label('district', 'Bairro') }}
-        {{ Form::text('district', $property->district) }}
-        <br />
-        {{ Form::label('city', 'Cidade') }}
-        {{ Form::text('city', $property->city, array('id' => 'locality')) }}
-        <br />
-        {{ Form::label('state', 'Estado') }}
-        {{ Form::text('state', $property->state, array('id' => 'administrative_area_level_1')) }}
-        <br />
-        {{ Form::label('number', 'Numero') }}
-        {{ Form::text('number', $property->number, array('id' => 'street_number')) }}
-        <br />
-        {{ Form::label('country', 'País') }}
-        {{ Form::text('country', $property->country, array('id' => 'country')) }}
-        <br />
-        
-        {{ Form::submit('Salvar') }}
+			                {{ Form::hidden('property_id', $property->id) }}
+			                {{ Form::hidden('habit_id', $habit->id) }}
 
-    {{ Form::close() }}
-<br /><br /><br />
+			                {{ Form::label('name', $habit->name) }}
 
-<div>
-    @foreach ($galleries as $gallery)
-    {{ Form::open(array('route' => 'property-image', 'method' => 'delete')) }}
-        {{ Form::hidden('property_id', $property->id) }}
-        {{ Form::hidden('id', $gallery->id) }}
-        <img src="/images/{{ $gallery->src }}" alt="" style="width: 100px; height: 100px">
-        {{ Form::submit('X') }}
-    {{ Form::close() }}
-    @endforeach
-</div>
-{{ Form::open(array('route' => 'property-image', 'method' => 'post', 'enctype' => 'multipart/form-data')) }}
+			                {{ Form::submit('-',['class'=>'remove-padrao']) }}
 
-    {{ Form::hidden('property_id', $property->id) }}
-    {{ Form::file('image') }}
-    <br />
-    {{ Form::submit('Salvar') }}
+			                {{ Form::close() }}
+			            @endif
+			        @endforeach
+				</div>
+				<div class="bloco-unico-formulario">
+					{{ Form::submit('Salvar',['class'=>'botao-formulario-padrao']) }}
+				</div>
+			</section>
+		<section class="formulario--cadastro">
+				<header class="cadastro-titulo">
+					<div class="icones">
+						<i data-font="" class="icone-formulario">M</i>
+						<i data-font="" class="icone-formulario">M</i>
+						<i data-font="" class="icone-formulario">M</i>
+						<i data-font="" class="icone-formulario">M</i>
+					</div>
+					<h1 class="titulo">Contas do imóvel</h1>
+				</header>
+				<div class="bloco-terco-formulario">
+					{{ Form::open(array('route' => 'property-account', 'method' => 'post')) }}
 
-{{ Form::close() }}
+					{{ Form::hidden('property_id', $property->id) }}
+					<div class="pos-span">
+						{{ Form::text('name',null,['class'=>'input-padrao','placeholder'=>'NOME DA CONTA']) }}
+						<span>Ex: Aluguel</span>
+					</div>
+					<div class="pos-span">
+						{{ Form::text('value',null,['class'=>'input-padrao','placeholder'=>'NOME DA CONTA']) }}
+						<span>Ex: R$ 300,50</span>
+					</div>
+					{{ Form::label('duedate', 'DATA DE VENCIMENTO',['class'=>'label-texto']) }}
+					{{ Form::text('duedate',null,['class'=>'input-data','placeholder'=>'NOME DA CONTA']) }}
+					<div class="contas-adicionar">
+					{{ Form::submit('Salvar',['class'=>'bt-adicionar']) }}
+				</div>
+				</div>
+				{{ Form::close() }}
+				<div class="bloco-terco-formulario localizacao">
 
-<br /><br /><br />
+				</div>
+				<div class="bloco-terco-formulario">
+					<ul class="formulario-contas-lista">
+						<li class="contas-item">
+							@foreach ($accounts as $account)
+						    {{ Form::open(array('route' => 'property-account', 'method' => 'delete')) }}
+						        {{ Form::hidden('property_id', $property->id) }}
+						        {{ Form::hidden('id', $account->id) }}
+						        <div>
+						            {{ $account->name }}
+						            {{ $account->value }}
+						            {{ $account->duedate }}
+						        </div>
+						        {{ Form::submit('X',['class'=>'remove-padrao']) }}
+						    {{ Form::close() }}
+						    @endforeach
+						</li>
+					</ul>
+				</div>
+				<div class="bloco-unico-formulario">
+					{{ Form::submit('Salvar',['class'=>'botao-formulario-padrao']) }}
+				</div>
+			</section>
+		@if ($errors->any())
+	    <div class="alert alert-danger">
+	        <ul>
+	            @foreach ($errors->all() as $error)
+	                <li>{{ $error }}</li>
+	            @endforeach
+	        </ul>
+	    </div>
+	    @endif
 
-
-
-<div>
-    <div>
-        @foreach ($habits as $habit)
-            @if(!in_array($habit->id, $ihabits_id))
-                {{ Form::open(array('route' => 'i_habit.store', 'method' => 'post')) }}
-        
-                {{ Form::hidden('property_id', $property->id) }}
-                {{ Form::hidden('habit_id', $habit->id) }}
-        
-                {{ Form::label('name', $habit->name) }}
-                
-                {{ Form::submit('+') }}
-        
-                {{ Form::close() }}
-            @else
-                {{ Form::open(array('route' => 'i_habit.destroy', 'method' => 'delete')) }}
-
-                {{ Form::hidden('property_id', $property->id) }}
-                {{ Form::hidden('habit_id', $habit->id) }}
-        
-                {{ Form::label('name', $habit->name) }}
-                
-                {{ Form::submit('x') }}
-        
-                {{ Form::close() }}
-            @endif
-        @endforeach
-    </div>
-</div>
-
-
-<br /><br /><br />
-
-<div>
-    @foreach ($accounts as $account)
-    {{ Form::open(array('route' => 'property-account', 'method' => 'delete')) }}
-        {{ Form::hidden('property_id', $property->id) }}
-        {{ Form::hidden('id', $account->id) }}
-        <div>
-            {{ $account->name }}
-            {{ $account->value }}
-            {{ $account->duedate }}
-        </div>
-        {{ Form::submit('X') }}
-    {{ Form::close() }}
-    @endforeach
-</div>
-{{ Form::open(array('route' => 'property-account', 'method' => 'post')) }}
-
-    {{ Form::hidden('property_id', $property->id) }}
-
-    {{ Form::label('name', 'Nome') }}
-    {{ Form::text('name') }}
-    <br />
-    {{ Form::label('value', 'Valor') }}
-    {{ Form::text('value') }}
-    <br />
-    {{ Form::label('duedate', 'Data de vencimento') }}
-    {{ Form::text('duedate') }}
-    <br />
-    {{ Form::submit('Salvar') }}
-
-{{ Form::close() }}
-
-@if ($errors->any())
-<div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
+	</div>
+</section>
 
 @endsection
-

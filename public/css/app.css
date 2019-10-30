@@ -12477,19 +12477,19 @@ section.bloco-lista-match section.lista-linha header.linha--topo a.topo--link {
   text-align: right;
   padding-right: 15px;
 }
-section.bloco-lista section.lista-linha a.item-imovel,
-section.bloco-lista-match section.lista-linha a.item-imovel {
+section.bloco-lista section.lista-linha div.item-imovel,
+section.bloco-lista-match section.lista-linha div.item-imovel {
   position: relative;
   margin: 20px 0;
 }
-section.bloco-lista section.lista-linha a.item-imovel figure,
-section.bloco-lista-match section.lista-linha a.item-imovel figure {
+section.bloco-lista section.lista-linha div.item-imovel figure,
+section.bloco-lista-match section.lista-linha div.item-imovel figure {
   width: 100%;
   height: 190px;
   border-radius: 5px;
 }
-section.bloco-lista section.lista-linha a.item-imovel figure img,
-section.bloco-lista-match section.lista-linha a.item-imovel figure img {
+section.bloco-lista section.lista-linha div.item-imovel figure img,
+section.bloco-lista-match section.lista-linha div.item-imovel figure img {
   width: 100%;
   height: 100%;
   display: block;
@@ -12499,49 +12499,49 @@ section.bloco-lista-match section.lista-linha a.item-imovel figure img {
   background-size: cover;
   border: none;
 }
-section.bloco-lista section.lista-linha a.item-imovel header.titulo-imovel,
-section.bloco-lista-match section.lista-linha a.item-imovel header.titulo-imovel {
+section.bloco-lista section.lista-linha div.item-imovel header.titulo-imovel,
+section.bloco-lista-match section.lista-linha div.item-imovel header.titulo-imovel {
   width: 100%;
   margin-top: 20px;
 }
-section.bloco-lista section.lista-linha a.item-imovel header.titulo-imovel h2,
-section.bloco-lista-match section.lista-linha a.item-imovel header.titulo-imovel h2 {
+section.bloco-lista section.lista-linha div.item-imovel header.titulo-imovel h2,
+section.bloco-lista-match section.lista-linha div.item-imovel header.titulo-imovel h2 {
   color: #00ac1c;
   font-size: 1em;
   font-weight: bold;
   line-height: 1.5em;
 }
-section.bloco-lista section.lista-linha a.item-imovel p.texto,
-section.bloco-lista-match section.lista-linha a.item-imovel p.texto {
+section.bloco-lista section.lista-linha div.item-imovel p.texto,
+section.bloco-lista-match section.lista-linha div.item-imovel p.texto {
   margin: 20px 0;
 }
-section.bloco-lista section.lista-linha a.item-imovel footer.info-item,
-section.bloco-lista-match section.lista-linha a.item-imovel footer.info-item {
+section.bloco-lista section.lista-linha div.item-imovel footer.info-item,
+section.bloco-lista-match section.lista-linha div.item-imovel footer.info-item {
   width: 100%;
   display: flex;
   justify-content: space-between;
   text-align: left;
 }
-section.bloco-lista section.lista-linha a.item-imovel footer.info-item p.valor-imovel,
-section.bloco-lista-match section.lista-linha a.item-imovel footer.info-item p.valor-imovel {
+section.bloco-lista section.lista-linha div.item-imovel footer.info-item p.valor-imovel,
+section.bloco-lista-match section.lista-linha div.item-imovel footer.info-item p.valor-imovel {
   font-weight: bold;
 }
-section.bloco-lista section.lista-linha a.item-imovel footer.info-item p.metragem-imovel,
-section.bloco-lista-match section.lista-linha a.item-imovel footer.info-item p.metragem-imovel {
+section.bloco-lista section.lista-linha div.item-imovel footer.info-item p.metragem-imovel,
+section.bloco-lista-match section.lista-linha div.item-imovel footer.info-item p.metragem-imovel {
   margin-left: 20px;
 }
-section.bloco-lista section.lista-linha a.item-imovel footer.info-item p.metragem-imovel,
-section.bloco-lista section.lista-linha a.item-imovel footer.info-item p.vaga-imovel,
-section.bloco-lista section.lista-linha a.item-imovel footer.info-item p.valor-imovel,
-section.bloco-lista-match section.lista-linha a.item-imovel footer.info-item p.metragem-imovel,
-section.bloco-lista-match section.lista-linha a.item-imovel footer.info-item p.vaga-imovel,
-section.bloco-lista-match section.lista-linha a.item-imovel footer.info-item p.valor-imovel {
+section.bloco-lista section.lista-linha div.item-imovel footer.info-item p.metragem-imovel,
+section.bloco-lista section.lista-linha div.item-imovel footer.info-item p.vaga-imovel,
+section.bloco-lista section.lista-linha div.item-imovel footer.info-item p.valor-imovel,
+section.bloco-lista-match section.lista-linha div.item-imovel footer.info-item p.metragem-imovel,
+section.bloco-lista-match section.lista-linha div.item-imovel footer.info-item p.vaga-imovel,
+section.bloco-lista-match section.lista-linha div.item-imovel footer.info-item p.valor-imovel {
   flex-basis: calc(100% / 3);
 }
 
 @media screen and (max-width: 1050px) {
-  section.bloco-lista section.lista-linha a.item-imovel,
-section.bloco-lista-match section.lista-linha a.item-imovel {
+  section.bloco-lista section.lista-linha div.item-imovel,
+section.bloco-lista-match section.lista-linha div.item-imovel {
     width: calc(100% / 3);
   }
 
@@ -12552,14 +12552,14 @@ section.bloco-lista section.lista-linha header.linha--topo a.topo--link, section
   }
 }
 @media screen and (max-width: 900px) {
-  section.bloco-lista section.lista-linha a.item-imovel,
-section.bloco-lista-match section.lista-linha a.item-imovel {
+  section.bloco-lista section.lista-linha div.item-imovel,
+section.bloco-lista-match section.lista-linha div.item-imovel {
     width: calc(100% / 2);
   }
 }
 @media screen and (max-width: 600px) {
-  section.bloco-lista section.lista-linha a.item-imovel,
-section.bloco-lista-match section.lista-linha a.item-imovel {
+  section.bloco-lista section.lista-linha div.item-imovel,
+section.bloco-lista-match section.lista-linha div.item-imovel {
     width: 100%;
   }
 
@@ -12579,7 +12579,7 @@ section.bloco-lista-match header.titulo--padrao h1.titulo {
   font-size: 2em;
   font-weight: bold;
 }
-section.bloco-lista-match section.lista-linha a.item-imovel label.label-check-button {
+section.bloco-lista-match section.lista-linha div.item-imovel label.label-check-button {
   font-size: 1em;
   font-weight: bold;
   color: #8a94aa;
@@ -12591,11 +12591,11 @@ section.bloco-lista-match section.lista-linha a.item-imovel label.label-check-bu
   position: absolute;
   z-index: 3;
 }
-section.bloco-lista-match section.lista-linha a.item-imovel label.label-check-button input[type=checkbox] {
+section.bloco-lista-match section.lista-linha div.item-imovel label.label-check-button input[type=checkbox] {
   position: relative;
   margin-right: 10px;
 }
-section.bloco-lista-match section.lista-linha a.item-imovel label.label-check-button input[type=checkbox]::before {
+section.bloco-lista-match section.lista-linha div.item-imovel label.label-check-button input[type=checkbox]::before {
   content: "";
   display: block;
   border-radius: 100%;
@@ -12605,7 +12605,7 @@ section.bloco-lista-match section.lista-linha a.item-imovel label.label-check-bu
   height: 32px;
   padding: 2px;
 }
-section.bloco-lista-match section.lista-linha a.item-imovel label.label-check-button input[type=checkbox]:checked::after {
+section.bloco-lista-match section.lista-linha div.item-imovel label.label-check-button input[type=checkbox]:checked::after {
   content: "";
   display: block;
   position: absolute;
@@ -12739,7 +12739,7 @@ form.formulario-registro {
   font-size: 0.8em;
   color: #c1c8d7;
 }
-.bloco-unico-formulario button.botao-formulario-padrao,
+.bloco-unico-formulario input.botao-formulario-padrao,
 .bloco-unico-formulario a.botao-formulario-padrao {
   align-self: flex-end;
   border-radius: 5px;
@@ -12751,11 +12751,11 @@ form.formulario-registro {
   text-align: center;
   font-weight: bold;
 }
-.bloco-unico-formulario button.botao-formulario-padrao.voltar,
+.bloco-unico-formulario input.botao-formulario-padrao.voltar,
 .bloco-unico-formulario a.botao-formulario-padrao.voltar {
   background: #8a94aa;
 }
-.bloco-unico-formulario button.botao-formulario-padrao i.icone-botao-voltar {
+.bloco-unico-formulario input.botao-formulario-padrao i.icone-botao-voltar {
   margin-right: 10px;
 }
 
@@ -12780,6 +12780,53 @@ section.formulario--cadastro {
 section.formulario--cadastro:nth-child(2) {
   -webkit-animation-name: none;
           animation-name: none;
+}
+section.formulario--cadastro form.label-add {
+  width: calc((100% / 3) - 10px);
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #c1c8d7;
+  margin: 5px 0;
+  min-height: 35px;
+  border-radius: 5px;
+}
+section.formulario--cadastro form.label-add label {
+  width: 80%;
+  margin: 0;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}
+section.formulario--cadastro .cadastro-galeria {
+  width: calc((100% / 4) - 10px);
+  position: relative;
+}
+section.formulario--cadastro .cadastro-galeria .cadastro-galeria_imagem {
+  height: 200px;
+  position: relative;
+}
+section.formulario--cadastro .cadastro-galeria .botao-excluir_imagem {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: #d0021b;
+  color: #fff;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+section.formulario--cadastro .botao-escolha_imagem {
+  width: 100%;
+}
+section.formulario--cadastro .add-padrao,
+section.formulario--cadastro .remove-padrao {
+  width: 35px;
+  background: #00ac1c;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+}
+section.formulario--cadastro .remove-padrao {
+  background: #d0021b;
 }
 section.formulario--cadastro header.cadastro-titulo {
   width: 100%;
@@ -12915,13 +12962,16 @@ section.formulario--cadastro select.select-padrao {
   width: 100%;
   color: #333;
   font-size: 1.2em;
+  padding: 5px;
   padding-left: 10px;
   border: 1px solid #c1c8d7;
+  border-radius: 5px;
   box-shadow: -1px 1px 3px #c1c8d7;
   position: relative;
   background-image: url("/sheephaus/public/images/icones/seta_select.png");
   background-repeat: no-repeat;
   background-position: right;
+  margin: 5px 0;
 }
 section.formulario--cadastro label.label-texto {
   padding-top: 10px;
@@ -12963,7 +13013,7 @@ section.formulario--cadastro input.input-data::-webkit-clear-button, section.for
 }
 section.formulario--cadastro label.label-radio-button,
 section.formulario--cadastro label.label-check-button {
-  width: 100%;
+  width: calc(100% / 3);
   font-size: 1em;
   font-weight: bold;
   color: #8a94aa;
@@ -12994,14 +13044,14 @@ section.formulario--cadastro label.label-check-button input[type=checkbox]:check
   content: "";
   display: block;
   position: absolute;
-  top: 4px;
-  left: 4px;
+  top: 3px;
+  left: 3px;
   border-radius: 100%;
-  width: 23px;
-  height: 23px;
+  width: 20px;
+  height: 20px;
   background: #8a94aa;
 }
-section.formulario--cadastro button.botao-formulario-padrao,
+section.formulario--cadastro input.botao-formulario-padrao,
 section.formulario--cadastro a.botao-formulario-padrao {
   align-self: flex-end;
   border-radius: 5px;
@@ -13013,7 +13063,7 @@ section.formulario--cadastro a.botao-formulario-padrao {
   text-align: center;
   font-weight: bold;
 }
-section.formulario--cadastro button.botao-formulario-padrao:first-child,
+section.formulario--cadastro input.botao-formulario-padrao:first-child,
 section.formulario--cadastro a.botao-formulario-padrao:first-child {
   background: #8a94aa;
 }
@@ -13054,7 +13104,7 @@ section.bloco--cadastro-cliente .centralizar {
 section.bloco--cadastro-cliente header.titulo--padrao h1.titulo {
   color: #d0021b;
 }
-section.bloco--cadastro-cliente button.botao-formulario-padrao.cadastro {
+section.bloco--cadastro-cliente input.botao-formulario-padrao.cadastro {
   margin-left: calc(100% - 100px);
   background: #00ac1c;
 }
@@ -13117,7 +13167,7 @@ section.bloco--cadastro-cliente div.publico p.texto {
 section.bloco--cadastro-cliente div.publico label.label-radio-button {
   width: calc(50% - 10px);
 }
-section.bloco--cadastro-cliente button.botao-formulario-padrao.morador {
+section.bloco--cadastro-cliente input.botao-formulario-padrao.morador {
   background: #00ac1c;
   position: absolute;
   right: 0;
@@ -13200,10 +13250,10 @@ section.bloco--cadastro-anuncio header.titulo--padrao h1.titulo,
 section.bloco--cadastro-vaga header.titulo--padrao h1.titulo {
   color: #d0021b;
 }
-section.bloco--cadastro-imovel button.botao-formulario-padrao.cadastro,
-section.bloco--cadastro-republica button.botao-formulario-padrao.cadastro,
-section.bloco--cadastro-anuncio button.botao-formulario-padrao.cadastro,
-section.bloco--cadastro-vaga button.botao-formulario-padrao.cadastro {
+section.bloco--cadastro-imovel input.botao-formulario-padrao.cadastro,
+section.bloco--cadastro-republica input.botao-formulario-padrao.cadastro,
+section.bloco--cadastro-anuncio input.botao-formulario-padrao.cadastro,
+section.bloco--cadastro-vaga input.botao-formulario-padrao.cadastro {
   margin-left: calc(100% - 100px);
 }
 section.bloco--cadastro-imovel label.foto-imovel,
@@ -13349,14 +13399,14 @@ section.bloco--cadastro-anuncio div.contas-remover,
 section.bloco--cadastro-vaga div.contas-remover {
   justify-content: space-between;
 }
-section.bloco--cadastro-imovel div.contas-adicionar i.bt-adicionar,
-section.bloco--cadastro-imovel div.contas-remover i.bt-remover,
-section.bloco--cadastro-republica div.contas-adicionar i.bt-adicionar,
-section.bloco--cadastro-republica div.contas-remover i.bt-remover,
-section.bloco--cadastro-anuncio div.contas-adicionar i.bt-adicionar,
-section.bloco--cadastro-anuncio div.contas-remover i.bt-remover,
-section.bloco--cadastro-vaga div.contas-adicionar i.bt-adicionar,
-section.bloco--cadastro-vaga div.contas-remover i.bt-remover {
+section.bloco--cadastro-imovel div.contas-adicionar input.bt-adicionar,
+section.bloco--cadastro-imovel div.contas-remover input.bt-remover,
+section.bloco--cadastro-republica div.contas-adicionar input.bt-adicionar,
+section.bloco--cadastro-republica div.contas-remover input.bt-remover,
+section.bloco--cadastro-anuncio div.contas-adicionar input.bt-adicionar,
+section.bloco--cadastro-anuncio div.contas-remover input.bt-remover,
+section.bloco--cadastro-vaga div.contas-adicionar input.bt-adicionar,
+section.bloco--cadastro-vaga div.contas-remover input.bt-remover {
   width: 25px;
   height: 25px;
   font-size: 1.5em;
@@ -13370,6 +13420,9 @@ section.bloco--cadastro-vaga div.contas-remover i.bt-remover {
   justify-content: center;
   padding-bottom: 1px;
   cursor: pointer;
+  width: 100px;
+  height: 25px;
+  font-size: 1em;
 }
 section.bloco--cadastro-imovel div.contas-adicionar p.texto div.contas-remover p.texto,
 section.bloco--cadastro-republica div.contas-adicionar p.texto div.contas-remover p.texto,
@@ -13407,6 +13460,18 @@ section.bloco--cadastro-vaga ul.formulario-contas-lista li.contas-item {
   justify-content: space-between;
   padding-left: 10px;
   border-bottom: 1px solid #8a94aa;
+}
+section.bloco--cadastro-imovel ul.formulario-contas-lista li.contas-item form,
+section.bloco--cadastro-republica ul.formulario-contas-lista li.contas-item form,
+section.bloco--cadastro-anuncio ul.formulario-contas-lista li.contas-item form,
+section.bloco--cadastro-vaga ul.formulario-contas-lista li.contas-item form {
+  width: 100%;
+  color: #8a94aa;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
 }
 
 /*-- FINAL BLOCO CADASTRO GERAL --*/
@@ -13554,7 +13619,6 @@ i.vaga-icone {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 90px;
 }
 
 header.adm-breadcrumb {
@@ -14475,9 +14539,9 @@ section.mensagens.contas footer.mensagem-nova a p.texto:hover {
   width: 100%;
   margin: 20px 0;
 }
-.adm-republica div.preferencias button.botao-formulario-padrao,
+.adm-republica div.preferencias input.botao-formulario-padrao,
 .adm-republica div.preferencias a.botao-formulario-padrao,
-.adm-imovel div.preferencias button.botao-formulario-padrao,
+.adm-imovel div.preferencias input.botao-formulario-padrao,
 .adm-imovel div.preferencias a.botao-formulario-padrao {
   border-radius: 5px;
   background: #00ac1c;
@@ -15200,7 +15264,7 @@ div.reset-password div.card-body input.input-padrao::-ms-input-placeholder {
 div.reset-password div.card-body input.input-padrao::placeholder {
   color: #c1c8d7;
 }
-div.reset-password div.card-body button.botao-padrao {
+div.reset-password div.card-body input.botao-padrao {
   border-radius: 5px;
   background-color: #00ac1c;
   color: #fff;
@@ -15208,7 +15272,7 @@ div.reset-password div.card-body button.botao-padrao {
   padding: 5px 20px;
   font-weight: bold;
 }
-div.reset-password div.card-body button.botao-padrao:hover {
+div.reset-password div.card-body input.botao-padrao:hover {
   background-color: #00df24;
 }
 
@@ -15486,8 +15550,8 @@ section.bloco-contato div.contato a.botao-padrao i {
   height: 5px;
   border-radius: 2px;
 }
-.reserva.vaga form button.bt_reserva,
-.buscar.vaga form button.bt_reserva {
+.reserva.vaga form input.bt_reserva,
+.buscar.vaga form input.bt_reserva {
   border-radius: 5px;
   background-color: #fff;
   color: #d0021b;
@@ -15497,8 +15561,8 @@ section.bloco-contato div.contato a.botao-padrao i {
   margin: 0 auto;
   padding: 5px 45px;
 }
-.reserva.vaga form button.bt_reserva:hover,
-.buscar.vaga form button.bt_reserva:hover {
+.reserva.vaga form input.bt_reserva:hover,
+.buscar.vaga form input.bt_reserva:hover {
   background-color: white;
 }
 .reserva.vaga div.info,

@@ -8,7 +8,7 @@
       @foreach ($property->galeries as $key => $item)
         @if($key === 0)
           <img src="/images/{{ $item->src }}" alt="" style="width: 100px; height: 100px">
-        @endif 
+        @endif
       @endforeach
       {{ $property->name }}
       {{ $property->description }}
@@ -18,9 +18,8 @@
             {{ Form::submit('Macth') }}
         {{ Form::close() }}
       @endif
-      
+
   </div>
 @endforeach
 
 @endsection
-
