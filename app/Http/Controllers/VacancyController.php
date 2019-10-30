@@ -9,6 +9,7 @@ use App\Contract;
 use App\Habit;
 use App\VHabit;
 use App\IHabit;
+use App\VContract;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -18,11 +19,14 @@ class VacancyController extends Controller
         $user = Auth::user();
         $property = Contract::where('user_id', '=', $user->id)->first('property_id');
 
+        $vcontract = VContract::where('property_id', '=', $property->property_id)->pluck('vacancy_id')->toArray();
+
         $vagas = Vacancy::where('user_id', '=', $user->id)->get();
 
         return view('dashboard.dweller.property.vacancies.index', [
             'property' => $property,
-            'vagas' => $vagas
+            'vagas' => $vagas,
+            'vcontract' => $vcontract
         ]);
     }
 

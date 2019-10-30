@@ -53,16 +53,18 @@ Route::group(['middleware' => ['auth']], function () {
     //Match
     Route::post('match', 'MacthController@store')->name('match');
     
+    //VMatch
+    Route::post('v_match', 'VMacthesController@store')->name('v_match');
+
     Route::group(['middleware' => ['checkproperty']], function () {
 
-        //Views Match
+        //Views Match Imovel
         Route::get('/match/property/{id}', 'PropertyMatchesController@show')->name('match_property');
 
         //Close contract
         Route::post('/contract', 'ContractController@store')->name('contract');
         Route::delete('/contract', 'ContractController@destroy')->name('contract');
  
-
         // Alert
         Route::get('/alert/property/{id}', 'AlertPropertyController@index')->name('alert.index');
         Route::post('/alert/property', 'AlertPropertyController@store')->name('alert.store');
@@ -86,6 +88,13 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     Route::group(['middleware' => ['checkdweller']], function () {
+
+        //Close contract
+        Route::post('/v_contract', 'VContractController@store')->name('v_contract');
+        Route::delete('/v_contract', 'VContractController@destroy')->name('v_contract');
+
+        //Views Match Vaga
+        Route::get('/match/vacancy/{id}', 'VacancyMatchesController@show')->name('match_vacancy');
 
         //Meu Imóvel
         Route::get('my_property', 'DwellerPropertyController@index')->name('property.index'); 

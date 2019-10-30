@@ -19,13 +19,20 @@
     <b>Valor: </b> {{ $vaga->value }}
 
     <div>
-      <a href="{{ route('vacancies.edit', [$vaga->id]) }}" class="btn btn-danger">Editar</a>
-
-      {{ Form::open(array('route' => 'vacancy', 'method' => 'delete')) }}
-        {{ Form::hidden('id', $vaga->id) }}
-        {{ Form::submit('Remover Vaga', ['class' => 'btn btn-danger']) }}
-      {{ Form::close() }}
       
+      @if(!in_array($vaga->id, $vcontract))
+        <a href="{{ route('match_vacancy', [$vaga->id]) }}" class="btn btn-danger">Ver Match</a>
+        <a href="{{ route('vacancies.edit', [$vaga->id]) }}" class="btn btn-danger">Editar</a>
+
+        {{ Form::open(array('route' => 'vacancy', 'method' => 'delete')) }}
+          {{ Form::hidden('id', $vaga->id) }}
+          {{ Form::submit('Remover Vaga', ['class' => 'btn btn-danger']) }}
+        {{ Form::close() }}
+      
+      @else
+        <a href="{{ route('match_vacancy', [$vaga->id]) }}" class="btn btn-danger">Ver Morador</a>
+      @endif
+
     </div>
     
 

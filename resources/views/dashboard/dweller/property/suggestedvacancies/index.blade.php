@@ -19,6 +19,12 @@
     <b>Data de Saida</b> {{ $vacancy->exit }}
     <br />
     <b>Valor</b> {{ $vacancy->value }}
+    @if(!in_array($vacancy->id, $matches))
+      {{ Form::open(array('route' => 'v_match', 'method' => 'post')) }}
+          {{ Form::hidden('vacancy_id', $vacancy->id) }}
+          {{ Form::submit('Macth') }}
+      {{ Form::close() }}
+    @endif
   </div>
   @endforeach
 
