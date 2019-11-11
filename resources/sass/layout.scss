@@ -394,6 +394,26 @@ main{
 	line-height: 1.5em;
 }
 
+.texto-cinza{
+	color: $cinza-site;
+}
+
+.texto-bold{
+	font-weight: bold;
+}
+
+a.botao-padrao{
+	@include botao-padrao;
+	padding: 3px 6px;
+	font-size: 0.8em;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&:hover{
+		background: $vermelho-site;
+	}
+}
 .titulo--padrao{
 	width: 100%;
 	@include margem-padrao-base;
@@ -1118,6 +1138,19 @@ section.bloco-lista-match{
 		text-align: left;
 	}
 
+	section.lista-linha div.item-imovel footer.info-item a.botao-padrao{
+		@include botao-padrao;
+		padding: 3px 6px;
+		font-size: 0.8em;
+		font-weight: bold;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		&:hover{
+			background: $vermelho-site;
+		}
+	}
+
 	section.lista-linha div.item-imovel footer.info-item p.valor-imovel{
 		font-weight: bold;
 	}
@@ -1822,7 +1855,6 @@ section.bloco--cadastro-republica,
 section.bloco--cadastro-anuncio,
 section.bloco--cadastro-vaga{
 	width: 100%;
-	@include padding-bloco;
 
 	.centralizar{
 		display: flex;
@@ -2149,6 +2181,34 @@ i.vaga-icone{
 
 /*--------------- ADM GERAL ------------*/
 
+div.bloco-menu{
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	a{
+		margin-right: 10px;
+		&:last-child{
+			margin-right: 0;
+		}
+	}
+}
+
+a.link{
+	border-radius: 5px;
+	font-size: .8em;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: $cinza-icones;
+	color: $branco-padrao;
+	width: 100%;
+	max-width: 200px;
+	height: 35px;
+	font-weight: bold;
+	margin: 10px 0;
+}
+
 .bloco-adm{
 	display: flex;
 	flex-wrap: wrap;
@@ -2180,7 +2240,8 @@ section.adm-segundo-bloco.detalhe{
 }
 
 section.adm-unico-bloco{
-	width: 100%
+	width: 100%;
+	margin-bottom: 10px;
 }
 
 section.adm-primeiro-bloco{
@@ -2869,10 +2930,30 @@ section.mensagens.contas{
 /*--------------- FINAL BLOCO ADM CONTAS ADICIONAR ------------*/
 
 /*--------------- BLOCO ADM VAGAS ------------*/
-
+.nova-vaga{
+	@include padrao-bloco-adm;
+	min-height: auto;
+	justify-content: center;
+	a.botao-padrao{
+		max-width: 200px;
+		height: 45px;
+		margin: 0 auto;
+		&:hover{
+			background: $azul-site;
+		}
+	}
+}
 .adm-vagas{
 	@include padrao-bloco-adm;
 	justify-content: center;
+
+	.bloco-quarto{
+		border: 1px solid $cinza-icones;
+		margin-left: 5px;
+		&:nth-child(3){
+			margin-left: 0;
+		}
+	}
 
 	header.titulo-contas{
 		width: 100%;
@@ -2969,10 +3050,77 @@ section.mensagens.contas{
 		display: flex;
 		justify-content: space-between;
 	}
-
-
+	div.links a.botao-padrao{
+		margin: 10px 0;
+	}
+	div.links a.botao-padrao.ver{
+		&:hover{
+			background: $azul-site;
+		}
+	}
+	div.links a.botao-padrao.editar{
+		&:hover{
+			background: $verde-site;
+		}
+	}
+	div.links input[type="submit"]{
+		@include botao-padrao;
+		padding: 3px 6px;
+		font-size: 0.8em;
+		margin: 20px auto 0 auto;
+		font-weight: bold;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		&:hover{
+			background: $vermelho-site;
+		}
+	}
 }
 /*--------------- FINAL BLOCO ADM SERVICOS ------------*/
+
+/*--------------- BLOCO ADM MATCHES ------------*/
+
+.adm-matches{
+	@include padrao-bloco-adm;
+	justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+
+	.bloco-quarto{
+		border: 1px solid $cinza-icones;
+		margin-left: 5px;
+		&:nth-child(3){
+			margin-left: 0;
+		}
+	}
+	header.titulo-matches{
+		width: 100%;
+		display: flex;
+		@include margem-padrao-base;
+	}
+
+	header.titulo-matches h1.titulo{
+		@include titulos-adm;
+		text-align: center;
+	}
+
+	div.links input[type="submit"]{
+		@include botao-padrao;
+		padding: 3px 6px;
+		font-size: 0.8em;
+		font-weight: bold;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		&:hover{
+			background: $vermelho-site;
+		}
+	}
+}
+
+/*--------------- FINAL BLOCO ADM MATCHES ------------*/
 
 /*--------------- BLOCO ADM SERVICOS ------------*/
 

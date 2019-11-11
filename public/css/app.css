@@ -11822,6 +11822,33 @@ main {
   line-height: 1.5em;
 }
 
+.texto-cinza {
+  color: #c1c8d7;
+}
+
+.texto-bold {
+  font-weight: bold;
+}
+
+a.botao-padrao {
+  border-radius: 5px;
+  background-color: #8a94aa;
+  color: #fff;
+  transition: background-color 0.5s;
+  padding: 3px 6px;
+  font-size: 0.8em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+a.botao-padrao:hover {
+  background-color: #a8afbf;
+}
+a.botao-padrao:hover {
+  background: #d0021b;
+}
+
 .titulo--padrao {
   width: 100%;
   margin-bottom: 20px;
@@ -12522,6 +12549,27 @@ section.bloco-lista-match section.lista-linha div.item-imovel footer.info-item {
   justify-content: space-between;
   text-align: left;
 }
+section.bloco-lista section.lista-linha div.item-imovel footer.info-item a.botao-padrao,
+section.bloco-lista-match section.lista-linha div.item-imovel footer.info-item a.botao-padrao {
+  border-radius: 5px;
+  background-color: #8a94aa;
+  color: #fff;
+  transition: background-color 0.5s;
+  padding: 3px 6px;
+  font-size: 0.8em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section.bloco-lista section.lista-linha div.item-imovel footer.info-item a.botao-padrao:hover,
+section.bloco-lista-match section.lista-linha div.item-imovel footer.info-item a.botao-padrao:hover {
+  background-color: #a8afbf;
+}
+section.bloco-lista section.lista-linha div.item-imovel footer.info-item a.botao-padrao:hover,
+section.bloco-lista-match section.lista-linha div.item-imovel footer.info-item a.botao-padrao:hover {
+  background: #d0021b;
+}
 section.bloco-lista section.lista-linha div.item-imovel footer.info-item p.valor-imovel,
 section.bloco-lista-match section.lista-linha div.item-imovel footer.info-item p.valor-imovel {
   font-weight: bold;
@@ -13221,7 +13269,6 @@ section.bloco--cadastro-republica,
 section.bloco--cadastro-anuncio,
 section.bloco--cadastro-vaga {
   width: 100%;
-  padding: 80px 0 50px 0;
 }
 section.bloco--cadastro-imovel .centralizar,
 section.bloco--cadastro-republica .centralizar,
@@ -13615,6 +13662,34 @@ i.vaga-icone {
 
 /*--------------- FINAL VARIAÇÕES DO CADASTRO ------------*/
 /*--------------- ADM GERAL ------------*/
+div.bloco-menu {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+div.bloco-menu a {
+  margin-right: 10px;
+}
+div.bloco-menu a:last-child {
+  margin-right: 0;
+}
+
+a.link {
+  border-radius: 5px;
+  font-size: 0.8em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #8a94aa;
+  color: #fff;
+  width: 100%;
+  max-width: 200px;
+  height: 35px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
 .bloco-adm {
   display: flex;
   flex-wrap: wrap;
@@ -13647,6 +13722,7 @@ section.adm-segundo-bloco.detalhe {
 
 section.adm-unico-bloco {
   width: 100%;
+  margin-bottom: 10px;
 }
 
 section.adm-primeiro-bloco {
@@ -14323,12 +14399,36 @@ section.mensagens.contas footer.mensagem-nova a p.texto:hover {
 
 /*--------------- FINAL BLOCO ADM CONTAS ADICIONAR ------------*/
 /*--------------- BLOCO ADM VAGAS ------------*/
+.nova-vaga {
+  width: 100%;
+  min-height: 250px;
+  background: #fff;
+  padding: 20px;
+  min-height: auto;
+  justify-content: center;
+}
+.nova-vaga a.botao-padrao {
+  max-width: 200px;
+  height: 45px;
+  margin: 0 auto;
+}
+.nova-vaga a.botao-padrao:hover {
+  background: #0051ac;
+}
+
 .adm-vagas {
   width: 100%;
   min-height: 250px;
   background: #fff;
   padding: 20px;
   justify-content: center;
+}
+.adm-vagas .bloco-quarto {
+  border: 1px solid #8a94aa;
+  margin-left: 5px;
+}
+.adm-vagas .bloco-quarto:nth-child(3) {
+  margin-left: 0;
 }
 .adm-vagas header.titulo-contas {
   width: 100%;
@@ -14419,8 +14519,85 @@ section.mensagens.contas footer.mensagem-nova a p.texto:hover {
   display: flex;
   justify-content: space-between;
 }
+.adm-vagas div.links a.botao-padrao {
+  margin: 10px 0;
+}
+.adm-vagas div.links a.botao-padrao.ver:hover {
+  background: #0051ac;
+}
+.adm-vagas div.links a.botao-padrao.editar:hover {
+  background: #00ac1c;
+}
+.adm-vagas div.links input[type=submit] {
+  border-radius: 5px;
+  background-color: #8a94aa;
+  color: #fff;
+  transition: background-color 0.5s;
+  padding: 3px 6px;
+  font-size: 0.8em;
+  margin: 20px auto 0 auto;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.adm-vagas div.links input[type=submit]:hover {
+  background-color: #a8afbf;
+}
+.adm-vagas div.links input[type=submit]:hover {
+  background: #d0021b;
+}
 
 /*--------------- FINAL BLOCO ADM SERVICOS ------------*/
+/*--------------- BLOCO ADM MATCHES ------------*/
+.adm-matches {
+  width: 100%;
+  min-height: 250px;
+  background: #fff;
+  padding: 20px;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.adm-matches .bloco-quarto {
+  border: 1px solid #8a94aa;
+  margin-left: 5px;
+}
+.adm-matches .bloco-quarto:nth-child(3) {
+  margin-left: 0;
+}
+.adm-matches header.titulo-matches {
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+}
+.adm-matches header.titulo-matches h1.titulo {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #8a94aa;
+  text-align: center;
+}
+.adm-matches div.links input[type=submit] {
+  border-radius: 5px;
+  background-color: #8a94aa;
+  color: #fff;
+  transition: background-color 0.5s;
+  padding: 3px 6px;
+  font-size: 0.8em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.adm-matches div.links input[type=submit]:hover {
+  background-color: #a8afbf;
+}
+.adm-matches div.links input[type=submit]:hover {
+  background: #d0021b;
+}
+
+/*--------------- FINAL BLOCO ADM MATCHES ------------*/
 /*--------------- BLOCO ADM SERVICOS ------------*/
 .adm-servicos {
   width: 100%;

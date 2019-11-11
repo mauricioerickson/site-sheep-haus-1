@@ -1,43 +1,56 @@
 @extends('../layouts.app')
 
 @section('content')
+<div class="container">
+	<div class="flex-center position-ref full-height">
+		<div class="content centralizar bloco-adm">
+			<section class="adm-unico-bloco">
+				<header class="adm-breadcrumb">Dashboard > Vagas</header>
+			</section>
+			<section class="adm-unico-bloco">
+				<header class="nova-vaga">
+					<a href="{{ route('vacancies.create', [$property->property_id]) }}" class="botao-padrao">Criar nova vaga</a>
+				</header>
+			</section>
+			<section class="adm-unico-bloco">
+				<section class="adm-vagas">
+					<header class="titulo-contas">
+						<h1 class="titulo">VAGAS CRIADAS</h1>
+					</header>
+						@foreach ($vagas as $vaga)
+							<section class="bloco-quarto">
+								<header class="titulo-contas">
+								    <h1 class="titulo">{{ $vaga->title }}</h1>
+								</header>
+						      <p class="texto"><span class="texto-bold">Descição:</span> {{ $vaga->description }}</p>
 
-<a href="{{ route('vacancies.create', [$property->property_id]) }}" class="btn btn-primary">Criar Vagas</a>
+						      <p class="texto"><span class="texto-bold">Entrada:</span> {{ $vaga->entrance }}</p>
 
+						      <p class="texto"><span class="texto-bold">Saida:</span> {{ $vaga->exit }}</p>
 
+						      <p class="texto"><span class="texto-bold">Valor:</span> {{ $vaga->value }}</p>
 
-  @foreach ($vagas as $vaga)
-  <div>
-    <b>Titulo: </b> {{ $vaga->title }}
-    <br />
-    <b>Descição: </b> {{ $vaga->description }}
-    <br />
-    <b>Entrada: </b> {{ $vaga->entrance }}
-    <br />
-    <b>Saida: </b> {{ $vaga->exit }}
-    <br />
-    <b>Valor: </b> {{ $vaga->value }}
+						      <div class="links">
 
-    <div>
-      
-      @if(!in_array($vaga->id, $vcontract))
-        <a href="{{ route('match_vacancy', [$vaga->id]) }}" class="btn btn-danger">Ver Match</a>
-        <a href="{{ route('vacancies.edit', [$vaga->id]) }}" class="btn btn-danger">Editar</a>
+						        @if(!in_array($vaga->id, $vcontract))
+						          <a href="{{ route('match_vacancy', [$vaga->id]) }}" class="botao-padrao ver">Ver Match</a>
+						          <a href="{{ route('vacancies.edit', [$vaga->id]) }}" class="botao-padrao editar">Editar</a>
 
-        {{ Form::open(array('route' => 'vacancy', 'method' => 'delete')) }}
-          {{ Form::hidden('id', $vaga->id) }}
-          {{ Form::submit('Remover Vaga', ['class' => 'btn btn-danger']) }}
-        {{ Form::close() }}
-      
-      @else
-        <a href="{{ route('match_vacancy', [$vaga->id]) }}" class="btn btn-danger">Ver Morador</a>
-      @endif
+						          {{ Form::open(array('route' => 'vacancy', 'method' => 'delete')) }}
+						            {{ Form::hidden('id', $vaga->id) }}
+						            {{ Form::submit('Remover Vaga', ['class' => 'botao-padrao remover']) }}
+						          {{ Form::close() }}
 
-    </div>
-    
+						        @else
+						          <a href="{{ route('match_vacancy', [$vaga->id]) }}" class="botao-padrao">Ver Morador</a>
+						        @endif
 
-  </div>
-  @endforeach
-
+						      </div>
+							</section>
+					    @endforeach
+				</section>
+			</section>
+		</div>
+	</div>
+</div>
 @endsection
-

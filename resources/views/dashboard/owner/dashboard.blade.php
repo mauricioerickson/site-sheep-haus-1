@@ -6,57 +6,55 @@
 		<div class="content centralizar bloco-adm">
 			<section class="adm-unico-bloco">
 				<header class="adm-breadcrumb">Dashboard</header>
-				<div class="card-body">
-					<a href="{{ route('property.create') }}" class="btn btn-primary">Cadastro de Imoveis</a>
-					<a href="{{ route('properties') }}" class="btn btn-primary">Meus Imóveis</a>
-				</div>
 			</section>
 			<section class="adm-primeiro-bloco">
 				<section class="adm-vagas">
-	<header class="titulo-contas">
-		<h1 class="titulo">VAGAS</h1>
-	</header>
-	<section class="adm-imovel">
-		<div class="imovel">
-			<header>
-				<figure style="background-image: url('images/baners/imovel_1.jpg')"></figure>
-				<h1 class="titulo">TÍTULO DO IMÓVEL</h1>
-			</header>
-			<p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor voluptates iusto, aut non placeat officiis laborum, velit omnis nemo veritatis.</p>
-			<div class="info">
-				<p class="valor">R$300</p>
-				<p class="metragem"> 72 m²</p>
-				<p class="vagas">3 vagas</p>
-			</div>
-			<a href="" class="link">VISUALIZAR</a>
-			<a href="" class="link destacar"><i data-fonte="" class="icone">M</i>DESTACAR ANÚNCIO</a>
-			<div class="links">
-				<a href="" class="link editar">EDITAR</a>
-				<a href="" class="link apagar">APAGAR</a>
-			</div>
-		</div>
-		<div class="imovel">
-			<header>
-				<figure style="background-image: url('images/baners/imovel_1.jpg')"></figure>
-				<h1 class="titulo">TÍTULO DO IMÓVEL</h1>
-			</header>
-			<p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor voluptates iusto, aut non placeat officiis laborum, velit omnis nemo veritatis.</p>
-			<div class="info">
-				<p class="valor">R$300</p>
-				<p class="metragem"> 72 m²</p>
-				<p class="vagas">3 vagas</p>
-			</div>
-			<a href="" class="link">VISUALIZAR</a>
-			<a href="" class="link destacar"><i data-fonte="" class="icone">M</i>DESTACAR ANÚNCIO</a>
-			<div class="links">
-				<a href="" class="link editar">EDITAR</a>
-				<a href="" class="link apagar">APAGAR</a>
-			</div>
-		</div>
-	</section>
-</section>
-
-
+					<div class="bloco-menu">
+						<a href="{{ route('property.create') }}" class="link">Novo anuncio</a>
+						<a href="{{ route('properties') }}" class="link">Meus Imóveis</a>
+					</div>
+					<header class="titulo-contas">
+						<h1 class="titulo">VAGAS</h1>
+					</header>
+					<section class="adm-imovel">
+						<div class="imovel">
+							<header>
+								<figure style="background-image: url('images/baners/imovel_1.jpg')"></figure>
+								<h1 class="titulo">TÍTULO DO IMÓVEL</h1>
+							</header>
+							<p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor voluptates iusto, aut non placeat officiis laborum, velit omnis nemo veritatis.</p>
+							<div class="info">
+								<p class="valor">R$300</p>
+								<p class="metragem"> 72 m²</p>
+								<p class="vagas">3 vagas</p>
+							</div>
+							<a href="" class="link">VER MATCHES</a>
+							<a href="" class="link destacar"><i data-fonte="" class="icone">M</i>DESTACAR ANÚNCIO</a>
+							<div class="links">
+								<a href="" class="link editar">EDITAR</a>
+								<a href="" class="link apagar">APAGAR</a>
+							</div>
+						</div>
+						<div class="imovel">
+							<header>
+								<figure style="background-image: url('images/baners/imovel_1.jpg')"></figure>
+								<h1 class="titulo">TÍTULO DO IMÓVEL</h1>
+							</header>
+							<p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor voluptates iusto, aut non placeat officiis laborum, velit omnis nemo veritatis.</p>
+							<div class="info">
+								<p class="valor">R$300</p>
+								<p class="metragem"> 72 m²</p>
+								<p class="vagas">3 vagas</p>
+							</div>
+							<a href="{{route ('v_match')}}" class="link">VER MATCHES</a>
+							<a href="" class="link destacar"><i data-fonte="" class="icone">M</i>DESTACAR ANÚNCIO</a>
+							<div class="links">
+								<a href="" class="link editar">EDITAR</a>
+								<a href="" class="link apagar">APAGAR</a>
+							</div>
+						</div>
+					</section>
+				</section>
 				<!-- aqui vem o adm de morador padrao -->
 				<!-- aqui vem o adm de serviço do morador padrao -->
 				<section class="adm-servicos">

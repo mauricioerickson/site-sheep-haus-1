@@ -6,16 +6,16 @@
 		<div class="content centralizar bloco-adm">
 			<section class="adm-unico-bloco">
 				<header class="adm-breadcrumb">Dashboard</header>
-				<div class="card-body">
-					<a href="{{ route('SeggestedProperties') }}" class="btn btn-primary">Imóveis Sugeridos</a>
-					<a href="{{ route('SuggestedVacancies') }}" class="btn btn-primary">Vagas Sugeridas</a>
-					<a href="{{ route('property.index') }}" class="btn btn-primary">Meu Imóvel</a>
-				</div>
 			</section>
 			<section class="adm-primeiro-bloco">
 				<!-- aqui vem o adm de morador padrao -->
 
 				<section class="adm-moradores">
+					<div class="bloco-menu">
+						<a href="{{ route('SeggestedProperties') }}" class="link">Imóveis Sugeridos</a>
+						<a href="{{ route('SuggestedVacancies') }}" class="link">Vagas Sugeridas</a>
+						<a href="{{ route('property.index') }}" class="link">Meu Imóvel</a>
+					</div>
 					<header class="titulo-contas">
 						<h1 class="titulo">VAGAS</h1>
 						<a href="" class="adicionar"><i data-fonte="" class="icone">M</i><span> ADICIONAR MORADORES</span></a>

@@ -37518,6 +37518,20 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
+$(function () {
+  $('.botao-formulario-padrao').click(function () {
+    var dataString = 'nome=' + name + '$tipo=' + type;
+    $.ajax({
+      Type: "PUT",
+      url: "/property/{id}",
+      data: dataString,
+      sucess: function sucess() {
+        console.log("sucesso");
+      }
+    });
+    return false;
+  });
+});
 
 /***/ }),
 

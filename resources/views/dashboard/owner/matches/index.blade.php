@@ -1,41 +1,61 @@
 @extends('../layouts.app')
 
 @section('content')
+<div class="container">
+	<div class="flex-center position-ref full-height">
+		<div class="content centralizar bloco-adm">
+			<section class="adm-unico-bloco">
+				<header class="adm-breadcrumb">MATCHES</header>
+			</section>
+			<section class="adm-unico-bloco">
+				<section class="adm-matches">
+					<div class="bloco-menu">
+						<a href="{{ route('properties') }}" class="link">Meus Imóveis</a>
+					</div>
+					<header class="titulo-matches">
+						<h1 class="titulo">Moradores interessados</h1>
+					</header>
 
-@foreach ($dados as $dado)
-    
-<div>
-  Morador: {{ $dado->name }}
-  <br />
-  Email: {{ $dado->email }}
-  <br />
-  Telefone: {{ $dado->cell_phone }}
-  <br />
-  @if(empty($contract))
-    {{ Form::open(array('route' => 'contract', 'method' => 'post')) }}
+					@foreach ($dados as $dado)
+					<section class="bloco-quarto">
+						<header class="titulo-matches">
+						    <h1 class="titulo">{{ $dado->name }}</h1>
+						</header>
+					 
+					  <p class="texto">Email: <span class="texto_cinza texto-bold">{{ $dado->email }}</span></p>
 
-    {{ Form::hidden('user_id', $dado->id) }}
-    {{ Form::hidden('property_id', $property->id) }}
+					  <p class="texto">Telefone: <span class="texto_cinza texto-bold">{{ $dado->cell_phone }}</span></p>
+					  @if(empty($contract))
+					    {{ Form::open(array('route' => 'contract', 'method' => 'post')) }}
 
-    {{ Form::submit('Assinar') }}
+					    {{ Form::hidden('user_id', $dado->id) }}
+					    {{ Form::hidden('property_id', $property->id) }}
+						<div class="links">
+					    	{{ Form::submit('Assinar') }}
+						</div>
+					    {{ Form::close() }}
+					  @else
+					    {{ Form::open(array('route' => 'contract', 'method' => 'delete')) }}
 
-    {{ Form::close() }}
-  @else
-    {{ Form::open(array('route' => 'contract', 'method' => 'delete')) }}
+					    {{ Form::hidden('user_id', $dado->id) }}
+					    {{ Form::hidden('property_id', $property->id) }}
+						<div class="links">
+					    {{ Form::submit('Cancelar') }}
+						</div>
+					    {{ Form::close() }}
+					  @endif
 
-    {{ Form::hidden('user_id', $dado->id) }}
-    {{ Form::hidden('property_id', $property->id) }}
 
-    {{ Form::submit('Cancelar') }}
+					</section>
 
-    {{ Form::close() }}
-  @endif
-  
-  
+					@endforeach
+				</section>
+			</section>
+
+		</div>
+	</div>
 </div>
 
-@endforeach
 
 
 @endsection
-

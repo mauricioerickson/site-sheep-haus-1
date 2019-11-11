@@ -16,9 +16,9 @@ Auth::routes();
 // Login By Google, Facebook
 Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
 Route::get('/callback/{provider}', 'SocialController@callback');
- 
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -32,11 +32,11 @@ Route::group(['middleware' => ['auth']], function () {
     // Confirm Register
     Route::get('/registration', 'RegistrationController@index')->name('registration');
     Route::post('/registration', 'RegistrationController@store')->name('registration');
-    
+
     // Profile
     Route::get('/profile', 'ProfileController@edit')->name('profile');
     Route::put('/profile', 'ProfileController@update')->name('profile');
-    
+
     // Get Characteristics
     Route::get('characteristics', 'CharacteristicsController@index')->name('characteristics');
 
@@ -46,13 +46,13 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Get colleges
     Route::get('colleges_autocomplete', 'CollegeController@search')->name('CollegeAutocomplete');
-    
+
     // Get Course
     Route::get('course_autocomplete', 'CourseController@search')->name('CourseAutocomplete');
 
     //Match
     Route::post('match', 'MacthController@store')->name('match');
-    
+
     //VMatch
     Route::post('v_match', 'VMacthesController@store')->name('v_match');
 
@@ -64,7 +64,7 @@ Route::group(['middleware' => ['auth']], function () {
         //Close contract
         Route::post('/contract', 'ContractController@store')->name('contract');
         Route::delete('/contract', 'ContractController@destroy')->name('contract');
- 
+
         // Alert
         Route::get('/alert/property/{id}', 'AlertPropertyController@index')->name('alert.index');
         Route::post('/alert/property', 'AlertPropertyController@store')->name('alert.store');
@@ -83,7 +83,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/property/create', 'PropertyController@create')->name('property.create');
         Route::post('/property/create', 'PropertyController@store')->name('property.store');
         Route::delete('/property', 'PropertyController@destroy')->name('property.destroy');
-        Route::put('/property/{id}', 'PropertyController@update')->name('property.update');    
+        Route::put('/property/{id}', 'PropertyController@update')->name('property.update');
 
     });
 
@@ -97,8 +97,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/match/vacancy/{id}', 'VacancyMatchesController@show')->name('match_vacancy');
 
         //Meu Imóvel
-        Route::get('my_property', 'DwellerPropertyController@index')->name('property.index'); 
-        
+        Route::get('my_property', 'DwellerPropertyController@index')->name('property.index');
+
         //Minhas Vagas
         Route::get('my_vacancies', 'VacancyController@index')->name('vacancies');
         Route::get('my_vacancies/{id}/create', 'VacancyController@create')->name('vacancies.create');
@@ -109,8 +109,8 @@ Route::group(['middleware' => ['auth']], function () {
 
         // Vagas Sugeridas
         Route::get('suggested_vacancies', 'SuggestedVacanciesController@index')->name('SuggestedVacancies');
-        
-        
+
+
         // Habitos Vagas
         Route::post('v_habit', 'VHabitsController@store')->name('v_habit.store');
         Route::delete('v_habit', 'VHabitsController@destroy')->name('v_habit.destroy');

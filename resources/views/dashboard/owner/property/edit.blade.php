@@ -3,7 +3,6 @@
 @section('content')
 <section class="bloco--cadastro-imovel">
 	<div class="centralizar">
-		{{ Form::open(array('route' => 'property.store', 'method' => 'post')) }}
 			<section class="formulario--cadastro">
 				<header class="cadastro-titulo">
 					<div class="icones">
@@ -14,7 +13,9 @@
 					</div>
 					<h1 class="titulo">Como é seu imóvel</h1>
 				</header>
+
 				<div class="bloco-meio-formulario">
+					{{ Form::open(array('route' => 'property.store', 'method' => 'post')) }}
 					{{ Form::text('name', null, array('class' => 'input-padrao','placeholder' => 'NOME')) }}
 				</div>
 				<div class="bloco-meio-formulario">
@@ -46,8 +47,8 @@
 				<div class="bloco-unico-formulario">
 					{{ Form::submit('Salvar',['class'=>'botao-formulario-padrao']) }}
 				</div>
+						{{ Form::close() }}
 			</section>
-		{{ Form::close() }}
 			<section class="formulario--cadastro">
 				<header class="cadastro-titulo">
 					<div class="icones">
@@ -65,18 +66,19 @@
 					{{ Form::open(array('route' => ['property.update', $property->id], 'method' => 'put')) }}
 					{{ Form::hidden('lng', $property->lng, array('id' => 'lng')) }}
 			        {{ Form::hidden('lat', $property->lat, array('id' => 'lat')) }}
+					{{ Form::text('address', $property->address, array('class'=>'input-padrao','placeholder'=>'ENDEREÇO','id' => 'autocomplete')) }}
 					{{ Form::text('cep', $property->cep, array('class'=>'input-padrao','placeholder'=>'CEP','id' => 'postal_code')) }}
 					{{ Form::text('state', $property->state, array('class'=>'input-padrao','placeholder'=>'ESTADO','id' => 'administrative_area_level_1')) }}
-					{{ Form::text('address', $property->address, array('class'=>'input-padrao','placeholder'=>'ENDEREÇO','id' => 'autocomplete')) }}
 					{{ Form::text('district', $property->district, array('class'=>'input-padrao','placeholder'=>'BAIRRO')) }}
 					{{ Form::text('city', $property->city, array('class'=>'input-padrao','placeholder'=>'CIDADE','id' => 'locality')) }}
 					{{ Form::text('number', $property->number, array('class'=>'input-padrao','placeholder'=>'NÚMERO','id' => 'street_number')) }}
 					{{ Form::text('country', $property->country, array('class'=>'input-padrao','placeholder'=>'PAÍS','id' => 'country')) }}
-					{{ Form::close() }}
+
 				</div>
 				<div class="bloco-unico-formulario">
 					{{ Form::submit('Salvar',['class'=>'botao-formulario-padrao']) }}
 				</div>
+				{{ Form::close() }}
 			</section>
 
 		<section class="formulario--cadastro">
