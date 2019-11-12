@@ -15,7 +15,7 @@
 				</header>
 
 				<div class="bloco-meio-formulario">
-					{{ Form::open(array('route' => 'property.store', 'method' => 'post')) }}
+					{{ Form::open(array('route' => ['property.update', $property->id], 'method' => 'PUT')) }}
 					{{ Form::text('name', $property->name, array('class' => 'input-padrao','placeholder' => 'NOME')) }}
 				</div>
 				<div class="bloco-meio-formulario">
