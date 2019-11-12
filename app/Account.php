@@ -9,4 +9,8 @@ class Account extends Model
     protected $fillable = [
         'id', 'property_id', 'name', 'value', 'duedate'
     ];
+    
+    protected $casts = [
+        'value' => 'float',
+    ];
 }

@@ -42,4 +42,9 @@ class Property extends Model
         return $this->hasMany('App\IHabit');
     }
 
+    public function account()
+    {
+        return $this->hasMany('App\Account');
+    }
+
 }

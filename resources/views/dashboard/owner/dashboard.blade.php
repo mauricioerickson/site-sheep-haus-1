@@ -14,76 +14,37 @@
 						<a href="{{ route('properties') }}" class="link">Meus Imóveis</a>
 					</div>
 					<header class="titulo-contas">
-						<h1 class="titulo">VAGAS</h1>
+						<h1 class="titulo">IMÓVEIS ANUNCIADOS</h1>
 					</header>
 					<section class="adm-imovel">
-						<div class="imovel">
-							<header>
-								<figure style="background-image: url('images/baners/imovel_1.jpg')"></figure>
-								<h1 class="titulo">TÍTULO DO IMÓVEL</h1>
-							</header>
-							<p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor voluptates iusto, aut non placeat officiis laborum, velit omnis nemo veritatis.</p>
-							<div class="info">
-								<p class="valor">R$300</p>
-								<p class="metragem"> 72 m²</p>
-								<p class="vagas">3 vagas</p>
+						@foreach ($properties as $property)
+							<div class="imovel">
+								<header>
+									@foreach ($property->galeries as $key => $item)
+										@if($key === 0)
+											<figure style="background-image: url('/images/{{ $item->src }}')"></figure>
+										@endif
+									@endforeach
+									<h1 class="titulo">{{ $property->title }}</h1>
+								</header>
+								<p class="texto">{{ $property->description }}</p>
+								<div class="info">
+								<p class="valor">R$ {{ $property->account->SUM('value') }}</p>
+									<p class="metragem"> {{ $property->property_size }} m²</p>
+								</div>
+								<a href="{{ route('match_property', [$property->id]) }}" class="link">VER MATCHES</a>
+								<a href="" class="link destacar"><i data-fonte="" class="icone">M</i>DESTACAR ANÚNCIO</a>
+								<div class="links">
+									<a href="{{ route('property.edit', $property->id ) }}" class="link editar">EDITAR</a>
+									{{ Form::open(array('route' => 'property.destroy', 'method' => 'delete')) }}
+									{{ Form::submit('APAGAR', ['class' => 'link apagar']) }}
+									{{ Form::hidden('property_id', $property->id) }}
+								</div>
 							</div>
-							<a href="" class="link">VER MATCHES</a>
-							<a href="" class="link destacar"><i data-fonte="" class="icone">M</i>DESTACAR ANÚNCIO</a>
-							<div class="links">
-								<a href="" class="link editar">EDITAR</a>
-								<a href="" class="link apagar">APAGAR</a>
-							</div>
-						</div>
-						<div class="imovel">
-							<header>
-								<figure style="background-image: url('images/baners/imovel_1.jpg')"></figure>
-								<h1 class="titulo">TÍTULO DO IMÓVEL</h1>
-							</header>
-							<p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor voluptates iusto, aut non placeat officiis laborum, velit omnis nemo veritatis.</p>
-							<div class="info">
-								<p class="valor">R$300</p>
-								<p class="metragem"> 72 m²</p>
-								<p class="vagas">3 vagas</p>
-							</div>
-							<a href="{{route ('v_match')}}" class="link">VER MATCHES</a>
-							<a href="" class="link destacar"><i data-fonte="" class="icone">M</i>DESTACAR ANÚNCIO</a>
-							<div class="links">
-								<a href="" class="link editar">EDITAR</a>
-								<a href="" class="link apagar">APAGAR</a>
-							</div>
-						</div>
+						@endforeach
 					</section>
 				</section>
-				<!-- aqui vem o adm de morador padrao -->
-				<!-- aqui vem o adm de serviço do morador padrao -->
-				<section class="adm-servicos">
-					<header class="titulo-contas">
-						<h1 class="titulo">VAGAS</h1>
-					</header>
-					<section class="adm-tipo_servico">
-						<div class="servico">
-							<header>
-								<figure style="background-image: url('images/baners/imovel_1.jpg')"></figure>
-							</header>
-							<div class="links">
-								<a href="" class="link editar">EDITAR</a>
-								<a href="" class="link apagar">APAGAR</a>
-							</div>
-						</div>
-						<div class="servico">
-							<header>
-								<figure style="background-image: url('images/baners/imovel_1.jpg')"></figure>
-							</header>
-							<div class="links">
-								<a href="" class="link editar">EDITAR</a>
-								<a href="" class="link apagar">APAGAR</a>
-							</div>
-						</div>
-					</section>
-				</section>
-
-				<!-- aqui vem o adm de serviço do morador padrao -->
+				
 			</section>
 			<section class="adm-segundo-bloco">
 				<!-- aqui vem as mini mensagems -->

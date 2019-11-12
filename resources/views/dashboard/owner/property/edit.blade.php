@@ -16,32 +16,46 @@
 
 				<div class="bloco-meio-formulario">
 					{{ Form::open(array('route' => 'property.store', 'method' => 'post')) }}
-					{{ Form::text('name', null, array('class' => 'input-padrao','placeholder' => 'NOME')) }}
+					{{ Form::text('name', $property->name, array('class' => 'input-padrao','placeholder' => 'NOME')) }}
 				</div>
 				<div class="bloco-meio-formulario">
-					{{ Form::select('type', array(null => 'Tipo de imovel', 'A' => 'Apartamento', 'C' => 'Casa'),null,['class'=>'select-padrao']) }}
+					{{ Form::select('type', array(null => 'Tipo de imovel', 'A' => 'Apartamento', 'C' => 'Casa'),$property->type,['class'=>'select-padrao']) }}
 				</div>
 				<div class="bloco-unico-formulario">
-					{{ Form::text('description', null, array('class' => 'input-padrao', 'placeholder' => 'DESCRIÇÂO')) }}
+					{{ Form::text('description', $property->description, array('class' => 'input-padrao', 'placeholder' => 'DESCRIÇÂO')) }}
 				</div>
 				<div class="bloco-unico-formulario">
-					<?php foreach ($characteristics as $valor): ?>
-						<label for="$valor" class="label-check-button">
-							{{ Form::checkbox('characteristics_id', $valor) }} {{$valor}}
-						</label>
-					<?php endforeach; ?>
+					@if(is_array($property->characteristics_id))
+					@foreach ($characteristics as $valor)
+						@if(in_array($valor, $property->characteristics_id))
+							<label for="$valor" class="label-check-button">
+								{{ Form::checkbox('characteristics_id[]', $valor, true) }} {{$valor}}
+							</label>
+						@else
+							<label for="$valor" class="label-check-button">
+								{{ Form::checkbox('characteristics_id[]', $valor) }} {{$valor}}
+							</label>
+						@endif
+					@endforeach
+					@else
+						@foreach ($characteristics as $valor)
+							<label for="$valor" class="label-check-button">
+								{{ Form::checkbox('characteristics_id[]', $valor) }} {{$valor}}
+							</label>
+						@endforeach
+					@endif
 				</div>
 				<div class="bloco-quarto-formulario">
-						{{ Form::text('number_of_bedrooms',null,array('class'=>'input-padrao','placeholder'=>'Nº DE QUARTOS')) }}
+						{{ Form::text('number_of_bedrooms', $property->number_of_bedrooms,array('class'=>'input-padrao','placeholder'=>'Nº DE QUARTOS')) }}
 				</div>
 				<div class="bloco-quarto-formulario">
-						{{ Form::text('number_of_bathrooms',null,array('class'=>'input-padrao','placeholder'=>'Nº DE BANHEIROS')) }}
+						{{ Form::text('number_of_bathrooms', $property->number_of_bathrooms,array('class'=>'input-padrao','placeholder'=>'Nº DE BANHEIROS')) }}
 				</div>
 				<div class="bloco-quarto-formulario">
-						{{ Form::text('number_of_residents',null,array('class'=>'input-padrao','placeholder'=>'Nº DE MORADORES')) }}
+						{{ Form::text('number_of_residents', $property->number_of_residents, array('class'=>'input-padrao','placeholder'=>'Nº DE MORADORES')) }}
 				</div>
 				<div class="bloco-quarto-formulario">
-						{{ Form::text('property_size',null,array('class'=>'input-padrao','placeholder'=>'TAMANHO IMÓVEL')) }}
+						{{ Form::text('property_size', $property->property_size ,array('class'=>'input-padrao','placeholder'=>'TAMANHO IMÓVEL')) }}
 						<span>Ex: 72m²</span>
 				</div>
 				<div class="bloco-unico-formulario">
