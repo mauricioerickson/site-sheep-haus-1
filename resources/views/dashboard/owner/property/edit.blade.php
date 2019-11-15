@@ -13,7 +13,6 @@
 					</div>
 					<h1 class="titulo">Como é seu imóvel</h1>
 				</header>
-
 				<div class="bloco-meio-formulario">
 					{{ Form::open(array('route' => ['property.update', $property->id], 'method' => 'PUT')) }}
 					{{ Form::text('name', $property->name, array('class' => 'input-padrao','placeholder' => 'NOME')) }}
