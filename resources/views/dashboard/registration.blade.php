@@ -2,37 +2,6 @@
 
 @section('content')
 
-
-<div>
-    <div>
-        @foreach ($habits as $habit)
-            @if(!in_array($habit->id, $mhabits_id))
-                {{ Form::open(array('route' => 'm_habit.store', 'method' => 'post')) }}
-        
-                {{ Form::hidden('user_id', $user->id) }}
-                {{ Form::hidden('habit_id', $habit->id) }}
-        
-                {{ Form::label('name', $habit->name) }}
-                
-                {{ Form::submit('+') }}
-        
-                {{ Form::close() }}
-            @else
-                {{ Form::open(array('route' => 'm_habit.destroy', 'method' => 'delete')) }}
-
-                {{ Form::hidden('user_id', $user->id) }}
-                {{ Form::hidden('habit_id', $habit->id) }}
-        
-                {{ Form::label('name', $habit->name) }}
-                
-                {{ Form::submit('x') }}
-        
-                {{ Form::close() }}
-            @endif
-        @endforeach
-    </div>
-</div>
-
 {{ Form::open(array('route' => 'registration', 'method' => 'post')) }}
     {{ Form::label('name', 'Nome') }}
     {{ Form::text('name', $user->name) }}

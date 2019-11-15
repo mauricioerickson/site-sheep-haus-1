@@ -1621,6 +1621,7 @@ button {
   box-sizing: border-box;
   word-wrap: break-word;
   text-shadow: none;
+  border: 1px solid #000;
 }
 
 input,
