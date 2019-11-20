@@ -125,5 +125,9 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
 
+    //Email
+    Route::get('emails','EmailControllers@index')->name('email');
+    Route::get('emails/{to}','EmailControllers@create')->name('email.create');
+    Route::post('emails/{to}','EmailControllers@store')->name('email');
 
 });

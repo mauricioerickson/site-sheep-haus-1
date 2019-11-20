@@ -33,8 +33,9 @@
 			<div class="bloco-unico-formulario">
 				{{ Form::submit('Salvar',['class'=>'botao-formulario-padrao']) }}
 			</div>
-			{{ Form::close() }}
+			
 		</section>
+		{{ Form::close() }}
 	</div>
 </section>
 @endsection

@@ -10,14 +10,14 @@
 			<section class="adm-primeiro-bloco">
 				<section class="adm-republica">
 					<section class="bloco-meio">
+							{{ Form::open(array('route' => 'profile', 'method' => 'put', 'enctype' => 'multipart/form-data')) }}
 						<header class="adm-republica_topo">
-							<figure style="background-image: url('images/baners/imovel_1.jpg')"></figure>
+							<figure style="background-image: url('/avatar/{{ $user->avatar }}')"></figure>
 							<div class="separador-texto">
-								<h1 class="titulo">João da Silva</h1>
-								<h2 class="subtitulo">(administrador)</h2>
+								<h1 class="titulo">{{ $user->name }}</h1>
+								<h2 class="subtitulo">({{ $user->gender }})</h2>
 							</div>
 						</header>
-						{{ Form::open(array('route' => 'profile', 'method' => 'put')) }}
 							<section class="formulario--cadastro adm">
 								<div class="bloco-unico-formulario">
 								    {{ Form::text('name', $user->name, array('class' => 'input-padrao','placeholder' => 'NOME')) }}
@@ -53,6 +53,7 @@
 								<div class="bloco-unico-formulario">
 									{{ Form::text('birthday', $user->birthday, array('class' => 'input-padrao')) }}
 								</div>
+								{{ Form::file('image') }}
 								@if ($errors->any())
 							    <div class="alert alert-danger">
 							        <ul>

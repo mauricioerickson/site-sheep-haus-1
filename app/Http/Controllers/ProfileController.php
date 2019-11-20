@@ -24,6 +24,8 @@ class ProfileController extends Controller
 
         $user = User::where('id', '=', $auth->id)->first();
 
+        
+        
         foreach($habits as $habit){
             $btn_habits[$habit->id] = $habit->name;
         }
@@ -48,8 +50,18 @@ class ProfileController extends Controller
 
     public function update(UpdateProfile $request) {
 
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $imageName = time().'.'.$request->image->extension();  
+        $request->image->move(public_path('avatar'), $imageName);
+
+        $data = $request->except('_token', '_method', 'image');
+        $data['avatar'] = $imageName;
+
         $user = $request->user();
-        $user = User::where('id', $user->id)->update($request->except('_token', '_method'));
+        $user = User::where('id', $user->id)->update($data);
         return redirect()->route('profile');
 
     }

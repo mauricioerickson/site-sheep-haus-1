@@ -17,69 +17,27 @@
 						<a href="{{ route('property.index') }}" class="link">Meu Imóvel</a>
 					</div>
 					<header class="titulo-contas">
-						<h1 class="titulo">VAGAS</h1>
+						<h1 class="titulo">IMÓVEIS</h1>
 						<a href="" class="adicionar"><i data-fonte="" class="icone">M</i><span> ADICIONAR MORADORES</span></a>
 					</header>
-					<section class="bloco-meio">
-						<header class="adm-moradores_topo">
-							<figure style="background-image: url('images/baners/imovel_1.jpg')"></figure>
-							<div class="separador-texto">
-								<h1 class="titulo">João da Silva</h1>
-								<p class="texto">Email@emaildousuario)</p>
-								<p class="texto">Tel. 555555555</p>
+					@foreach ($properties as $property)
+						<section class="bloco-meio">
+							<header class="adm-moradores_topo">
+								@foreach ($property->galeries as $key => $item)
+									@if($key === 0)
+										<figure style="background-image: url('/images/{{ $item->src }}')"></figure>
+									@endif
+								@endforeach
+								<h1 class="titulo">{{ $property->title }}</h1>
+							</header>
+							<p class="texto">{{ $property->description }}</p>
+							<div class="info">
+							<p class="valor">R$ {{ $property->account->SUM('value') }}</p>
+								<p class="metragem"> {{ $property->property_size }} m²</p>
 							</div>
-						</header>
-						<form action="">
-							<section class="formulario--cadastro adm">
-								<div class="bloco-unico-formulario">
-									<input type="text" name="nome_faculdade" class="input-padrao" placeholder="NOME DA FACULDADE" disabled>
-								</div>
-								<div class="bloco-unico-formulario">
-									<input type="text" name="curso" class="input-padrao" placeholder="CURSO" disabled>
-								</div>
-								<div class="preferencias">
-									<ul class="lista-preferencias">
-										<li> - MASCULINO</li>
-										<li> - NÃO FUMANTE</li>
-										<li> - GOSTA DE BALADA</li>
-										<li> - SOLTEIRO</li>
-										<li> - POSSUI CARRO</li>
-									</ul>
-									<a href="" class="remover"><i data-fonte="" class="icone">M</i><span> APAGAR</span></a>
-								</div>
-							</section>
-						</form>
-					</section>
-					<section class="bloco-meio">
-						<header class="adm-moradores_topo">
-							<figure style="background-image: url('images/baners/imovel_1.jpg')"></figure>
-							<div class="separador-texto">
-								<h1 class="titulo">João da Silva</h1>
-								<p class="texto">Email@emaildousuario)</p>
-								<p class="texto">Tel. 555555555</p>
-							</div>
-						</header>
-						<form action="">
-							<section class="formulario--cadastro adm">
-								<div class="bloco-unico-formulario">
-									<input type="text" name="nome_faculdade" class="input-padrao" placeholder="NOME DA FACULDADE" disabled>
-								</div>
-								<div class="bloco-unico-formulario">
-									<input type="text" name="curso" class="input-padrao" placeholder="CURSO" disabled>
-								</div>
-								<div class="preferencias">
-									<ul class="lista-preferencias">
-										<li>- MASCULINO</li>
-										<li>- NÃO FUMANTE</li>
-										<li>- GOSTA DE BALADA</li>
-										<li>- SOLTEIRO</li>
-										<li>- POSSUI CARRO</li>
-									</ul>
-									<a href="" class="remover"><i data-fonte="" class="icone">M</i><span> APAGAR</span></a>
-								</div>
-							</section>
-						</form>
-				</section>
+						</section>
+					@endforeach
+					
 				</section>
 
 
