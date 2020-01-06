@@ -4,7 +4,7 @@
 
 <div class="caixa">
   @foreach ($mensagens as $mensagen)
-    @if($mensagen->from === $from)
+    @if($mensagen->from == $from)
       <div class="from">
         {{ $mensagen->mensagem }}
       </div>
@@ -18,6 +18,7 @@
   {{ Form::open(array('route' => ['email', $to], 'method' => 'post')) }}
 		{{ Form::hidden('from', $from) }}
     {{ Form::hidden('to', $to) }}
+    {{ Form::hidden('property_id', $property_id) }}
     <div class="bloco-unico-formulario">
       {{ Form::text('mensagem',null, array('class' => 'input-padrao','placeholder' => 'Mensagem')) }}
     </div>

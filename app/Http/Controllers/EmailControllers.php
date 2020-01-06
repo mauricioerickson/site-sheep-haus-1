@@ -12,6 +12,7 @@ class EmailControllers extends Controller
 {
     public function index() {
         
+
     }
 
     public function create($to) {
@@ -21,7 +22,10 @@ class EmailControllers extends Controller
 
         $mensagens = Email::where('from', '=', $auth->id)->orWhere('to', '=', $auth->id)->get();
 
+        return $mensagens;
+        
         return view('dashboard.emails.create', [
+            'property_id' => 1,
             'mensagens' => $mensagens,
             'from' => $from,
             'to' => $to
