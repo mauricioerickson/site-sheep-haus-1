@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="caixa">
+
   @foreach ($mensagens as $mensagen)
     @if($mensagen->from == $from)
       <div class="from">
@@ -14,6 +15,7 @@
       </div>
     @endif
   @endforeach
+
 </div>
   {{ Form::open(array('route' => ['email', $to], 'method' => 'post')) }}
 		{{ Form::hidden('from', $from) }}

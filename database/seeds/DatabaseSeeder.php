@@ -21,5 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AccountsSeeds::class);
         $this->call(IHabitsSeeds::class);
         $this->call(MHabitsSeeds::class);
+        $this->call(MensagesSeeds::class);
+        $this->call(SubjectsSeeds::class);
     }
 }

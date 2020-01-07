@@ -55,47 +55,28 @@
 						<a href=""><i data-fonte="" class="icone-mensagens">3</i></a>
 					</header>
 					<ul class="lista-mensagens">
-						<li class="mensagens-item">
-							<a href="">
-								<header class="item-titulo">
-									<h3 class="titulo-nome">Adriano</h3>
-								</header>
-								<p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam?</p>
-								<footer class="item-rodape">
-									<p class="item-data">10/10/10</p>
-									<p class="item-hora">10:10</p>
-								</footer>
-							</a>
-						</li>
-						<li class="mensagens-item">
-							<a href="">
-								<header class="item-titulo">
-									<h3 class="titulo-nome">Adriano</h3>
-								</header>
-								<p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam?</p>
-								<footer class="item-rodape">
-									<p class="item-data">10/10/10</p>
-									<p class="item-hora">10:10</p>
-								</footer>
-							</a>
-						</li>
-						<li class="mensagens-item">
-							<a href="">
-								<header class="item-titulo">
-									<h3 class="titulo-nome">Adriano</h3>
-								</header>
-								<p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam?</p>
-								<footer class="item-rodape">
-									<p class="item-data">10/10/10</p>
-									<p class="item-hora">10:10</p>
-								</footer>
-							</a>
-						</li>
+						@foreach($mensages as $key => $mensage)
+							@php 
+								if($mensage->to == $auth_login) {
+									$item = $mensage->getUserFrom;
+								} else {
+									$item = $mensage->getUserTo;
+								}
+							@endphp
+							<li class="mensagens-item">
+								<a href="{{route('email.create', [$item->id, $mensage->property_id])}}">
+									<header class="item-titulo">
+										<h3 class="titulo-nome">{{ $item->name }}</h3>
+									</header>
+									<p class="texto">{{ $mensage->last_mensagem }}</p>
+									<footer class="item-rodape">
+										<p class="item-data">{{ date_format($mensage->updated_at, 'd/m/Y') }}</p>
+										<p class="item-hora">{{ date_format($mensage->updated_at, 'H:i') }}</p>
+									</footer>
+								</a>
+							</li>
+						@endforeach
 					</ul>
-					<div class="links">
-						<a href=""><i data-fonte="" class="icone-links">M</i><p>MENSAGEM NOVA</p></a>
-						<a href=""><i data-fonte="" class="icone-links">M</i><p>ME ALERTE</p></a>
-					</div>
 				</section>
 				<section class="anunciar-vaga">
 					<a href="" class="bt-anunciar"><i data-fonte="" class="icone-anunciar">M</i>ANUNCIAR VAGA</a>

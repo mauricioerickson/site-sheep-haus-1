@@ -10,6 +10,7 @@ use App\User;
 use App\Contract;
 use App\IHabit;
 use App\Match;
+use App\Message;
 
 class DashboardController extends Controller
 {
@@ -21,6 +22,9 @@ class DashboardController extends Controller
     public function index(){
 
         $user = Auth::user();
+        $auth_login = $user->id;
+
+        $mensages = Message::where('from', '=', $auth_login)->orWhere('to', '=', $auth_login)->orderByRaw('updated_at DESC')->get();
 
         if($user->function === 'M') {
 
@@ -46,7 +50,9 @@ class DashboardController extends Controller
 
             return view('dashboard.dweller.dashboard', [
                 'properties' => $properties,
-                'match' => $matches
+                'match' => $matches,
+                'auth_login' => $auth_login,
+                'mensages' => $mensages
             ]);
         }
 
@@ -55,7 +61,9 @@ class DashboardController extends Controller
             $properties = Property::where('user_id', $user->id)->get();
 
             return view('dashboard.owner.dashboard', [
-                'properties' => $properties
+                'properties' => $properties,
+                'auth_login' => $auth_login,
+                'mensages' => $mensages
             ]);
         }
         
