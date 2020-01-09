@@ -9,7 +9,7 @@
         				<img src="{{ asset('images/icones/logo_extensa.png') }}" alt="">
         			</figure>
         			<header class="titulo--baner">
-        				<h1 class="titulo">Dê macth e more com quem combina com você.</h1>
+        				<h1 class="titulo">Dê Match e more com quem combina com você.</h1>
         			</header>
         			<form action="" class="baner--filtro">
         				<input class="filtro-busca tel_mask_ddd" type="text" name="q" value="" placeholder="(55)0000-0000">
